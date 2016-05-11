@@ -32,7 +32,7 @@ SET time_zone = "+00:00";
 INSERT INTO `producto` (`idProducto`, `idCategoria`, `cod_producto`, `nombre_pro`, `precio`, `descuento`, `imagen`, `iva`, `descripcion`, `seleccionada`, `mostrar`, `fecha_inicio`, `fecha_fin`, `stock`) VALUES
 (1, 1, 'CD_IRON', 'Iron Maiden', '23.00', '0.00', 'banner/ironmaiden.jpg', '21.00', 'Cantante de Rok', 1, 1, '2016-01-01', '2016-12-31', 5),
 (2, 1, 'CD_BRU', 'Bruce Springsteen', '23.00', '0.00', 'banner/bruce.jpg', '21.00', 'Cantante de Rok', 1, 1, '2016-01-01', '2016-12-31', 20),
-(3, 1, 'CD_SAR', 'Saratoga', '23.00', '10.00', 'banner/saratoga.jpg', '21.00', 'Cantante de Rok', 1, 1, '2016-01-01', '2016-12-31', 30);
+(3, 1, 'CD_SAR', 'Saratoga', '23.00', '10.00', 'banner/saratoga.jpg', '21.00', 'Cantante de Rok', 1, 1, '2016-01-01', '2016-12-31', 30),
 (4, 1, 'CD_HUM', 'Human League - Reproduction', '23.00', '10.00', 'alternativo/1.jpg', '21.00', 'HUMAN LEAGUE - REPRODUCTION', 1, 1, '2016-01-01', '2016-12-31', 30),
 (5, 1, 'CD_RED', 'Red Hot Chili Peppers - Red Hot Chilli Peppers', '23.00', '10.00', 'alternativo/2.jpg', '21.00', 'RED HOT CHILI PEPPERS - RED HOT CHILLI PEPPERS', 1, 1, '2016-01-01', '2016-12-31', 30),
 (6, 1, 'CD_DIS', 'Disclosure - Settle', '23.00', '10.00', 'alternativo/3.jpg', '21.00', 'Guy y Howard Lawrence son oriundos de Reigate (Surrey) al Sudeste de Inglaterra y juntos forman el dúo #Disclosure# ', 1, 1, '2016-01-01', '2016-12-31', 30);
@@ -41,7 +41,7 @@ INSERT INTO `producto` (`idProducto`, `idCategoria`, `cod_producto`, `nombre_pro
 --
 
 INSERT INTO `categoria` (`idCategoria`, `cod_categoria`, `nombre_cat`, `descripcion`, `mostrar`) VALUES
-(1, 'CAT_LIGABBVA', 'Liga BBVA', 'Liga de primera división de España', 1),
+(1, 'CAT_ROK', 'Musica ROK', 'Musica Rok España', 1);
 (2, 'CAT_LIGAPORTUGAL', 'Liga Portuguesa', 'Liga de primera división de Portugal', 0),
 (3, 'CAT_LIGUE1', 'Ligue 1', 'Liga de primera división de Francia', 1),
 (4, 'CAT_BUNDELISGA', 'Bundesliga', 'Liga de primera división de Alemania', 1),
