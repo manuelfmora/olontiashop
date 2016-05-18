@@ -1,17 +1,4 @@
 <?php 
-//defined('BASEPATH') OR exit('No direct script access allowed');
-
-//class Main extends CI_Controller {
-
-	
-//	public function index()
-//	{
-//
-//            $cuerpo=  $this->load->view('V_Inicio',Array(),TRUE);
-//            $this->load->view('V_plantilla',Array('cuerpo'=>$cuerpo));
-//        
-//	}
-
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -39,9 +26,7 @@ class Main extends CI_Controller {
         $this->pagination->initialize($config);
         
         $seleccionadas = $this->M_Cd->getSeleccionadas($config['per_page'], $desde); //Conseguimos los artículos seleccionados
-//         foreach ($seleccionadas as $seleccionada){
-//            print_r($seleccionada);
-//        }
+
         $cuerpo = $this->load->view('V_Inicio', Array('seleccionadas' => $seleccionadas), true); //Generamos la vista       
         
         $this->load->view('V_Plantilla', Array(
@@ -77,7 +62,7 @@ class Main extends CI_Controller {
         $config['first_tag_close'] = '</li>';
         $config['last_tag_open'] = '<li title="Final">';
         $config['last_tag_close'] = '</li>';
-//        print_r($config);
+
     
         return $config;
     }

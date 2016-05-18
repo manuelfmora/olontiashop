@@ -30,7 +30,25 @@
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    
+<!--    <script type="text/javascript">
+                $(document).ready(function(){
+                        $("#formulario_ajax").submit(function(){
+                                $.ajax({
+                                        url: $(this).attr("action"),
+                                        type: $(this).attr("method"),
+                                        data: $(this).serialize(),
+                                        beforeSend:function(){
+                                                $(".loader").show();
+                                        },
+                    success:function(){
+                        $(".loader").fadeOut("slow");
+                    }
+                                });
+
+                        });
+                        return false;
+                });
+    </script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,16 +59,17 @@
   
 
   </head>
-  <body> 
+  <body>
+      <?php $this->session->set_userdata(array('URL' =>  current_url()));?>
    <!-- wpf loader Two -->
-    <div id="wpf-loader-two">          
+<!--    <div id="wpf-loader-two">          
       <div class="wpf-loader-two-inner">
         <span>Loading</span>
       </div>
-    </div> 
+    </div> -->
     <!-- / wpf loader Two -->       
   <!-- SCROLL TOP BUTTON -->
-    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+<!--    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>-->
   <!-- END SCROLL TOP BUTTON -->
 
 
@@ -96,11 +115,29 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
+                  <?php if (SesionIniciadaCheck()): //Sesión iniciada ?>               
+                    <li> <div class="dropdown">
+                    <a  href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i></i>Hola: <?= $this->session->userdata('username'); ?>
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenu1" >
+                      <li><a href="<?= base_url() . 'index.php/Login/Logout' ?>">Salir</a></li>
+                   
+                    </ul>
+                  </div></li>
+              
+                
                   <li><a href="account.html">Mi cuneta</a></li>
                   <li class="hidden-xs"><a href="wishlist.html">Lista</a></li>
                   <li class="hidden-xs"><a href="cart.html">Mi carrito</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Revisa</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  <?php endif;?> 
+<!--                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
+                <?php if (!SesionIniciadaCheck()): //Sólo mostrar si la sesión iniciada ?>
+                    <li><a href="<?= base_url() . 'index.php/Login' ?>" >Login</a></li>
+                <?php endif; ?>
+<!--                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
                 </ul>
               </div>
             </div>
@@ -192,7 +229,7 @@
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="<?= base_url() . 'index.php' ?>">Home</a></li>
               <li><a href="#">Categoria <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="#">Casual</a></li>
@@ -239,26 +276,26 @@
             <div class="row">
               <div class="col-md-3 col-sm-6">
                 <div class="aa-footer-widget">
-                  <h3>Main Menu</h3>
+                  <h3>Menú Principal</h3>
                   <ul class="aa-footer-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Our Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Pop</a></li>
+                    <li><a href="#">Hip Hop</a></li>
+                    <li><a href="#">Rock</a></li>
+                    <li><a href="#">Electronica</a></li>
+                    <li><a href="#"></a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6">
                 <div class="aa-footer-widget">
                   <div class="aa-footer-widget">
-                    <h3>Knowledge Base</h3>
+                    <h3></h3>
                     <ul class="aa-footer-nav">
-                      <li><a href="#">Delivery</a></li>
-                      <li><a href="#">Returns</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Discount</a></li>
-                      <li><a href="#">Special Offer</a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
                     </ul>
                   </div>
                 </div>
@@ -266,13 +303,13 @@
               <div class="col-md-3 col-sm-6">
                 <div class="aa-footer-widget">
                   <div class="aa-footer-widget">
-                    <h3>Useful Links</h3>
+                    <h3></h3>
                     <ul class="aa-footer-nav">
-                      <li><a href="#">Site Map</a></li>
-                      <li><a href="#">Search</a></li>
-                      <li><a href="#">Advanced Search</a></li>
-                      <li><a href="#">Suppliers</a></li>
-                      <li><a href="#">FAQ</a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
                     </ul>
                   </div>
                 </div>
@@ -280,11 +317,11 @@
               <div class="col-md-3 col-sm-6">
                 <div class="aa-footer-widget">
                   <div class="aa-footer-widget">
-                    <h3>Contact Us</h3>
+                    <h3>Contáctenos</h3>
                     <address>
-                      <p> 25 Astor Pl, NY 10003, USA</p>
-                      <p><span class="fa fa-phone"></span>+1 212-982-4589</p>
-                      <p><span class="fa fa-envelope"></span>dailyshop@gmail.com</p>
+                      <p> Avda Andalucia,Huelva, Spain</p>
+                      <p><span class="fa fa-phone"></span>959-30-11-56</p>
+                      <p><span class="fa fa-envelope"></span>olontiashop@gmail.com</p>
                     </address>
                     <div class="aa-footer-social">
                       <a href="#"><span class="fa fa-facebook"></span></a>
@@ -307,7 +344,8 @@
         <div class="row">
         <div class="col-md-12">
           <div class="aa-footer-bottom-area">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
+<!--            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>-->
+            <p>Diseñado por Manuel Francisco Mora Martín</p>
             <div class="aa-footer-payment">
               <span class="fa fa-cc-mastercard"></span>
               <span class="fa fa-cc-visa"></span>
@@ -323,28 +361,36 @@
   <!-- / footer -->
 
   <!-- Login Modal -->  
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!--  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">                      
         <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login or Register</h4>
-          <form class="aa-login-form" action="">
-            <label for="">Username or Email address<span>*</span></label>
-            <input type="text" placeholder="Username or email">
+          <h4>Login o Registrarse</h4>
+          <form class="aa-login-form" action="<?= base_url() . 'index.php/Login' ?>" method="POST">
+            <label for="">Usuario<span>*</span></label>
+            <input type="text" placeholder="Usuario" name="username" type="text" autofocus>
             <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password">
-            <button class="aa-browse-btn" type="submit">Login</button>
-            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-            <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+            <input type="password" placeholder="Password" name="clave" value="">
+            <?php
+                if (isset($error))
+                    echo $error;
+            ?>
+            <div class="form-group">
+            <button class="aa-browse-btn" type="submit" value="entrar" name="entrar">Login</button>  
+            </div>
+            <label > </label>
+            <p class="aa-lost-password"></p>
             <div class="aa-register-now">
-              Don't have an account?<a href="account.html">Register now!</a>
+              Don't have an account?<a href="<?= base_url() . 'index.php/User_insert' ?>" data-toggle="modal" data-target="">Register now!</a>
+              
             </div>
           </form>
         </div>                        
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>    
+      </div> /.modal-content 
+    </div> /.modal-dialog 
+  </div>-->
+
 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
