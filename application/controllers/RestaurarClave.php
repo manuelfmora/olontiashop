@@ -54,6 +54,22 @@ class RestaurarClave extends CI_Controller{
      * @param Array $datos Datos del usuario
      */
     private function EnviaCorreo($datos) {
+        //https://uno-de-piera.com/enviar-emails-en-codeigniter-con-smtp-desde-yahoo-y-gmail/
+         echo 'Enviar Correo...............';
+        	//configuracion para gmail
+		$configGmail = array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.gmail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'mfmoradaw@gmail.com',
+			'smtp_pass' => 'Pablo2501',
+			'mailtype' => 'html',
+			'charset' => 'utf-8',
+			'newline' => "\r\n"
+		);    
+ 
+		//cargamos la configuración para enviar con gmail
+		$this->email->initialize($configGmail);
 
         $this->email->from('mfmoradaw@gmail.com', 'OlontiaShop');
         $this->email->to($datos['correo']);
@@ -71,6 +87,7 @@ class RestaurarClave extends CI_Controller{
             $cuerpo = $this->load->view('V_Mailok', '', true);
             $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Mail correcto'));
         }
+         var_dump($this->email->print_debugger());
     }
 
     /**
@@ -126,7 +143,7 @@ class RestaurarClave extends CI_Controller{
 
             $this->Mdl_restablecerCont->UpdateClave($this->input->post('username'), password_hash($this->input->post('clave'), PASSWORD_DEFAULT));
 
-            $cuerpo = $this->load->view('View_contrasenhaCorrecta', Array(), true);
+            $cuerpo = $this->load->view('V_Claveok', Array(), true);
             $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Restablecer Contraseña'));
         }
     }
