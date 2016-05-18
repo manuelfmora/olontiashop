@@ -27,7 +27,7 @@
                         <label > </label>
                         <p class="aa-lost-password"><a href="<?=  base_url().'index.php/RestaurarClave'?>">¿Olvidaste tu contraseña?</a></p>
                         <div class="aa-register-now">
-                            ¿No tienes una cuneta?<a href="account.html">Registrate ahora!</a>
+                            ¿No tienes una cuenta?<a href="<?= base_url() . 'index.php/User_insert' ?>">Registrate ahora!</a>
                         </div>
                         <!--            <label > </label>
                                     <p class="aa-lost-password"></p>
