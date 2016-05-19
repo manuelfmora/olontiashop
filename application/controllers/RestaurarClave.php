@@ -54,24 +54,7 @@ class RestaurarClave extends CI_Controller{
      * @param Array $datos Datos del usuario
      */
     private function EnviaCorreo($datos) {
-        //https://uno-de-piera.com/enviar-emails-en-codeigniter-con-smtp-desde-yahoo-y-gmail/
-//         echo 'Enviar Correo...............';
-//        	//configuracion para gmail
-//		$configGmail = array(
-//			'protocol' => 'smtp',
-//			'smtp_host' => 'ssl://smtp.gmail.com',
-//			'smtp_port' => 465,
-//			'smtp_user' => 'mfmoradaw@gmail.com',
-//			'smtp_pass' => 'Pablo2501',
-//			'mailtype' => 'html',
-//			'charset' => 'utf-8',
-//			'newline' => "\r\n"
-//		);    
-// 
-//		//cargamos la configuración para enviar con gmail
-//		$this->email->initialize($configGmail);
 
-//        $this->email->from('aula4@iessansebastian.com', 'OlontiaShop');
         $this->email->from('mfmoradaw@gamil.com', 'OlontiaShop');
         $this->email->to($datos['correo']);
 

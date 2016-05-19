@@ -45,7 +45,7 @@
                                   <span class="aa-product-view-price">$34.99</span>
                                   <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
+                                <p>Prueba</p>
                                 <h4>Size</h4>
                                 <div class="aa-prod-view-size">
                                   <a href="#">S</a>

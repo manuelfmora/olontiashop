@@ -36,6 +36,10 @@
   </section>
  
   <!-- / slider -->
+  
+  
+  
+ <!--__________________________________________________________________________--> 
   <!-- Start Promo section -->
 <!--  <section id="aa-promo">
     <div class="container">
@@ -103,6 +107,9 @@
     </div>
   </section>-->
   <!-- / Promo section -->
+  
+   <!--__________________________________________________________________________--> 
+  
   <!-- Products section -->
   <section id="aa-product">
     <div class="container">
@@ -141,7 +148,7 @@
                           <div class="aa-product-hvr-content">
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                            <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                          
+                            <a href="<?php base_url().'index.php/V_Detalles'?>" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                          
                           </div>
                           <!-- product badge -->
                           <span class="aa-badge aa-sale" href="#">SALE!</span>
@@ -708,14 +715,14 @@
                     </div>
                     <!-- / electronic product category -->
                   </div>
-                  <!-- quick view modal -->                  
+<!--                   quick view modal                   
                   <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">                      
                         <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                           <div class="row">
-                            <!-- Modal view slider -->
+                             Modal view slider 
                             <div class="col-md-6 col-sm-6 col-xs-12">                              
                               <div class="aa-product-view-slider">                                
                                 <div class="simpleLens-gallery-container" id="demo-1">
@@ -747,7 +754,7 @@
                                 </div>
                               </div>
                             </div>
-                            <!-- Modal view content -->
+                             Modal view content 
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <div class="aa-product-view-content">
                                 <h3>T-Shirt</h3>
@@ -786,9 +793,9 @@
                             </div>
                           </div>
                         </div>                        
-                      </div><!-- /.modal-content -->
-                    </div><!-- /.modal-dialog -->
-                  </div><!-- / quick view modal -->              
+                      </div> /.modal-content 
+                    </div> /.modal-dialog 
+                  </div> / quick view modal  -->             
               </div>
             </div>
           </div>
