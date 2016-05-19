@@ -109,7 +109,7 @@ class RestaurarClave extends CI_Controller{
      */
     public function Restablece($id, $token) {
         $datos = $this->M_RestaurarClave->getDatosFromId($id);
-        
+        print_r($datos);
         if (!$datos) {
             $cuerpo = $this->load->view('V_404', Array(), true);
             $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Error'));
@@ -138,11 +138,11 @@ class RestaurarClave extends CI_Controller{
         $this->form_validation->set_rules('clave_rep', 'repita contraseña', 'required|callback_ClavesIguales_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $cuerpo = $this->load->view('V_RestaurarC', Array('username' => $username), true);
+            $cuerpo = $this->load->view('V_Nuevaclave', Array('username' => $username), true);
             $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Restablecer Contraseña'));
         } else {
 
-            $this->Mdl_restablecerCont->UpdateClave($this->input->post('username'), password_hash($this->input->post('clave'), PASSWORD_DEFAULT));
+            $this->M_RestaurarClave->UpdateClave($this->input->post('username'), password_hash($this->input->post('clave'), PASSWORD_DEFAULT));
 
             $cuerpo = $this->load->view('V_Claveok', Array(), true);
             $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Restablecer Contraseña'));
