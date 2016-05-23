@@ -10,9 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Cart extends CI_Controller{
     
     public function __construct() {
-    parent::__construct();
-    $this->load->model('M_Cart');
-    $this->load->library('L_Cart', 0, 'myCart');
+        parent::__construct();       
+        $this->load->library('L_Cart', 0, 'myCart');
     }
 
     /**
@@ -33,7 +32,7 @@ class Cart extends CI_Controller{
             if ($this->myCart->articulos_total() > 0) {
 
                 foreach ($this->myCart->get_content() as $items) :
-                    $stock = $this->M_cart->getStock($items['id']); //Guardamos su stock
+                    $stock = $this->M_Cart->getStock($items['id']); //Guardamos su stock
 
                     if ($stock >= $_POST["cantidad"][$items['id']]) {//Si existe stock disponible para la venta, se actualiza el carrito
                         $articulo = array(
@@ -53,7 +52,7 @@ class Cart extends CI_Controller{
                             "precio" => $items['precio'],
                             "nombre" => $items['nombre'],
                             'opciones' => array('imagen' => $items['opciones']['imagen'],
-                                'error' => '<div class="iconoerror"><span class="glyphicon glyphicon-warning-sign"></span></div>')
+                            'error' => '<div class="iconoerror"><span class="glyphicon glyphicon-warning-sign"></span></div>')
                         );
 
 
@@ -87,10 +86,10 @@ class Cart extends CI_Controller{
      * @param Int $id ID de la producto
      */
     public function comprar($id) {
-
-        $producto = $this->M_cart->getDataCamiseta($id);
+      
+        $producto = $this->M_Cart->getDataProducto($id);
         
-        $stock = $this->M_cart->getStock($id); //Guardamos su stock
+        $stock = $this->M_Cart->getStock($id); //Guardamos su stock
         
         $cantidad = 1;
         
@@ -112,7 +111,7 @@ class Cart extends CI_Controller{
         if ($stock >= ($cantidad + $cantidadIntroducida)) {//Si no supera el stock la cantidad elegida
            
             $articulo = array(
-                "id" => $producto['idCamiseta'],
+                "id" => $producto['idProducto'],
                 "cantidad" => $cantidadIntroducida,
                 "precio" => getPrecioFinal($producto['precio'], $producto['descuento']),
                 "nombre" => $producto['descripcion'],
@@ -122,7 +121,7 @@ class Cart extends CI_Controller{
             redirect('Carrito', 'location', 301);
         } else if ($stock < ($cantidad + $cantidadIntroducida)) {//Si supera el stock, muestra error
             $articulo = array(
-                "id" => $producto['idCamiseta'],
+                "id" => $producto['idProducto'],
                 "cantidad" => $cantidad,
                 "precio" => getPrecioFinal($producto['precio'], $producto['descuento']),
                 "nombre" => $producto['descripcion'],

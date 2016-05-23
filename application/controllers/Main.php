@@ -13,7 +13,7 @@ class Main extends CI_Controller {
         $this->load->helper('Descuentos');       
         $this->load->library('pagination');
         $this->load->model('M_Cd'); //Cargamos modelo
-        $this->load->library('L_Carro', 0, 'myCarrito');
+        $this->load->library('L_Cart', 0, 'myCart');
     }
     /**
      * Muestra todas los Productos seleccionadas

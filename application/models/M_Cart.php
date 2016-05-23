@@ -14,28 +14,28 @@ class M_Cart extends CI_Model{
     }
 
     /**
-     * Devuelve los datos de una camiseta para usarlo en el carrito
-     * @param Int $id ID de la camiseta
+     * Devuelve los datos de una producto para usarlo en el carrito
+     * @param Int $id ID de la producto
      * @return Array
      */
-    public function getDataCamiseta($id) {
-
-        $query = $this->db->query("SELECT idProcuto, precio, descuento, descripcion, imagen "
-                                    . "FROM porducto "
-                                        . "WHERE idProcuto = $id; ");
+    public function getDataProducto($id) {
+        echo 'Entra en GetData'.$id;
+        $query = $this->db->query("SELECT idProducto, precio, descuento, descripcion, imagen "
+                                    . "FROM producto "
+                                    . "WHERE idProducto = $id; ");
         
         return $query->row_array();
     }
     
     /**
-     * Devuelve el stock de una camiseta
-     * @param Int $id ID de la camiseta
+     * Devuelve el stock de una producto
+     * @param Int $id ID de la producto
      * @return Int
      */
     public function getStock($id){
         $query = $this->db->query("SELECT stock "
-                                    . "FROM porducto "
-                                        . "WHERE idProcuto = $id; ");
+                                    . "FROM producto "
+                                        . "WHERE idProducto = $id; ");
         
         return $query->row_array()['stock'];
         
