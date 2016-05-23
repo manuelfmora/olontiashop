@@ -18,7 +18,7 @@ class M_Cd extends CI_Model{
      */
     public function getProducto($idProducto) {
 
-        $query = $this->db->query("SELECT idProducto, idCategoria, cod_producto, nombre_pro, descripcion, imagen, precio, descuento "
+        $query = $this->db->query("SELECT idProducto, idCategoria, cod_producto, nombre_pro, descripcion, imagen, precio, descuento,stock "
                 . "FROM producto "
                 . "WHERE mostrar = 1 "
                 . "AND curdate() >= fecha_inicio "
@@ -35,13 +35,12 @@ class M_Cd extends CI_Model{
      * @return Array
      */
     public function getInfoCategoriaFromProducto($idCategoria) {
-
         $query = $this->db->query("SELECT idCategoria, cod_categoria, nombre_cat, descripcion "
                 . "FROM categoria "
                 . "WHERE mostrar = 1 "
                 . "AND idCategoria = $idCategoria; ");
 
-        return $query->result_array();
+        return $query->row_array();
     }
 
     /**
@@ -59,7 +58,7 @@ class M_Cd extends CI_Model{
 
         if ($cont > 0) {//Existe el idcamiseta
             $query2 = $this->db->query("SELECT cat.mostrar 'mostrarcat', pro.mostrar 'mostrar', stock "
-                    . "FROM camiseta pro "
+                    . "FROM producto pro "
                     . "INNER JOIN categoria cat on pro.idCategoria = cat.idCategoria "
                     . "WHERE idProducto = $idProducto ");
 

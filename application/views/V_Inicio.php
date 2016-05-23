@@ -131,8 +131,8 @@
                     <div class="tab-pane fade in active" id="men">
                       <ul class="aa-product-catg">
                         <!-- start single product item -->
-                        <?php foreach ($seleccionadas as $key => $producto) : ?>
-<!--                        Comprobamos que las imagenes pertenecen a la carpeta BANNER -->
+   <!--PRODUCTO-->     <?php foreach ($seleccionadas as $key => $producto) : ?>              
+          <!--Comprobamos que las imagenes pertenecen a la carpeta BANNER -->
   
                         <?php if('banner'!=substr($producto['imagen'],0, 6)):?>
                           
@@ -148,13 +148,15 @@
                           <div class="aa-product-hvr-content">
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                            <a href="<?php base_url().'index.php/V_Detalles'?>" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                          
+                       
+     <!---->                <a href="<?= base_url().'index.php/MostrarCd/ver/'.$producto['idProducto']?>" data-toggle2="tooltip" data-placement="top" title="Vista Rapida" data-toggle="modal" ><span class="fa fa-search"></span></a>   
+                             <a data-toggle="modal" href="<?= base_url().'index.php'?>" class="btn btn-primary btn-large">Abrir ventana modal</a>
                           </div>
                           <!-- product badge -->
                           <span class="aa-badge aa-sale" href="#">SALE!</span>
                         </li>
                         <?php endif; ?>  
-                        <?php endforeach; ?>  
+   <!--/PRODUCTO-->     <?php endforeach; ?>  
 <!--                 -start single product item 
                         <li>
                           <figure>
