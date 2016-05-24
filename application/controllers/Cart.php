@@ -61,8 +61,8 @@ class Cart extends CI_Controller{
                 endforeach;
             }
         }
-        $cuerpo = $this->load->view('View_carrito', Array('msg_error' => $msg_error), true);
-        $this->load->view('View_plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Carrito', 'carritoactive' => 'active'));
+        $cuerpo = $this->load->view('V_Cart', Array('msg_error' => $msg_error), true);
+        $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Carrito', 'carritoactive' => 'active'));
     }
 
     /**
@@ -133,8 +133,8 @@ class Cart extends CI_Controller{
             $this->myCart->actualizar($articulo);
 
             $msg_error = '<div class="alert msgerror"> <b> ¡Error! </b>Stock máximo superado</div>';
-            $cuerpo = $this->load->view('View_carrito', Array('msg_error' => $msg_error), true);
-            $this->load->view('View_plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Carrito', 'carritoactive' => 'active'));
+            $cuerpo = $this->load->view('V_Cart', Array('msg_error' => $msg_error), true);
+            $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Carrito', 'carritoactive' => 'active'));
         }
 //        } else {
 //            redirect('SesionNoIniciada', 'Location', 301);

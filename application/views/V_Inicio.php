@@ -149,7 +149,7 @@
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
                        
-     <!---->                <a href="<?= base_url().'index.php/MostrarCd/ver/'.$producto['idProducto']?>" data-toggle2="tooltip" data-placement="top" title="Vista Rapida" data-toggle="modal" ><span class="fa fa-search"></span></a>   
+     <!---->                <a href="<?= base_url().'index.php/VerCd/ver/'.$producto['idProducto']?>" data-toggle2="tooltip" data-placement="top" title="Vista Rapida" data-toggle="modal" ><span class="fa fa-search"></span></a>   
                              <a data-toggle="modal" href="<?= base_url().'index.php'?>" class="btn btn-primary btn-large">Abrir ventana modal</a>
                           </div>
                           <!-- product badge -->
