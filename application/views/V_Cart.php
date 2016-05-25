@@ -59,7 +59,9 @@
                         <!--/Creación tabla de productos-->
                       <tr>
                         <td colspan="6" class="aa-cart-view-bottom">
-                      
+                           <div class="aa-cart-coupon">                              
+                               <a href="<?= base_url() . 'index.php/Carrito/eliminarcompra' ?>"><input class="aa-cart-view-btn" type="submit" value="Eliminar Pedido"></a>
+                          </div>
                           <input class="aa-cart-view-btn" type="submit"  name="guardar" value="Actualizar Carrito">
                         </td>
                       </tr>
@@ -77,12 +79,12 @@
                      <td><?= round($this->myCart->precio_total()*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></td>
                    </tr>
                    <tr>
-                     <th>Total</th>                    
+                       <th>Total<br><h6>Impuestos incluidos</h6></th>                    
                      <td><?=$this->myCart->precio_iva()?></td>
                    </tr>
                  </tbody>
                </table>
-               <a href="#" class="aa-cart-view-btn">Proced to Checkout</a>
+               <a href="<?= base_url() . 'index.php/Pedidos/RealizaPedido' ?>" class="aa-cart-view-btn">Realizar pedido</a>
              </div>
            </div>
          </div>
@@ -93,6 +95,7 @@
  <!-- / Cart view section -->
 <?php endif;?>
  
-<?php if ($this->myCart->articulos_total() <= 0):?>
+<?php if ($this->myCart->articulos_total() <= 0):
     $this->load->view('V_Cartvacio');
+?>
 <?php endif; ?>

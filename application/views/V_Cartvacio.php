@@ -7,7 +7,7 @@
             <h2>ERROR..</h2>
             <span>El carrito esta vacío.</span>
             <p>Deves de realizar alguna compra.</p>
-            <a href="<?= base_url().'index.php'?>"> Pulse aquí para iniciar sesión.</a>
+            <a href="<?= base_url().'index.php'?>"> Pulse aquí para ir al inicio.</a>
           </div>
         </div>
       </div>

@@ -128,7 +128,7 @@
                   </div></li>
               
                 
-                  <li><a href="account.html">Mi cuneta</a></li>
+                  <li><a href="account.html">Mi cuenta</a></li>
                   <li class="hidden-xs"><a href="wishlist.html">Lista</a></li>
                   <li class="hidden-xs"><a href="cart.html">Mi carrito</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Revisa</a></li>
@@ -167,10 +167,10 @@
               <!-- / logo  -->
                <!-- cart box -->
               <div class="aa-cartbox">
-                <a class="aa-cart-link" href="#">
+                <a class="aa-cart-link" href="<?= base_url() . 'index.php/Carrito' ?>">
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">CARRITO</span>
-                  <span class="aa-cart-notify">2</span>
+                  <span class="aa-cart-notify"><?= $this->myCarrito->articulos_total() ?></span>
                 </a>
                 <div class="aa-cartbox-summary">
                   <ul>

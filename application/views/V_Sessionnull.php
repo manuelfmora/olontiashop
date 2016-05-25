@@ -7,7 +7,7 @@
             <h2>ERROR..</h2>
             <span>No se ha iniciado la seción.</span>
             <p>Debes de iniciar la sesión.</p>
-            <a href="<?= base_url().'/Login'?>"> Pulse aquí para iniciar sesión.</a>
+            <a href="<?= base_url().'index.php/Login'?>"> Pulse aquí para iniciar sesión.</a>
           </div>
         </div>
       </div>
