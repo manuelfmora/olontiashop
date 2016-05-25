@@ -9,7 +9,7 @@ class Sessionnull extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->library('Cart', 0, 'myCart');
+        $this->load->library('L_Cart', 0, 'myCart');
     }
 
     /**

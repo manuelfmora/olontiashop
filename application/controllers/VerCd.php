@@ -13,7 +13,7 @@ class VerCd extends CI_Controller{
         parent::__construct();
         $this->load->helper('descuentos_helper');
         $this->load->model('M_Cd'); 
-        $this->load->library('Cart', 0, 'myCart');
+        $this->load->library('L_Cart', 0, 'myCart');
     }
 
     

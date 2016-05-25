@@ -33,7 +33,7 @@ class L_Cart {
      * @throws Exception
      */
     public function add($articulo = array()) {
-        print_r('Entramos en el array de articulos:'.$articulo);
+        
         //primero comprobamos el articulo a añadir, si está vacío o no es un
         //array lanzamos una excepción y cortamos la ejecución
         if (!is_array($articulo) || empty($articulo)) {
@@ -96,7 +96,7 @@ class L_Cart {
      * @throws Exception
      */
     public function actualizar($articulo = array()) {
-//        print_r($articulo);
+
         //primero comprobamos el articulo a añadir, si está vacío o no es un
         //array lanzamos una excepción y cortamos la ejecución
         if (!is_array($articulo) || empty($articulo)) {
@@ -234,7 +234,7 @@ class L_Cart {
      * @throws Exception
      */
     public function articulos_total() {
-      
+        
         //si no está definido el elemento articulos_total o no existe el carrito
         //el número de artículos será de 0
         if (!isset($this->carrito["articulos_total"]) || $this->carrito === null) {
@@ -245,7 +245,7 @@ class L_Cart {
             throw new Exception("El número de artículos del carrito debe ser un número", 1);
         }
         //en otro caso devolvemos el número de artículos del carrito
- 
+
         return $this->carrito["articulos_total"] ? $this->carrito["articulos_total"] : 0;
     }
 

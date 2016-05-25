@@ -167,13 +167,14 @@
               <!-- / logo  -->
                <!-- cart box -->
               <div class="aa-cartbox">
-                <a class="aa-cart-link" href="<?= base_url() . 'index.php/Carrito' ?>">
+                <a class="aa-cart-link" href="<?= base_url() . 'index.php/Cart' ?>">
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">CARRITO</span>
-                  <span class="aa-cart-notify"><?= $this->myCarrito->articulos_total() ?></span>
+                  <span class="aa-cart-notify"><?= $this->myCart->articulos_total() ?></span>
                 </a>
                 <div class="aa-cartbox-summary">
                   <ul>
+                    <?php foreach ($this->myCart->get_content() as $items): ?>
                     <li>
                       <a class="aa-cartbox-img" href="#"><img src="<?=base_url()?>assets/img/woman-small-2.jpg" alt="img"></a>
                       <div class="aa-cartbox-info">
@@ -182,22 +183,16 @@
                       </div>
                       <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
                     </li>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="<?=base_url()?>assets/img/woman-small-1.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>                    
+                                   
                     <li>
                       <span class="aa-cartbox-total-title">
                         Total
                       </span>
                       <span class="aa-cartbox-total-price">
-                        $500
+                        <?= round($items['total']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?>
                       </span>
                     </li>
+                    <?php endforeach; ?>
                   </ul>
                   <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
                 </div>

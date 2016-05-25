@@ -128,7 +128,7 @@ class Cart extends CI_Controller{
                     'error' => '<div class="iconoerror"><span class="glyphicon glyphicon-warning-sign"></span></div>')
             );
 
-            print_r('ARticulo'.$articulo);
+           
             $this->myCart->actualizar($articulo);
 
             $msg_error = '<div class="alert msgerror"> <b> ¡Error! </b>Stock máximo superado</div>';
