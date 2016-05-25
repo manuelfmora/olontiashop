@@ -13,7 +13,7 @@ class VerCd extends CI_Controller{
         parent::__construct();
         $this->load->helper('descuentos_helper');
         $this->load->model('M_Cd'); 
-//        $this->load->library('Carro', 0, 'myCarrito');
+        $this->load->library('Cart', 0, 'myCart');
     }
 
     
@@ -27,12 +27,12 @@ class VerCd extends CI_Controller{
        
         if ($this->M_Cd->SiSeDebeMostarProducto($idcd)) {
 
-           $producto = $this->M_Cd->getProducto($idcd); //Conseguimos la camiseta a mostrar
+           $producto = $this->M_Cd->getProducto($idcd); //Conseguimos los productos a mostrar
     
 
             $categoria = $this->M_Cd->getInfoCategoriaFromProducto($producto['idCategoria']); //Conseguimos la categoría
 
-            $productorelacionados = $this->M_Cd->getProductosRelacionadasFromCategoria($producto['idCategoria'], $producto['idProducto']); //Camisetas relacionadas
+            $productorelacionados = $this->M_Cd->getProductosRelacionadasFromCategoria($producto['idCategoria'], $producto['idProducto']); //Productos relacionadas
 
             $cuerpo = $this->load->view('V_Detalles', Array('producto' => $producto,  
                                                             'categoria' => $categoria['nombre_cat'],

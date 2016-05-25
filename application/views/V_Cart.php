@@ -1,13 +1,21 @@
-if ($this->myCart->articulos_total() > 0):    ?>
+<?php
+/*
+ * VISTA que muestra información sobre los productos comprados.
+ * Si el carrito está vacío muestra un error.
+ */
+?>
+
+<?php if ($this->myCart->articulos_total() > 0):?>
 <!-- catg header banner section -->
+
   <section id="aa-catg-head-banner">
-   <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+      <img src="<?= base_url() . 'assets/img/imgAPP/header/banneru2.jpg' ?>" alt="Registrarse img">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Cart Page</h2>
+        <h2>Carrito</h2>
         <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>                   
+            <li><a href=<?=  base_url().'index.php'?>>Home</a></li>                   
           <li class="active">Cart</li>
         </ol>
       </div>
@@ -23,51 +31,36 @@ if ($this->myCart->articulos_total() > 0):    ?>
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-             <form action="">
+               <form action="" method="post">
                <div class="table-responsive">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th></th>
-                        <th></th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
+                        <th>Eliminar</th>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
                         <th>Total</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody>  <!--Creación tabla de productos-->
+                        <?php foreach ($this->myCart->get_content() as $items): ?>
                       <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-1.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$250</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$250</td>
+                        <td><a class="remove" href="<?= base_url().'Cart/eliminar/'. $items['id']?>"><fa class="fa fa-close"></fa></a></td>
+                        <td><a href=" <?= base_url() . 'index.php/VerCd/ver/' . $items['id'] ?>"><img width="145" height="145" class="shop_thumbnail" src="<?= base_url() . 'assets/img/imgAPP/' . $items['opciones']['imagen'] ?>"></a></td>
+                       
+                        <td><a class="aa-cart-title" href="<?= base_url() . 'index.php/Camiseta/ver/' . $items['id'] ?>"><?= $items['nombre'] ?></a></td>
+                        <td><?= round($items['precio']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></td>
+                        <td><input class="aa-cart-quantity" id="cantidad[<?= $items['id'] ?>]" name="cantidad[<?= $items['id'] ?>]" type="number" value="<?= $items['cantidad'] ?>" min="1" step="1"></td>
+                        <td><span class="amount"><?= round($items['total']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></span></td>
                       </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-2.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$150</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$150</td>
-                      </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-3.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$50</td>
-                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        <td>$50</td>
-                      </tr>
+                       <?php endforeach; ?>
+                        <!--/Creación tabla de productos-->
                       <tr>
                         <td colspan="6" class="aa-cart-view-bottom">
-                          <div class="aa-cart-coupon">
-                            <input class="aa-coupon-code" type="text" placeholder="Coupon">
-                            <input class="aa-cart-view-btn" type="submit" value="Apply Coupon">
-                          </div>
-                          <input class="aa-cart-view-btn" type="submit" value="Update Cart">
+                      
+                          <input class="aa-cart-view-btn" type="submit"  name="guardar" value="Actualizar Carrito">
                         </td>
                       </tr>
                       </tbody>
@@ -76,16 +69,16 @@ if ($this->myCart->articulos_total() > 0):    ?>
              </form>
              <!-- Cart Total view -->
              <div class="cart-view-total">
-               <h4>Cart Totals</h4>
+               <h4>Importe</h4>
                <table class="aa-totals-table">
                  <tbody>
                    <tr>
                      <th>Subtotal</th>
-                     <td>$450</td>
+                     <td><?= round($this->myCart->precio_total()*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></td>
                    </tr>
                    <tr>
-                     <th>Total</th>
-                     <td>$450</td>
+                     <th>Total</th>                    
+                     <td><?=$this->myCart->precio_iva()?></td>
                    </tr>
                  </tbody>
                </table>
@@ -98,4 +91,8 @@ if ($this->myCart->articulos_total() > 0):    ?>
    </div>
  </section>
  <!-- / Cart view section -->
-
+<?php endif;?>
+ 
+<?php if ($this->myCart->articulos_total() <= 0):?>
+    $this->load->view('V_Cartvacio');
+<?php endif; ?>

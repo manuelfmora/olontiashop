@@ -1,4 +1,6 @@
-<!-- quick view modal -->                  
+<!-- Muestra el producto...
+     Descripcon y cantidad a comprar.
+-->                  
 
 <div class="mm-product-area">
 
@@ -35,6 +37,7 @@
                         Categoria: <a style="color:#ff6666;" href="#"><?= $categoria ?></a>
                     </p>         
                     <div class="aa-prod-quantity">
+                        <!--Formulario-->
                         <form action="<?= site_url() . '/Cart/comprar/' . $producto['idProducto'] ?>" method="POST" class="cart">
                             <select name="cantidadProd" id="">
 
@@ -46,23 +49,12 @@
                                 ?>
 
                             </select>
-                       <div class="aa-prod-view-bottom">
-                           <button type="submit" class="aa-add-to-cart-btn" name="guardar" ><span class="fa fa-shopping-cart"></span>Añadir al carrito</a>
+                            <div class="aa-prod-view-bottom">
+                                <button type="submit" class="aa-add-to-cart-btn" name="guardar" ><span class="fa fa-shopping-cart"></span>Añadir al carrito</a>
 
-                        </div>
+                            </div>
                         </form>
                     </div>
-               
-<!--                                 <form action="<?= site_url() . '/Carrito/comprar/' . $producto['idCamiseta'] ?>" method="POST" class="cart">
-                                    <div class="quantity">
-                                        <input type="number" class="input-text qty text"  value="1" name="cantidadCam" min="1" step="1">
-                                    </div>
-
-                                    <button type="submit" class="add_to_cart_button" name="guardar" style="">
-                                        <i class="fa fa-shopping-cart"></i> Comprar
-                                    </button>
-                                    <?php //echo anchor('Carrito/comprar/'.$producto[0]['idCamiseta'], '<i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Comprar', 'class  = "add_to_cart_button"') ?>
-                                </form>  -->
                 </div>
             </div>
         </div>
@@ -70,4 +62,3 @@
 
 </div>
 
-                        

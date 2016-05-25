@@ -18,7 +18,7 @@ class Cart extends CI_Controller{
      * Muestra el carrito con los productos que se quieren comprar
      */
     public function index() {
-
+       
         $msg_error = "";
         $data = array();
 
@@ -27,15 +27,14 @@ class Cart extends CI_Controller{
 
         //BOTÓN GUARDAR CAMBIOS
         if (isset($_POST['guardar'])) {
-
-            //Si existen artículos guardados
+           //Si existen artículos guardados
             if ($this->myCart->articulos_total() > 0) {
 
                 foreach ($this->myCart->get_content() as $items) :
                     $stock = $this->M_Cart->getStock($items['id']); //Guardamos su stock
 
                     if ($stock >= $_POST["cantidad"][$items['id']]) {//Si existe stock disponible para la venta, se actualiza el carrito
-                        $articulo = array(
+                                               $articulo = array(
                             "id" => $items['id'],
                             "cantidad" => $_POST["cantidad"][$items['id']],
                             "precio" => $items['precio'],
@@ -66,7 +65,7 @@ class Cart extends CI_Controller{
     }
 
     /**
-     * Borra un una producto del carrito
+     * Borra un  producto del carrito
      * @param Int $id ID de la producto
      */
     public function eliminar($id) {
@@ -78,7 +77,7 @@ class Cart extends CI_Controller{
             }
         }
 
-        redirect('Carrito', 'location', 301);
+        redirect('Cart', 'location', 301);
     }
 
     /**
@@ -86,9 +85,9 @@ class Cart extends CI_Controller{
      * @param Int $id ID de la producto
      */
     public function comprar($id) {
-      
-        $producto = $this->M_Cart->getDataProducto($id);
         
+       $producto = $this->M_Cart->getDataProducto($id);
+        print_r('Procuto de comprar'.$producto);
         $stock = $this->M_Cart->getStock($id); //Guardamos su stock
         
         $cantidad = 1;
@@ -118,7 +117,7 @@ class Cart extends CI_Controller{
                 "opciones" => array('imagen' => $producto['imagen'], 'error' => '')
             );
             $this->myCart->add($articulo);
-            redirect('Carrito', 'location', 301);
+            redirect('Cart', 'location', 301);
         } else if ($stock < ($cantidad + $cantidadIntroducida)) {//Si supera el stock, muestra error
             $articulo = array(
                 "id" => $producto['idProducto'],
@@ -129,16 +128,16 @@ class Cart extends CI_Controller{
                     'error' => '<div class="iconoerror"><span class="glyphicon glyphicon-warning-sign"></span></div>')
             );
 
-
+            print_r('ARticulo'.$articulo);
             $this->myCart->actualizar($articulo);
 
             $msg_error = '<div class="alert msgerror"> <b> ¡Error! </b>Stock máximo superado</div>';
             $cuerpo = $this->load->view('V_Cart', Array('msg_error' => $msg_error), true);
             $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Carrito', 'carritoactive' => 'active'));
+       
+        } else {
+            redirect('Sessionnull', 'Location', 301);
         }
-//        } else {
-//            redirect('SesionNoIniciada', 'Location', 301);
-//        }
     }
 
     /**
@@ -160,8 +159,7 @@ class Cart extends CI_Controller{
                     "id" => $items['id'],
                     "cantidad" => $items['cantidad'],
                     "precio" => $items['precio'],
-                    "nombre" =>
-                    $items['nombre'],
+                    "nombre" => $items['nombre'],
                     'opciones' => array('imagen' => $items['opciones']['imagen'], 'error' => '')
                 );
                 $this->myCart->actualizar($articulo);

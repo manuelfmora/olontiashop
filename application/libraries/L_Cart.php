@@ -22,6 +22,7 @@ class L_Cart {
             $_SESSION["carrito"] = null;
             $this->carrito["precio_total"] = 0;
             $this->carrito["articulos_total"] = 0;
+            $this->carrito["precio_iva"] = 0;
         }
         $this->carrito = $_SESSION['carrito'];
     }
@@ -32,6 +33,7 @@ class L_Cart {
      * @throws Exception
      */
     public function add($articulo = array()) {
+        print_r('Entramos en el array de articulos:'.$articulo);
         //primero comprobamos el articulo a añadir, si está vacío o no es un
         //array lanzamos una excepción y cortamos la ejecución
         if (!is_array($articulo) || empty($articulo)) {
@@ -94,6 +96,7 @@ class L_Cart {
      * @throws Exception
      */
     public function actualizar($articulo = array()) {
+//        print_r($articulo);
         //primero comprobamos el articulo a añadir, si está vacío o no es un
         //array lanzamos una excepción y cortamos la ejecución
         if (!is_array($articulo) || empty($articulo)) {
@@ -101,7 +104,7 @@ class L_Cart {
         }
         //nuestro myCarrito necesita siempre un id producto, cantidad y precio articulo
         if (!$articulo["id"] || !$articulo["cantidad"] || !$articulo["precio"]) {
-            throw new Exception("Error, el articulo debe tener un id, cantidad y precio!", 1);
+            throw new Exception("Error, el articulo debe tener un id, cantidad y precio en ACTUALIZAR!", 1);
         }
 
         //nuestro myCarrito necesita siempre un id producto, cantidad y precio articulo
@@ -164,22 +167,35 @@ class L_Cart {
             $precio += ($row['precio'] * $row['cantidad']);
             $articulos += $row['cantidad'];
         }
-
+        $iva= $this->PrecioIVA($precio);
         //asignamos a articulos_total el número de artículos actual
         //y al precio el precio actual
         $_SESSION['carrito']["articulos_total"] = $articulos;
         $_SESSION['carrito']["precio_total"] = $precio;
+        $_SESSION['carrito']["precio_iva"] = $iva; 
+      
 
         //refrescamos él contenido del carrito para que quedé actualizado
         $this->update_carrito();
     }
-
     /**
+      @desc calcular el precio con iva para el precio pasado
+      @return float precio con iva
+     */
+    public function PrecioIVA($precio, $iva = 21) {
+        $precioIva = ($precio * $iva / 100);
+
+        $precioNormalizado = floatval(sprintf("%.2f", $precioIva));
+
+        return $precio + $precioNormalizado;
+    }
+        /**
      * Devuelve el precio total del carrito
      * @return Float precio
      * @throws Exception
      */
     public function precio_total() {
+
         //si no está definido el elemento precio_total o no existe el carrito
         //el precio total será 0
         if (!isset($this->carrito["precio_total"]) || $this->carrito === null) {
@@ -194,11 +210,31 @@ class L_Cart {
     }
 
     /**
+     * Devuelve el precio total del carrito
+     * @return Float precio
+     * @throws Exception
+     */
+    public function precio_iva() {
+        //si no está definido el elemento precio_total o no existe el carrito
+        //el precio total será 0
+        if (!isset($this->carrito["precio_iva"]) || $this->carrito === null) {
+            return 0;
+        }
+        //si no es númerico lanzamos una excepción porque no es correcto
+        if (!is_numeric($this->carrito["precio_iva"])) {
+            throw new Exception("El precio con iva del carrito debe ser un número", 1);
+        }
+        //en otro caso devolvemos el precio total del carrito
+        return $this->carrito["precio_iva"] ? $this->carrito["precio_iva"] : 0;
+    }
+
+    /**
      * Devuelve el número de artículos del carrito
      * @return int Cantidad artículos
      * @throws Exception
      */
     public function articulos_total() {
+      
         //si no está definido el elemento articulos_total o no existe el carrito
         //el número de artículos será de 0
         if (!isset($this->carrito["articulos_total"]) || $this->carrito === null) {
@@ -209,6 +245,7 @@ class L_Cart {
             throw new Exception("El número de artículos del carrito debe ser un número", 1);
         }
         //en otro caso devolvemos el número de artículos del carrito
+ 
         return $this->carrito["articulos_total"] ? $this->carrito["articulos_total"] : 0;
     }
 
@@ -225,6 +262,7 @@ class L_Cart {
         //articulos_total y precio_total
         unset($carrito["articulos_total"]);
         unset($carrito["precio_total"]);
+        unset($carrito["precio_iva"]);
         return $carrito == null ? null : $carrito;
     }
 
