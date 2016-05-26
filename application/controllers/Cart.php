@@ -113,7 +113,7 @@ class Cart extends CI_Controller{
                 "id" => $producto['idProducto'],
                 "cantidad" => $cantidadIntroducida,
                 "precio" => getPrecioFinal($producto['precio'], $producto['descuento']),
-                "nombre" => $producto['descripcion'],
+                "nombre" => $producto['nombre_pro'],
                 "opciones" => array('imagen' => $producto['imagen'], 'error' => '')
             );
             $this->myCart->add($articulo);
@@ -123,7 +123,7 @@ class Cart extends CI_Controller{
                 "id" => $producto['idProducto'],
                 "cantidad" => $cantidad,
                 "precio" => getPrecioFinal($producto['precio'], $producto['descuento']),
-                "nombre" => $producto['descripcion'],
+                "nombre" => $producto['nombre_pro'],
                 'opciones' => array('imagen' => $producto['imagen'],
                     'error' => '<div class="iconoerror"><span class="glyphicon glyphicon-warning-sign"></span></div>')
             );

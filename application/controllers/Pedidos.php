@@ -27,13 +27,14 @@ class Pedidos extends CI_Controller {
             $datos = $this->M_Pedidos->getDatosParaPedido($this->session->userdata('userid'));
 
             $pedido['idUsuario'] = $this->session->userdata('userid');
-            $pedido['importe'] = $this->myCart->precio_total();            
+            $pedido['importe'] = $this->myCart->precio_total();  
             $pedido['cantidad_total'] = $this->myCart->articulos_total();
             $pedido['fecha_pedido'] = date("Y-m-j");
             $pedido['direccion'] = $datos['direccion'];
             $pedido['cp'] = $datos['cp'];
             $pedido['cod_provincia'] = $datos['cod_provincia'];
             $pedido['correo'] = $datos['correo'];
+            $pedido['importeiva'] = $this->myCart->precio_iva();
 
             $idPedido = $this->M_Pedidos->insertPedido($pedido);
 
@@ -57,9 +58,12 @@ class Pedidos extends CI_Controller {
             $datos = $this->M_Pedidos->getDatosFromUsername($this->session->userdata('username'));
 
 //            $this->EnviaCorreo($datos['correo'], $idPedido);
+             
+            
 
             $this->myCart->destroy(); //Vacíamos carrito
-            redirect('Pedidos/MuestraResumen/' . $idPedido, 'Location', 301);
+            redirect('Pedidos/MuestraResumen/' . $idPedido,'Location', 301);
+
         } else {
             redirect('Sessionnull', 'Location', 301);
         }
@@ -82,12 +86,12 @@ class Pedidos extends CI_Controller {
         $datosenvio['provincia'] = $this->M_Provincias->getNombreProvincia($datosenvio['cod_provincia']);
 
         $lineaspedidos = $this->M_Pedidos->getLineasPedidos($idPedido);
-
+        
         $cuerpo = $this->load->view('V_Resumen', Array(
-                                                         'pedido' => $pedido, 
+                                                         'pedido' => $pedido,                                                          
                                                           'datosenvio' => $datosenvio,
                                                           'lineaspedidos' => $lineaspedidos), true);
-        $this->load->view('View_plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Resumen del pedido', 'homeactive' => 'active'));
+        $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Resumen del pedido', 'homeactive' => 'active'));
     }
 
     /**

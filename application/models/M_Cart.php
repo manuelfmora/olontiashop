@@ -19,8 +19,8 @@ class M_Cart extends CI_Model{
      * @return Array
      */
     public function getDataProducto($id) {
-        echo 'Entra en GetData'.$id;
-        $query = $this->db->query("SELECT idProducto, precio, descuento, descripcion, imagen "
+      
+        $query = $this->db->query("SELECT idProducto, precio, descuento, nombre_pro, imagen "
                                     . "FROM producto "
                                     . "WHERE idProducto = $id; ");
         

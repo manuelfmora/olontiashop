@@ -157,7 +157,7 @@ class L_Cart {
      * Actualiza el precio total y la cantidad de productos total del carrito
      */
     private function update_precio_cantidad() {
-        //seteamos las variables precio y artículos a 0
+        //Reseteamos las variables precio y artículos a 0
         $precio = 0;
         $articulos = 0;
 
@@ -215,6 +215,7 @@ class L_Cart {
      * @throws Exception
      */
     public function precio_iva() {
+       
         //si no está definido el elemento precio_total o no existe el carrito
         //el precio total será 0
         if (!isset($this->carrito["precio_iva"]) || $this->carrito === null) {

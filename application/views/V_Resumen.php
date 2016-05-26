@@ -1,4 +1,11 @@
-<!-- catg header banner section -->
+<?php
+/*
+ * VISTA que muestra el resumen del carrito.
+ * Si el carrito está vacío muestra un error.
+ */
+?>
+
+
 
   <section id="aa-catg-head-banner">
       <img src="<?= base_url() . 'assets/img/imgAPP/header/banneru2.jpg' ?>" alt="Registrarse img">
@@ -28,51 +35,83 @@
                   <table class="table">
                     <thead>
                       <tr>
-<!--                        <th>Eliminar</th>-->
+                    
                         <th>Imagen</th>
                         <th>Producto</th>
                         <th>Precio</th>
+                        <th>Iva</th>
                         <th>Cantidad</th>
                         <th>Total</th>
                       </tr>
                     </thead>
                     <tbody>  <!--Creación tabla de productos-->
-                        <?php foreach ($lineaspedidos as $items): ?>
-                      <tr>
-<!--                        <td><a class="remove" href="<?= base_url().'Cart/eliminar/'. $items['id']?>"><fa class="fa fa-close"></fa></a></td>-->
-                        <td><a href=" <?= base_url() . 'index.php/VerCd/ver/' . $items['id'] ?>"><img width="145" height="145" class="shop_thumbnail" src="<?= base_url() . 'assets/img/imgAPP/' . $items['opciones']['imagen'] ?>"></a></td>
-                       
-                        <td><a class="aa-cart-title" href="<?= base_url() . 'index.php/Camiseta/ver/' . $items['id'] ?>"><?= $items['nombre'] ?></a></td>
-                        <td><?= round($items['precio']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></td>
-                        <td><input class="aa-cart-quantity" id="cantidad[<?= $items['id'] ?>]" name="cantidad[<?= $items['id'] ?>]" value="<?= $items['cantidad'] ?>"></td>
-                        <td><span class="amount"><?= round($items['total']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></span></td>
+               
+                        <?php foreach ($lineaspedidos as $linea): ?>
+                      <tr>                           <!--Imagen-->
+                        <td><img width="145" height="145" class="shop_thumbnail" src="<?= base_url() . 'assets/img/imgAPP/' . $linea['imagen'] ?>"></td>
+                       <!--Producto-->
+                        <td><?= $linea['nombre_pro'] ?>  </td>
+                        <!--Precio-->
+                        <td><?= round($linea['precio']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></td>
+                         <!--IVA-->
+                         <td><?= $linea['iva'] ?></td>
+                        <!--Cantidad-->
+                        <td class="aa-cart-quantity"><?= $linea['cantidad'] ?> </td>
+                        <!--Total-->
+                        <td><span class="amount"><?= round($linea['importe']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></span></td>
                       </tr>
                        <?php endforeach; ?>
                         <!--/Creación tabla de productos-->
-                      <tr>
-                        <td colspan="6" class="aa-cart-view-bottom">
-                           <div class="aa-cart-coupon">                              
-                               <a href="<?= base_url() . 'index.php/Carrito/eliminarcompra' ?>"><input class="aa-cart-view-btn" type="submit" value="Eliminar Pedido"></a>
-                          </div>
-                          <input class="aa-cart-view-btn" type="submit"  name="guardar" value="Actualizar Carrito">
-                        </td>
-                      </tr>
+                
                       </tbody>
                   </table>
                 </div>
              </form>
              <!-- Cart Total view -->
-             <div class="cart-view-total">
+             <div style="position: relative;"class="cart-view-total">
                <h4>Importe</h4>
                <table class="aa-totals-table">
                  <tbody>
                    <tr>
                      <th>Subtotal</th>
-                     <td><?= round($this->myCart->precio_total()*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></td>
+                     <td><?= round($pedido['importe']*$this->session->userdata('rate'), 2) ?>&nbsp;<?=$this->session->userdata('currency')?></td>
                    </tr>
                    <tr>
                        <th>Total<br><h6>Impuestos incluidos</h6></th>                    
-                     <td><?=$this->myCart->precio_iva()?></td>
+                       <td><?=$pedido['importeiva']?></td>
+                   </tr>
+                   <tr>
+                       <th>Estado</th>                    
+                       <td><?= $pedido['estado'] ?></td>
+                   </tr>
+                    <tr>
+                       <th>Fecha Pedido</th>                    
+                       <td><?= cambiaFormatoFecha($pedido['fecha_pedido']) ?></td>
+                   </tr>
+                 </tbody>
+               </table>
+               <a href="<?= base_url() . 'index.php/Pedidos/RealizaPedido' ?>" class="aa-cart-view-btn">Realizar pedido</a>
+             </div>
+             <!---------------------->
+               <div class="cart-view-total">
+               <h4>Importe</h4>
+               <table class="aa-totals-table">
+                 <tbody>
+                   <tr>
+                     <th>Subtotal</th>
+                     <td><?= round($pedido['importe']*$this->session->userdata('rate'), 2) ?>&nbsp;<?=$this->session->userdata('currency')?></td>
+                   </tr>
+                   <tr>
+                       <th>Total<br><h6>Impuestos incluidos</h6></th>                    
+                       <td><?=$pedido['importeiva']?></td>
+                   </tr>
+                   <tr>
+                       <th>Estado</th>                    
+                       <td><?= $pedido['estado'] ?></td>
+                   </tr>
+                    <tr>
+                       <th>Fecha Pedido</th>                    
+                       <td><?= cambiaFormatoFecha($pedido['fecha_pedido']) ?></td>
                    </tr>
                  </tbody>
                </table>

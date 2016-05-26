@@ -47,12 +47,17 @@
                     <tbody>  <!--Creación tabla de productos-->
                         <?php foreach ($this->myCart->get_content() as $items): ?>
                       <tr>
+                          <!--Eliminar-->
                         <td><a class="remove" href="<?= base_url().'Cart/eliminar/'. $items['id']?>"><fa class="fa fa-close"></fa></a></td>
+                        <!--Imagen-->
                         <td><a href=" <?= base_url() . 'index.php/VerCd/ver/' . $items['id'] ?>"><img width="145" height="145" class="shop_thumbnail" src="<?= base_url() . 'assets/img/imgAPP/' . $items['opciones']['imagen'] ?>"></a></td>
-                       
-                        <td><a class="aa-cart-title" href="<?= base_url() . 'index.php/Camiseta/ver/' . $items['id'] ?>"><?= $items['nombre'] ?></a></td>
+                       <!--Producto-->
+                        <td><a class="aa-cart-title" href="<?= base_url() . 'index.php/VerCd/ver/' . $items['id'] ?>"><?= $items['nombre'] ?></a></td>
+                        <!--Precio-->
                         <td><?= round($items['precio']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></td>
+                        <!--Cantidad-->
                         <td><input class="aa-cart-quantity" id="cantidad[<?= $items['id'] ?>]" name="cantidad[<?= $items['id'] ?>]" type="number" value="<?= $items['cantidad'] ?>" min="1" step="1"></td>
+                        <!--Total-->
                         <td><span class="amount"><?= round($items['total']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></span></td>
                       </tr>
                        <?php endforeach; ?>

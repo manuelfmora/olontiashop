@@ -76,7 +76,7 @@ class M_Pedidos extends CI_Model {
      * @return Array
      */
     public function getPedido($id, $iduser) {
-        $query = $this->db->query("SELECT importe, cantidad_total, estado, fecha_pedido "
+        $query = $this->db->query("SELECT importe, cantidad_total, estado, fecha_pedido, importeiva "
                 . "FROM pedido "
                 . "WHERE idPedido = $id "
                 . "AND idUsuario = $iduser; ");
@@ -104,9 +104,9 @@ class M_Pedidos extends CI_Model {
      */
     public function getLineasPedidos($id) {
 
-        $query = $this->db->query("SELECT prod.imagen, prod.descripcion, prod.nombre_cam, cantidad, li.precio, importe, li.iva  "
+        $query = $this->db->query("SELECT prod.imagen, prod.descripcion, prod.nombre_pro, cantidad, li.precio, importe, li.iva  "
                 . "FROM linea_pedido li "
-                . "INNER JOIN producto pro on li.idProducto = prod.idProducto "
+                . "INNER JOIN producto prod on li.idProducto = prod.idProducto "
                 . "WHERE li.idPedido = $id; ");
 
         return $query->result_array();

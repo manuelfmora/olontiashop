@@ -156,7 +156,7 @@
               <!-- logo  -->
                 <div class="aa-logo">
                 <!-- Text based logo -->
-                <a href="index.html">
+                <a href="<?= base_url() . 'index.php/Main' ?>">
                   <span class="fa fa-shopping-cart"></span>
                   <p>Olontia<strong>Shop</strong> <span>Tu tienda de música</span></p>
                 </a>
@@ -172,30 +172,35 @@
                   <span class="aa-cart-title">CARRITO</span>
                   <span class="aa-cart-notify"><?= $this->myCart->articulos_total() ?></span>
                 </a>
+                 <!--Vista del carrito en la página de inicio--> 
+                <?php if($this->myCart->get_content()):?>
                 <div class="aa-cartbox-summary">
-                  <ul>
+                  <ul>                
                     <?php foreach ($this->myCart->get_content() as $items): ?>
                     <li>
-                      <a class="aa-cartbox-img" href="#"><img src="<?=base_url()?>assets/img/woman-small-2.jpg" alt="img"></a>
+                      <a class="aa-cartbox-img" href="<?= base_url() . 'index.php/VerCd/ver/' . $items['id'] ?>"><img src="<?= base_url() . 'assets/img/imgAPP/' . $items['opciones']['imagen'] ?>" alt="img"></a>
                       <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
+                        <h4><a href="<?= base_url() . 'index.php/VerCd/ver/' . $items['id'] ?>"><?= $items['nombre'] ?></a></h4>
+                        <p><?= $items['cantidad'] ?> x <?= round($items['precio']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></p>
                       </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
+                      <a class="aa-remove-product" href="<?= base_url().'Cart/eliminar/'. $items['id']?>"><span class="fa fa-times"></span></a>
                     </li>
-                                   
+                     <?php endforeach; ?>              
                     <li>
                       <span class="aa-cartbox-total-title">
                         Total
                       </span>
                       <span class="aa-cartbox-total-price">
-                        <?= round($items['total']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?>
+                        <?=$this->myCart->precio_total()?>
                       </span>
                     </li>
-                    <?php endforeach; ?>
+                    
+                    
                   </ul>
-                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Revisar</a>
+                  
                 </div>
+                  <?php endif;?>
               </div>
               <!-- / cart box -->
                      
