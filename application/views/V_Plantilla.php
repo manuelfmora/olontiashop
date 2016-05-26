@@ -170,10 +170,12 @@
                 <a class="aa-cart-link" href="<?= base_url() . 'index.php/Cart' ?>">
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">CARRITO</span>
+                   
                   <span class="aa-cart-notify"><?= $this->myCart->articulos_total() ?></span>
                 </a>
                  <!--Vista del carrito en la página de inicio--> 
                 <?php if($this->myCart->get_content()):?>
+               
                 <div class="aa-cartbox-summary">
                   <ul>                
                     <?php foreach ($this->myCart->get_content() as $items): ?>
@@ -200,7 +202,9 @@
                   <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Revisar</a>
                   
                 </div>
-                  <?php endif;?>
+                 <?php endif;?>
+                
+
               </div>
               <!-- / cart box -->
                      

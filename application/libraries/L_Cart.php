@@ -264,7 +264,7 @@ class L_Cart {
         unset($carrito["articulos_total"]);
         unset($carrito["precio_total"]);
         unset($carrito["precio_iva"]);
-        return $carrito == null ? null : $carrito;
+        return $carrito == null ? array(): $carrito;
     }
 
     /**

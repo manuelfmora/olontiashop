@@ -14,7 +14,7 @@ class User_insert extends CI_Controller{
         $this->load->model('M_Provincias');
         $this->load->model('M_User');    
         $this->load->library('form_validation');
-//        $this->load->library('Carro', 0, 'myCarrito');
+        $this->load->library('L_Cart', 0, 'myCart');
         
     }
 
