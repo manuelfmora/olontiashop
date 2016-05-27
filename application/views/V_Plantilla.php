@@ -129,7 +129,7 @@
               
                 
                   <li><a href="account.html">Mi cuenta</a></li>
-                  <li class="hidden-xs"><a href="wishlist.html">Lista</a></li>
+                  <li class="hidden-xs"><a href="<?=  base_url().'index.php/PedidosLista/ver'?>">Lista Pedidos</a></li>
                   <li class="hidden-xs"><a href="cart.html">Mi carrito</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Revisa</a></li>
                   <?php endif;?> 

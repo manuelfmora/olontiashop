@@ -8,14 +8,14 @@
 
 
   <section id="aa-catg-head-banner">
-      <img src="<?= base_url() . 'assets/img/imgAPP/header/banneru2.jpg' ?>" alt="Registrarse img">
+      <img src="<?= base_url() . 'assets/img/imgAPP/header/platos.jpg' ?>" alt="Registrarse img">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Carrito</h2>
+        <h2>Resumen del pedido</h2>
         <ol class="breadcrumb">
             <li><a href=<?=  base_url().'index.php'?>>Home</a></li>                   
-          <li class="active">Cart</li>
+          <li class="active">Resumen del pedido</li>
         </ol>
       </div>
      </div>
@@ -47,14 +47,15 @@
                     <tbody>  <!--Creación tabla de productos-->
                
                         <?php foreach ($lineaspedidos as $linea): ?>
-                      <tr>                           <!--Imagen-->
+                      <tr>
+                        <!--Imagen-->
                         <td><img width="145" height="145" class="shop_thumbnail" src="<?= base_url() . 'assets/img/imgAPP/' . $linea['imagen'] ?>"></td>
                        <!--Producto-->
                         <td><?= $linea['nombre_pro'] ?>  </td>
                         <!--Precio-->
                         <td><?= round($linea['precio']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></td>
                          <!--IVA-->
-                         <td><?= $linea['iva'] ?></td>
+                         <td><?= $linea['iva'] ?>&nbsp;%</td>
                         <!--Cantidad-->
                         <td class="aa-cart-quantity"><?= $linea['cantidad'] ?> </td>
                         <!--Total-->
@@ -90,32 +91,28 @@
                    </tr>
                  </tbody>
                </table>
-               <a href="<?= base_url() . 'index.php/Pedidos/RealizaPedido' ?>" class="aa-cart-view-btn">Realizar pedido</a>
+              
              </div>
-             <!---------------------->
+             <br>
+             <!--------Datos de envío-------------->
                <div class="cart-view-total">
-               <h4>Importe</h4>
+               <h4>Datos de envío</h4>
                <table class="aa-totals-table">
                  <tbody>
                    <tr>
-                     <th>Subtotal</th>
-                     <td><?= round($pedido['importe']*$this->session->userdata('rate'), 2) ?>&nbsp;<?=$this->session->userdata('currency')?></td>
+                     <th>Dirección</th>
+                     <td><?= $datosenvio['direccion'] ?></td>
                    </tr>
                    <tr>
-                       <th>Total<br><h6>Impuestos incluidos</h6></th>                    
-                       <td><?=$pedido['importeiva']?></td>
+                       <th>Código Postal<br></th>                    
+                       <td><?= $datosenvio['cp'] ?></td>
                    </tr>
                    <tr>
-                       <th>Estado</th>                    
-                       <td><?= $pedido['estado'] ?></td>
-                   </tr>
-                    <tr>
-                       <th>Fecha Pedido</th>                    
-                       <td><?= cambiaFormatoFecha($pedido['fecha_pedido']) ?></td>
-                   </tr>
+                       <th>Provincia</th>                    
+                       <td><?= $datosenvio['provincia'] ?></td>
+                   </tr>                  
                  </tbody>
                </table>
-               <a href="<?= base_url() . 'index.php/Pedidos/RealizaPedido' ?>" class="aa-cart-view-btn">Realizar pedido</a>
              </div>
            </div>
          </div>
