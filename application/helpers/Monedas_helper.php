@@ -10,20 +10,20 @@
 function MuestraMonedas() {
     
     $XML = getFicheroXML_Monedas();
-
-    $html= '<li class = "dropdown">';
-    $html.= '<div class = "footer-about-us" style="float: rigth;">';
-    $html.= '<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown" title = "Cambiar moneda"><span class = "glyphicon glyphicon-euro"></span> <b class = "caret"></b></a>';
-    $html.= '<ul class = "dropdown-menu">';
-    $html.='<li><a href = "'.  site_url().'/Monedas/Cambio/1/EUR">EUR</a></li>';
+    $html = '<div class="aa-currency">';
+    $html.= '<div class="dropdown">';
+    $html.= '<a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">';
+    $html.= '<i class="fa fa-usd"></i>EURO';
+    $html.= '<span class="caret"></span>';
+    $html.= '</a>';
+    $html.= '<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">';
+    $html.='<li><a href = "' . site_url() . '/Coins/Cambio/1/EUR">EUR</a></li>';
     foreach ($XML->Cube->Cube->Cube as $rate) {
-        $html.='<li><a href = "'.  site_url().'/Monedas/Cambio/'.$rate['rate']."/".$rate['currency'].'">'.$rate['currency'].'</a></li>';
-    }   
-    
+        $html.='<li><a href = "' . site_url() . '/Coins/Cambio/' . $rate['rate'] . "/" . $rate['currency'] . '">' . $rate['currency'] . '</a></li>';
+    }
     $html.='</ul>';
     $html.='</div>';
-    $html.='</li>';
-    
+    $html.=' </div>';    
     return $html;
 }
 /**
@@ -31,9 +31,10 @@ function MuestraMonedas() {
  * @return XML
  */
 function getFicheroXML_Monedas(){
+    
     $fecha = date('d-m-Y');
 
-    $nombreFichero = "././assets/monedas/" . $fecha . "monedas.xml";
+    $nombreFichero = "././assets/coins/" . $fecha . "monedas.xml";
 
     if (file_exists($nombreFichero)) {//Si existe el fichero lo carga en XML
         $XML = simplexml_load_file($nombreFichero);

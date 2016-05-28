@@ -12,7 +12,7 @@ class Main extends CI_Controller {
         parent::__construct();
         $this->load->helper('Descuentos');       
         $this->load->library('pagination');
-        $this->load->model('M_Cd'); //Cargamos modelo
+        $this->load->model('M_Cd'); 
         $this->load->library('L_Cart', 0, 'myCart');
     }
     /**
@@ -27,11 +27,12 @@ class Main extends CI_Controller {
         
         $seleccionadas = $this->M_Cd->getSeleccionadas($config['per_page'], $desde); //Conseguimos los artículos seleccionados
 
-        $cuerpo = $this->load->view('V_Inicio', Array('seleccionadas' => $seleccionadas), true); //Generamos la vista       
+        $cuerpo = $this->load->view('V_Inicio', Array(
+                                                      'seleccionadas' => $seleccionadas), true); //Generamos la vista       
         
         $this->load->view('V_Plantilla', Array(
-                    'cuerpo' => $cuerpo, 
-                    'homeactive' => 'active'));
+                                                'cuerpo' => $cuerpo, 
+                                                'homeactive' => 'active'));
     }
     
     /**
