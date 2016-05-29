@@ -16,7 +16,7 @@
                 <img data-seq src="<?= base_url() . 'assets/img/imgAPP/' . $producto['imagen']?>" alt="">                
               </div>
               <div class="seq-title">
-               <span data-seq></span>                
+               <span data-seq>últimas</span>                
                 <h2 data-seq>Novedades</h2>                
                 <p data-seq></p>
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">COMPRA AHORA</a>

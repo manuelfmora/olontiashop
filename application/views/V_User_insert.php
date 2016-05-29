@@ -4,7 +4,7 @@
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">
-                <h2>RESGISTRARSE</h2>
+                <h2>REGISTRARSE</h2>
                 <ol class="breadcrumb">
                     <li><a href="<?php anchor('Main') ?>">Home</a></li>                   
                     <li class="active">Account</li>

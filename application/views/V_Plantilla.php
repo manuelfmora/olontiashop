@@ -105,9 +105,9 @@
                     </ul>
                   </div>
                 </div>-->
-                 <div>
+                 
                  <?= MuestraMonedas() ?> 
-                  </div>
+                 
                 <!-- / currency -->
                 <!-- start cellphone -->
                 <div class="cellphone hidden-xs">
@@ -118,17 +118,36 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <?php if (SesionIniciadaCheck()): //Sesión iniciada ?>               
-                    <li> <div class="dropdown">
-                    <a  href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i></i>Hola: <?= $this->session->userdata('username'); ?>
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu " aria-labelledby="dropdownMenu1" >
-                      <li><a href="<?= base_url() . 'index.php/Login/Logout' ?>">Salir</a></li>
-                   
-                    </ul>
-                  </div></li>
+                  <?php if (SesionIniciadaCheck()): //Sesión iniciada ?> 
+                  <!--Menú salir-->
+                  <li> 
+                          <div class="dropdown">
+                              <a  href="#" type="button" id="dropdown-menu1 " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                  <i></i>Hola: <?= $this->session->userdata('username'); ?>
+                                  <span class="caret"></span>
+                              </a>
+                              <ul style="min-width: 60px;" class="dropdown-menu " aria-labelledby="dropdown-menu1" >
+                                  <li><a href="<?= base_url() . 'index.php/Login/Logout' ?>">Salir</a></li>
+
+                              </ul>
+                          </div>
+                      </li>
+                      <!--Menú Opciones usuario-->
+                       <li> 
+                          <div class="dropdown">
+                              <a  href="#" type="button" id="dropdown-menu1 " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                  <i>Mi cuenta</i>
+                                  <span class="caret"></span>
+                              </a>
+                              <ul style="min-width: 60px;" class="dropdown-menu " aria-labelledby="dropdown-menu1" >
+                                  <li><a href="<?= base_url() . 'index.php/UserModify' ?>">Modificar Usuario</a></li>
+                                  <li><a href="<?= base_url() . 'index.php/Login/Logout' ?>">Eliminar Usuario</a></li>
+
+                              </ul>
+                             
+                          </div>
+                      </li>
+              
               
                 
                   <li><a href="account.html">Mi cuenta</a></li>
