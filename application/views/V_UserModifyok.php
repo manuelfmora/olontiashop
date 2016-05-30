@@ -13,5 +13,5 @@
       </div>
     </div>
   </section>
-  <!-- / Modificado OK --><?php
+  <!-- / Modificado OK -->
 

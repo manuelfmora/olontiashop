@@ -23,7 +23,7 @@ class UserModify extends CI_Controller {
     public function index() {
 
         if (!SesionIniciadaCheck()) {
-            redirect("Error404", 'Location', 301);
+            redirect("404", 'Location', 301);
             return; //Sale de la función
         }
 
@@ -59,7 +59,6 @@ class UserModify extends CI_Controller {
             $this->setReglasValidacion();
 
             if ($this->form_validation->run() == FALSE) {//Validación de datos incorrecta
-                echo 'Entra en el if de form_validation';
                 $cuerpo = $this->load->view('V_UserModify', array(
                     'select' => $select,
                     'datos' => $datos), true);
@@ -74,8 +73,8 @@ class UserModify extends CI_Controller {
             } else {
 
                 if ($this->setRVcalven() == FALSE) {
-                    echo 'Bamos bien1<br>';
-                    $errorclavenuevo = '<div class="alert alert-danger"><b>¡Error! </b> Las contraseñas no pueden estar vacias</div>';
+
+                    $errorclavenuevo = '<div class="alert alert-danger"><b>¡Error! </b> Las contraseñas no pueden estar vacias1</div>';
                     $cuerpo = $this->load->view('V_UserModify', array(
                         'select' => $select,
                         'errorclavenuevo' => $errorclavenuevo,
@@ -84,49 +83,36 @@ class UserModify extends CI_Controller {
                         'homeactive' => 'active'));
 
                     $todocorrecto = FALSE;
-                } else {
-                    if ($this->setRVcalverep() == FALSE) {
-                        echo 'Bamos bien sregundo if<br>';
-                        $errorclaverep = '<div class="alert alert-danger"><b>¡Error! </b> Las contraseñas no pueden estar vacias</div>';
-                        $cuerpo = $this->load->view('V_UserModify', array(
-                            'select' => $select,
-                            'errorclaverep' => $errorclaverep,
-                            'datos' => $datos), true);
-                        $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Modificar Usuario',
-                            'homeactive' => 'active'));
-
-                        $todocorrecto = FALSE;
-                    }
                 }
-                if ($this->setRVcalven() == TRUE && $this->setRVcalverep() == TRUE) {
-                    //Tienen que ser las dos claves iguales
-                    echo 'entra en cambia clave<br>';
+                if ($this->setRVcalverep() == FALSE) {
 
+                    $errorclaverep = '<div class="alert alert-danger"><b>¡Error! </b> Las contraseñas no pueden estar vacias2</div>';
+                    $cuerpo = $this->load->view('V_UserModify', array(
+                        'select' => $select,
+                        'errorclaverep' => $errorclaverep,
+                        'datos' => $datos), true);
+                    $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Modificar Usuario',
+                        'homeactive' => 'active'));
 
-                    //           
-                    $cambiarclave = TRUE;
-                    if (!claves_check($this->input->post('clave_nueva'), $this->input->post('rep_clave_nueva'))) {
-                        echo 'Las contraseñas nos son cporrcetas<br>';
-                        $errorclave = '<div class="alert alert-danger"><b>¡Error! </b> Las contraseñas no son iguales</div>';
-                        $cuerpo = $this->load->view('V_UserModify', array(
-                                                                            'select' => $select,
-                                                                            'errorclave' => $errorclave,
-                                                                            'datos' => $datos), true);
-                        $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Modificar Usuario',
-                            'homeactive' => 'active'));
-
-                        $todocorrecto = FALSE;
-                        print_r($this->input->post('clave_nueva'));
-                    }
+                    $todocorrecto = FALSE;
                 }
+                
+                $cambiarclave = TRUE;
+                if (!claves_check($this->input->post('clave_nueva'), $this->input->post('rep_clave_nueva'))) {
 
+                    $errorclave = '<div class="alert alert-danger"><b>¡Error! </b> Las contraseñas no son iguales</div>';
+                    $cuerpo = $this->load->view('V_UserModify', array(
+                        'select' => $select,
+                        'errorclave' => $errorclave,
+                        'datos' => $datos), true);
+                    $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Modificar Usuario',
+                        'homeactive' => 'active'));
 
-
-
-
+                    $todocorrecto = FALSE;
+                }
 
                 if ($todocorrecto) {
-                    echo 'Guardaría las modidicaciones';
+
 
                     //Crea el array de los datos a insertar en la tabla usuario
                     foreach ($this->input->post() as $key => $value) {
@@ -144,11 +130,9 @@ class UserModify extends CI_Controller {
                     $datos = array('username' => $this->input->post('nombre_usu'));
                     $this->session->set_userdata($datos);
                     $this->M_User->updateUsuario($this->session->userdata('userid'), $data); //Inserta en la tabla usuario
-                    redirect('V_UserModifyok', 'location', 301);
-                }
-                else {
-                  
-                    redirect('404', 'location', 301);
+                    $cuerpo = $this->load->view('V_UserModifyok', array(), true);
+                    $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Modificar Usuario',
+                        'homeactive' => 'active'));
                 }
             }
         }
@@ -208,7 +192,7 @@ class UserModify extends CI_Controller {
         $this->form_validation->set_rules('cod_provincia', 'provincia', 'required');
     }
     
-    function setRVcalven(){
+    public function setRVcalven(){
 
 
        $this->form_validation->set_rules('clave_nueva', 'Contraseña Nueva', 'required');
@@ -218,7 +202,7 @@ class UserModify extends CI_Controller {
            return TRUE;
        }
     }
-    function setRVcalverep(){
+    public function setRVcalverep(){
 
       $this->form_validation->set_rules('rep_clave_nueva', 'Repita Contraseña Nueva', 'required');
        if($this->form_validation->run() == FALSE){

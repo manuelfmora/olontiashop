@@ -30,25 +30,6 @@
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-<!--    <script type="text/javascript">
-                $(document).ready(function(){
-                        $("#formulario_ajax").submit(function(){
-                                $.ajax({
-                                        url: $(this).attr("action"),
-                                        type: $(this).attr("method"),
-                                        data: $(this).serialize(),
-                                        beforeSend:function(){
-                                                $(".loader").show();
-                                        },
-                    success:function(){
-                        $(".loader").fadeOut("slow");
-                    }
-                                });
-
-                        });
-                        return false;
-                });
-    </script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -146,14 +127,10 @@
                               </ul>
                              
                           </div>
-                      </li>
-              
-              
-                
-                  <li><a href="account.html">Mi cuenta</a></li>
+                      </li>   
                   <li class="hidden-xs"><a href="<?=  base_url().'index.php/PedidosLista/ver'?>">Lista Pedidos</a></li>
-                  <li class="hidden-xs"><a href="cart.html">Mi carrito</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Revisa</a></li>
+                  <li class="hidden-xs"><a href="<?= base_url() . 'index.php/Cart'?>">Mi carrito</a></li>
+<!--                  <li class="hidden-xs"><a href="checkout.html">Revisa</a></li>-->
                   <?php endif;?> 
 <!--                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
                 <?php if (!SesionIniciadaCheck()): //Sólo mostrar si la sesión iniciada ?>
