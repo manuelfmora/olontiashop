@@ -44,41 +44,35 @@
                                                 <div class="col-md-3">
                                                     <label class="">Contraseña:<span>*</span></label>
                                                     <input type="password" value="" style="width: 100%" placeholder="Contraseña" id="billing_first_name" name="clave" class="input-text">                                
-                                                      <?php
-                                                    if (!EMPTY($errorclave)) {
-                                                        
-                                                        echo $errorclave;                                                        
-                                                        
-                                                    }
-                                                    if (EMPTY($errorclave)):?>
-                                                       <?= form_error('clave'); ?>                                                    
-                                                    <?php endif ?>  
+                                                     <?= form_error('clave'); ?>
                                                 </div>
                                                   <div class="col-md-3">
                                                     <label class="">Contraseña Nueva:</label>
-                                                    <input type="password" value="" style="width: 100%" placeholder="Contraseña Nueva" id="billing_first_name" name="clave" class="input-text">                                
+                                                    <input type="password" value="" style="width: 100%" placeholder="Contraseña Nueva" id="billing_first_name" name="clave_nueva" class="input-text">                                
                                                       <?php
+                                                    if (!EMPTY($errorclavenuevo)) {
+                                                        
+                                                        echo $errorclavenuevo;                                                        
+                                                        
+                                                    }?>
+                                                    <?php
                                                     if (!EMPTY($errorclave)) {
                                                         
                                                         echo $errorclave;                                                        
                                                         
-                                                    }
-                                                    if (EMPTY($errorclave)):?>
-                                                       <?= form_error('clave'); ?>                                                    
-                                                    <?php endif ?>  
+                                                    }?>                                 
+                                                                                             
+                                                     
                                                 </div>
 
                                                 <div class="col-md-3">
                                                     <label class="">Repita Contraseña Nueva:</label>
-                                                    <input type="password" value="" style="width: 100%" placeholder="Repita Contraseña Nueva" id="billing_first_name" name="rep_clave" class="input-text">                                
+                                                    <input type="password" value="" style="width: 100%" placeholder="Repita Contraseña Nueva" id="billing_first_name" name="rep_clave_nueva" class="input-text">                                
                                                           <?php
-                                                    if (!EMPTY($errorclave)) {
+                                                    if (!EMPTY($errorclaverep)) {
                                                         
-                                                        echo $errorclave;                                                      
-                                                    }
-                                                    if (EMPTY($errorclave)):?>                                                     
-                                                       <?= form_error('rep_clave'); ?>
-                                                    <?php endif ?> 
+                                                        echo $errorclaverep;                                                      
+                                                    }?> 
                                                 </div>
 
                                                 <div class="col-md-4">
@@ -120,7 +114,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="col-md-3">
-                                                    <button type="submit" id="place_order" name="GuardarUsuario" class="aa-browse-btn">Guardar Cambios</button>  
+                                                    <button type="submit" id="place_order" value="Guardar Usuario"  name="GuardarUsuario" class="aa-browse-btn">Guardar Cambios</button>  
 
                                                 </div>
                                             </div>    

@@ -5,7 +5,7 @@
 ?>
 <!-- CUERPO-->
 <div class="mm-product-area">
-    <h4 style="text-align: center; color: #ff6666; ">Si has olvidado tu contraseña, ¡No te preocupes!<br> Introduce tu email y te enviaremos una nueva.</h4>
+    <h4 style="text-align: center; color: #ff6666; ">Si has olvidado tu contraseña, ¡No te preocupes!<br> Introduce nombre tu de usuario y te enviaremos una nueva.</h4>
     <div style="padding-bottom: 100px;" class="container">
         <div class="row">
             <div class="col-sm-8 col-md-4 col-md-offset-4">
@@ -25,7 +25,7 @@
                         <p></p>
 
                         <div style="padding-top: 25px;" class="aa-register-now">
-                            ¿No tienes una cuenta?<a style="color: #ff6666; "href="account.html">Registrate ahora!</a>
+                            ¿No tienes una cuenta?<a style="color: #ff6666; " href="<?= base_url() . 'index.php/User_insert' ?>">Registrate ahora!</a>
                         </div>
 
                     </form>

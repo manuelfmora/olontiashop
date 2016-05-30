@@ -96,4 +96,5 @@ function claves_check($clave, $clave_rep) {
        else{
            return FALSE;
        }
-    }
+   }
+    

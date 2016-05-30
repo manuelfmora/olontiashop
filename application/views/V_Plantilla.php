@@ -141,7 +141,7 @@
                               </a>
                               <ul style="min-width: 60px;" class="dropdown-menu " aria-labelledby="dropdown-menu1" >
                                   <li><a href="<?= base_url() . 'index.php/UserModify' ?>">Modificar Usuario</a></li>
-                                  <li><a href="<?= base_url() . 'index.php/Login/Logout' ?>">Eliminar Usuario</a></li>
+                                  <li><a href="<?= base_url() . 'index.php/UserRemove' ?>">Eliminar Usuario</a></li>
 
                               </ul>
                              

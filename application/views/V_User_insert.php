@@ -25,14 +25,22 @@
                         <div class="col-md-4">
                             <div class="aa-myaccount-login">
                                 <h4>Login</h4>
-                                <form action="" class="aa-login-form">
-                                    <label for="">Username or Email address<span>*</span></label>
-                                    <input type="text" placeholder="Username or email">
+                                <form class="aa-login-form" action="<?= base_url() . 'index.php/Login' ?>" method="POST">
+                                    <label for="">Usuario<span>*</span></label>
+                                    <input type="text" placeholder="Usuario" name="username" type="text" autofocus>
                                     <label for="">Password<span>*</span></label>
-                                    <input type="password" placeholder="Password">
-                                    <button type="submit" class="aa-browse-btn">Login</button>
-                                    <label class="rememberme" for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-                                    <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+                                    <input type="password" placeholder="Password" name="clave" value="">
+                                    <?php
+                                    if (isset($error))
+                                        echo $error;
+                                    ?>
+                                    <div class="form-group">
+                                        <button class="aa-browse-btn " type="submit" value="entrar" name="entrar">Login</button>  
+                                    </div>
+                                    <label > </label>
+                                    <p class="aa-lost-password"><a href="<?= base_url() . 'index.php/RestaurarClave' ?>">¿Olvidaste tu contraseña?</a></p>
+                                
+
                                 </form>
                             </div>
                         </div>

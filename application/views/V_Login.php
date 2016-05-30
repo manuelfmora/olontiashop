@@ -27,14 +27,9 @@
                         <label > </label>
                         <p class="aa-lost-password"><a href="<?=  base_url().'index.php/RestaurarClave'?>">¿Olvidaste tu contraseña?</a></p>
                         <div class="aa-register-now">
-                            ¿No tienes una cuenta?<a href="<?= base_url() . 'index.php/User_insert' ?>">Registrate ahora!</a>
+                            ¿No tienes una cuenta?<a style="color: #ff6666;" href="<?= base_url() . 'index.php/User_insert' ?>">Registrate ahora!</a>
                         </div>
-                        <!--            <label > </label>
-                                    <p class="aa-lost-password"></p>
-                                    <div class="aa-register-now">
-                                      Don't have an account?<a href="<?= base_url() . 'index.php/User_insert' ?>" data-toggle="modal" data-target="">Register now!</a>
-                                      
-                                    </div>-->
+               
                     </form>
                 </div>
 

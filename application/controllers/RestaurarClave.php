@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class RestaurarClave extends CI_Controller{
     public function __construct() {
         parent::__construct();
-//        $this->load->library('Carro', 0, 'myCarrito');
+        $this->load->library('L_Cart', 0, 'myCart');
         $this->load->library('form_validation');
         $this->load->model('M_User');
         $this->load->model('M_RestaurarClave');
@@ -92,7 +92,7 @@ class RestaurarClave extends CI_Controller{
      */
     public function Restablece($id, $token) {
         $datos = $this->M_RestaurarClave->getDatosFromId($id);
-        print_r($datos);
+       
         if (!$datos) {
             $cuerpo = $this->load->view('V_404', Array(), true);
             $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Error'));
