@@ -18,9 +18,10 @@ function MostrarDescuento($precio, $descuento) {
     }
     else
     {
+//        'currency' => 'EUR &nbsp;&nbsp;'
         $datos = array(
             'rate' => 1,
-            'currency' => 'EUR &nbsp;&nbsp; '
+            'currency' => 'EUR'
         );
         $CI->session->set_userdata($datos);
         

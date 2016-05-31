@@ -145,7 +145,7 @@ class User_insert extends CI_Controller{
 //      public function getConfigPag(){
 //        //Configuración de Paginación
 //        $config['base_url'] = site_url('/Main/index');
-//        $config['total_rows'] = $this->M_Cd->getNumTotalCamisetasSeleccionadas();       
+//        $config['total_rows'] = $this->M_Cd->getNumTotalProductosSeleccionados();       
 //        $config['per_page'] = $this->config->item('per_page_seleccionadas');
 //        $config['uri_segment'] = 3;
 //        $config['full_tag_open'] = '<ul class="pagination">';

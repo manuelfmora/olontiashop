@@ -13,13 +13,13 @@ function MuestraMonedas() {
     $html = '<div class="aa-currency">';
     $html.= '<div class="dropdown">';
     $html.= '<a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">';
-    $html.= '<i class="fa fa-usd"></i>EURO';
+    $html.= '<i class="fa fa-eur"></i>Monedas';
     $html.= '<span class="caret"></span>';
     $html.= '</a>';
     $html.= '<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">';
-    $html.='<li><a href = "' . site_url() . '/Coins/Cambio/1/EUR">EUR</a></li>';
+    $html.='<li><a href = "'. site_url() .'/Coins/Cambio/1/EUR">EUR</a></li>';
     foreach ($XML->Cube->Cube->Cube as $rate) {
-        $html.='<li><a href = "' . site_url() . '/Coins/Cambio/' . $rate['rate'] . "/" . $rate['currency'] . '">' . $rate['currency'] . '</a></li>';
+        $html.='<li><a href = "'.site_url().'/Coins/Cambio/'.$rate['rate']."/".$rate['currency'].'">'.$rate['currency'].'</a></li>';
     }
     $html.='</ul>';
     $html.='</div>';

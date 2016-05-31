@@ -119,7 +119,7 @@ class M_Cd extends CI_Model{
      * Consulta el número de camisetas selecciondas que se pueden mostrar
      * @return Int Nº de camisetas
      */
-    public function getNumTotalCamisetasSeleccionadas() {
+    public function getNumTotalProductosSeleccionados() {
         $query = $this->db->query("SELECT pro.idProducto "
                 . "FROM producto pro "
                 . "INNER JOIN categoria cat on pro.idCategoria = cat.idCategoria "

@@ -18,9 +18,11 @@ class Coins extends CI_Controller{
      * @param Float $currency Nombre de la moneda
      */
     public function Cambio($rate, $currency) {
+        $currency1=  trim($currency,'&nbsp;&nbsp;');
+        
         $datos = array(
             'rate' => $rate,
-            'currency' => $currency
+            'currency' => $currency1
         );
         $this->session->set_userdata($datos);
         

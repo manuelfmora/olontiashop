@@ -66,7 +66,7 @@
                         <td><a href="<?= site_url() . "/Pedidos/MuestraResumen/" . $pedido['idPedido'] ?>" class="aa-add-to-cart-btn">Resumen</a></td>
                       
                         <td><a href="<?= site_url() . "/Pedidos/VerPDFPedido/" . $pedido['idPedido'] ?>" class="aa-add-to-cart-btn">Mostrar</a></td>
-                        <td><?= $pedido['cp'] ?> </td>
+                       <td><a href="<?= site_url() . "/Pedidos/DescargarPDFPedido/" . $pedido['idPedido'] ?>" class="aa-add-to-cart-btn">Descargar</a></td>
                         <td><a class="remove" href="<?= site_url() . "/PedidosLista/AnularPedido/" . $pedido['idPedido'] ?>"><fa class="fa fa-close"></fa></a></td>
                       </tr>
                        <?php endforeach; ?>

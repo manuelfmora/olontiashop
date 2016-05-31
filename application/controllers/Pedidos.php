@@ -57,7 +57,7 @@ class Pedidos extends CI_Controller {
 
             $datos = $this->M_Pedidos->getDatosFromUsername($this->session->userdata('username'));
 
-//            $this->EnviaCorreo($datos['correo'], $idPedido);
+            $this->EnviaCorreo($datos['correo'], $idPedido);
              
             
 
