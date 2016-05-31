@@ -22,7 +22,7 @@ class RestaurarClave extends CI_Controller{
      * Muestra el formulario que pide el nombre de usuario para enviar el correo, si el usuario no existe muestra un mensaje de error y si existe se envia el correo y muestra un mensaje de éxito.
      */
     public function index() {
-        $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><b>¡Error! </b>', '</div>');
         $this->form_validation->set_message('required', 'El campo %s está vacío');
         $this->form_validation->set_message('ExisteUsuario_check', 'No existe el usuario introducido');
         $this->form_validation->set_rules('username', 'nombre de usuario', 'required|callback_ExisteUsuario_check');
@@ -42,6 +42,7 @@ class RestaurarClave extends CI_Controller{
      * @return boolean
      */
     public function ExisteUsuario_check($username) {
+        echo 'Usuario:'.$username;
         if ($this->M_User->getCount_NombreUsuario($username) > 0) {
             return TRUE;
         } else {

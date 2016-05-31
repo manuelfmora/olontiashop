@@ -126,10 +126,12 @@ class UserModify extends CI_Controller {
                             $data[$key] = $value;
                         }
                     }
+                    print_r('Nombre usuario:'.$this->input->post('nombre_usu'));
 
-                    $datos = array('username' => $this->input->post('nombre_usu'));
+                    $datos = array('username'=>$this->input->post('nombre_usu'));
+                    print_r($datos);
                     $this->session->set_userdata($datos);
-                    $this->M_User->updateUsuario($this->session->userdata('userid'), $data); //Inserta en la tabla usuario
+                    $this->M_User->updateUsuario($this->session->userdata('userid'),$data); //Inserta en la tabla usuario
                     $cuerpo = $this->load->view('V_UserModifyok', array(), true);
                     $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Modificar Usuario',
                         'homeactive' => 'active'));

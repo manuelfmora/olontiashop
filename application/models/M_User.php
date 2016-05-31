@@ -18,7 +18,9 @@ class M_User extends CI_Model{
      * @return Int Nº de usuarios
      */
     public function getCount_NombreUsuario($nombre_usu) {
-
+        echo "SELECT * "
+                . "FROM usuario "
+                . "WHERE nombre_usu = '$nombre_usu' ";
         $query = $this->db->query("SELECT * "
                 . "FROM usuario "
                 . "WHERE nombre_usu = '$nombre_usu' ");
@@ -110,7 +112,7 @@ class M_User extends CI_Model{
      * @param Int $id ID de usuario
      * @param Array $data Datos de la actualización
      */
-    public function updateUsuario($id, $data) {
+    public function updateUsuario($id,$data) {
         $this->db->where('idUsuario', $id);
         $this->db->update('usuario', $data);
     }

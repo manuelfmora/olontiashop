@@ -35,7 +35,7 @@
                                                 <div class="col-md-12">
                                                     <div class="col-md-5">
                                                         <label class="">Nombre de usuario:<span>*</span></label>
-                                                        <input type="text" value=" <?= $datos['nombre_usu'] ?>" placeholder="Nombre de Usuario" id="billing_first_name" name="nombre_usu" class="input-text" maxlength="30">
+                                                        <input type="text" value="<?= $datos['nombre_usu'] ?>" placeholder="Nombre de Usuario" id="billing_first_name" name="nombre_usu" class="input-text" >
                                                         <?= form_error('nombre_usu'); ?>
 
                                                     </div>
