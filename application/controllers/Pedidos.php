@@ -100,7 +100,7 @@ class Pedidos extends CI_Controller {
      * @param Char $metodo I --> envía el fichero al navegador / D --> Fuerza la descarga
      */
     private function CreaPDF_Pedido($idPedido, $metodo = 'F') {
-        $this->load->library('PDF', 0, 'myPDF');
+        $this->load->library('Pdf', 0, 'myPDF');
 
         $this->myPDF->AddPage();
         $this->myPDF->AliasNbPages(); //nº de páginas
