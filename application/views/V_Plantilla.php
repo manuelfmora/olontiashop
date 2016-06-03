@@ -235,21 +235,11 @@
               <li><a href="<?= base_url() . 'index.php' ?>">Home</a></li>
               <li><a href="#">Categoria <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="#">Casual</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">Formal</a></li>
-                  <li><a href="#">Standard</a></li>                                                
-                  <li><a href="#">T-Shirts</a></li>
-                  <li><a href="#">Shirts</a></li>
-                  <li><a href="#">Jeans</a></li>
-                  <li><a href="#">Trousers</a></li>
-                  <li><a href="#">And more.. <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Sleep Wear</a></li>
-                      <li><a href="#">Sandals</a></li>
-                      <li><a href="#">Loafers</a></li>                                      
-                    </ul>
-                  </li>
+                  <li><a href="#">Alternativa</a></li>
+                  <li><a href="#">Pop</a></li>
+                  <li><a href="#">Hip Hop</a></li>
+                  <li><a href="#">Electronica</a></li>                                       
+
                 </ul>
               </li>
               <li><a href="#">Carrito </a></li>
@@ -281,11 +271,11 @@
                 <div class="aa-footer-widget">
                   <h3>Menú Principal</h3>
                   <ul class="aa-footer-nav">
-                    <li><a href="#">Pop</a></li>
+                    
+                    <li><a href="#">Alternativa</a></li>
                     <li><a href="#">Hip Hop</a></li>
                     <li><a href="#">Rock</a></li>
-                    <li><a href="#">Electronica</a></li>
-                    <li><a href="#"></a></li>
+                    <li><a href="#">Electronica</a></li>                  
                   </ul>
                 </div>
               </div>

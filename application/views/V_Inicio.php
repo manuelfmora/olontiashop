@@ -120,7 +120,8 @@
               <div class="aa-product-inner">
                 <!-- start prduct navigation -->
                  <ul class="nav nav-tabs aa-products-tab">
-                    <li class="active"><a href="#men" data-toggle="tab">Pop</a></li>
+                    <li class="active"><a href="#men" data-toggle="tab">Alternativa</a></li>
+                    <li><a href="#men" data-toggle="tab">Pop</a></li>
                     <li><a href="#women" data-toggle="tab">Hip Hop</a></li>
                     <li><a href="#sports" data-toggle="tab">Rock</a></li>
                     <li><a href="#electronics" data-toggle="tab">Electronica</a></li>
@@ -136,7 +137,7 @@
   
                         <?php if('banner'!=substr($producto['imagen'],0, 6)):?>
                           
-                        <li>
+<!--PRODUC NO BANNERS--> <li>
                           <figure>
                             <a class="aa-product-img" href="#"><img src="<?= base_url() . 'assets/img/imgAPP/' . $producto['imagen'] ?>"></a>
                             <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Añadir al carro</a>
