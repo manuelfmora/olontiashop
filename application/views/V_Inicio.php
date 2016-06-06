@@ -45,7 +45,7 @@
               <div class="aa-product-inner">
                 <!-- start prduct navigation -->
                  <ul class="nav nav-tabs aa-products-tab">
-                    <li class="active"><a href="#men" data-toggle="tab">Alternativa</a></li>
+                    <li class="active"><a href="<?= base_url() . 'index.php/Categorias/ver/' .'1' ?>" data-toggle="tab">Alternativa</a></li>
                     <li><a href="#men" data-toggle="tab">Pop</a></li>
                     <li><a href="#women" data-toggle="tab">Hip Hop</a></li>
                     <li><a href="#sports" data-toggle="tab">Rock</a></li>
