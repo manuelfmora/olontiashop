@@ -50,7 +50,7 @@
     </div> -->
     <!-- / wpf loader Two -->       
   <!-- SCROLL TOP BUTTON -->
-<!--    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>-->
+ <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
   <!-- END SCROLL TOP BUTTON -->
 
 
@@ -251,13 +251,51 @@
     </div>
   </section>
   <!-- / menu -->
+  
+  <!-- CUERPO -->
       <?php
         if (isset($cuerpo))
             echo $cuerpo;
         ?>
+  
+  <!-- / CUERPO -->
 
- 
-
+  <!-- Support section -->
+  <section id="aa-support">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-support-area">
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-truck"></span>
+                <h4>Envío gratis</h4>
+                <P></P>
+              </div>
+            </div>
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-clock-o"></span>
+                <h4>Devoluciones en 30 días</h4>
+                <P></P>
+              </div>
+            </div>
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-phone"></span>
+                <h4>Soporte 24/7</h4>
+                <P></P>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Support section -->
   <!-- footer -->  
   <footer id="aa-footer">
     <!-- footer bottom -->

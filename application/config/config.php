@@ -512,5 +512,5 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 //Configuración Paginación - Nº de elementos por página
-$config['per_page_seleccionadas'] = 12;
+$config['per_page_seleccionadas'] = 8;
 $config['per_page_categorias'] = 6;

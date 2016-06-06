@@ -22,14 +22,14 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bdcamisetas`
+-- Base de datos: `bdtienda2`
 --
 
 --
--- Volcado de datos para la tabla `camiseta`
+-- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`idProducto`, `idCategoria`, `cod_producto`, `nombre_pro`, `precio`, `descuento`, `imagen`, `iva`, `descripcion`, `seleccionada`, `mostrar`, `fecha_inicio`, `fecha_fin`, `stock`) VALUES
+INSERT INTO `producto` (`idProducto`, `idCategoria`, `cod_producto`, `nombre_pro`, `precio`, `descuento`, `imagen`, `iva`, `descripcion`, `seleccionado`, `mostrar`, `fecha_inicio`, `fecha_fin`, `stock`) VALUES
 (1, 1, 'CD_IRON', 'Iron Maiden', '23.00', '0.00', 'banner/ironmaiden.jpg', '21.00', 'Cantante de Rok', 1, 1, '2016-01-01', '2016-12-31', 5),
 (2, 1, 'CD_BRU', 'Bruce Springsteen', '23.00', '0.00', 'banner/bruce.jpg', '21.00', 'Cantante de Rok', 1, 1, '2016-01-01', '2016-12-31', 20),
 (3, 1, 'CD_SAR', 'Saratoga', '23.00', '10.00', 'banner/saratoga.jpg', '21.00', 'Cantante de Rok', 1, 1, '2016-01-01', '2016-12-31', 30),

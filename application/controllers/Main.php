@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * CONTROLADOR que muestra la vista al iniciar la aplicación.
- * Muestra todas los Productos seleccionadas en distintas páginas.
+ * Muestra todas los Productos seleccionados en distintas páginas.
  */
 class Main extends CI_Controller {
     
@@ -16,19 +16,21 @@ class Main extends CI_Controller {
         $this->load->library('L_Cart', 0, 'myCart');
     }
     /**
-     * Muestra todas los Productos seleccionadas
+     * Muestra todas los Productos seleccionados
      * @param Int $desde Posición desde la que empieza a paginar
      */
     public function index($desde = 0) {        
         
         $config = $this->getConfigPag();
+//        print_r($config);
         
         $this->pagination->initialize($config);
         
-        $seleccionadas = $this->M_Cd->getSeleccionadas($config['per_page'], $desde); //Conseguimos los artículos seleccionados
-
+        $seleccionados = $this->M_Cd->getSeleccionados($config['per_page'], $desde); //Conseguimos los artículos seleccionados
+        $banner=$this->M_Cd->getBanner();
         $cuerpo = $this->load->view('V_Inicio', Array(
-                                                      'seleccionadas' => $seleccionadas), true); //Generamos la vista       
+                                                      'seleccionados' => $seleccionados,
+                                                      'banner' =>$banner), true); //Generamos la vista       
         
         $this->load->view('V_Plantilla', Array(
                                                 'cuerpo' => $cuerpo, 

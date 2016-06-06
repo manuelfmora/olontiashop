@@ -18,12 +18,12 @@ class VerCd extends CI_Controller{
 
     
     /**
-     * Muestra la camiseta de forma detallada
-     * @param Int $idCamiseta ID de la camiseta
+     * Muestra el producto de forma detallada
+     * @param Int $idProducto
      */
     public function ver($idcd) {
         
-        //Información de camiseta
+        //Información del producto
        
         if ($this->M_Cd->SiSeDebeMostarProducto($idcd)) {
 

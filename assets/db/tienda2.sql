@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `tienda2`.`producto` (
   `imagen` VARCHAR(250) NULL DEFAULT NULL,
   `iva` DECIMAL(5,2) NULL DEFAULT NULL,
   `descripcion` TEXT NULL DEFAULT NULL,
-  `seleccionada` TINYINT(1) NULL DEFAULT NULL,
+  `seleccionado` TINYINT(1) NULL DEFAULT NULL,
   `mostrar` TINYINT(1) NULL DEFAULT NULL,
   `fecha_inicio` DATE NULL DEFAULT NULL,
   `fecha_fin` DATE NULL DEFAULT NULL,

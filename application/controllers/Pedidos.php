@@ -137,7 +137,7 @@ class Pedidos extends CI_Controller {
 
         $this->CreaPDF_Pedido($idPedido);
         
-        $this->email->from('aula4@iessansebastian.com', 'Camisetas de Fútbol');
+        $this->email->from('aula4@iessansebastian.com', 'OlontiaShop');
         
         $this->email->to($correo);
 

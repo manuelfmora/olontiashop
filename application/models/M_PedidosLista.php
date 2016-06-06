@@ -81,8 +81,8 @@ class M_PedidosLista extends CI_Model{
     }
 
     /**
-     * Actualiza el stock de una camiseta después de anular un pedido
-     * @param Int $idCamiseta ID de la camiseta
+     * Actualiza el stock de un producto después de anular un pedido
+     * @param Int $idProducto 
      * @param Int $cantidad Cantidad a actualizar
      */
     public function CambiaStock($idProducto, $cantidad) {

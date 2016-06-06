@@ -79,7 +79,7 @@ class PedidosLista extends CI_Controller{
     }
 
     /**
-     * Sube la cantidad de stock de las camisetas de un pedido después de anularlo
+     * Sube la cantidad de stock de los productos de un pedido después de anularlo
      * @param type $idPedido
      */
     public function SubeStock($idPedido) {
