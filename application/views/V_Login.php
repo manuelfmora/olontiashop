@@ -39,32 +39,3 @@
 </div>
 
 <!--   Login Modal   
-  <div class="modal fade" id="formulario_ajax" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">                      
-        <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login o Registrarse</h4>
-          <form class="aa-login-form" action="<?= base_url() . 'index.php/Login' ?>" method="POST">
-            <label for="">Usuario<span>*</span></label>
-            <input type="text" placeholder="Usuario" name="username" type="text" autofocus>
-            <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password" name="clave" value="">
-            <?php
-                if (isset($error))
-                    echo $error;
-            ?>
-            <div class="form-group">
-            <button class="aa-browse-btn" type="submit" value="entrar" name="entrar">Login</button>  
-            </div>
-            <label > </label>
-            <p class="aa-lost-password"></p>
-            <div class="aa-register-now">
-              Don't have an account?<a href="<?= base_url() . 'index.php/User_insert' ?>" data-toggle="modal" data-target="">Register now!</a>
-              
-            </div>
-          </form>
-        </div>                        
-      </div> /.modal-content 
-    </div> /.modal-dialog 
-  </div>-->

@@ -130,6 +130,20 @@
                       </li>   
                   <li class="hidden-xs"><a href="<?=  base_url().'index.php/PedidosLista/ver'?>">Lista Pedidos</a></li>
                   <li class="hidden-xs"><a href="<?= base_url() . 'index.php/Cart'?>">Mi carrito</a></li>
+                    <li> 
+                       <div class="dropdown">
+                           <a  href="#" type="button" id="dropdown-menu1 " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                               <i>XML</i>
+                               <span class="caret"></span>
+                           </a>
+                           <ul style="min-width: 60px;" class="dropdown-menu " aria-labelledby="dropdown-menu1" >
+                               <li><a href="<?= base_url() . 'index.php/Xml/importar' ?>">Importar XML</a></li>
+                               <li><a href="<?= base_url() . 'index.php/Xml/exportar' ?>">Exportar XML</a></li>
+
+                           </ul>
+
+                       </div>
+                   </li>  
 <!--                  <li class="hidden-xs"><a href="checkout.html">Revisa</a></li>-->
                   <?php endif;?> 
 <!--                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
