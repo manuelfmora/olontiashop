@@ -85,7 +85,7 @@ $autoload['drivers'] = array();
 */
 $autoload['helper'] = array('url',
                             'Sesion', 
-                            'Monedas_helper',
+                            'Monedas',
                             'Descuentos');
 
 /*

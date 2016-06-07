@@ -13,7 +13,7 @@
 
 
                     <h4>Restablecer Contraseña</h4>
-                    <div class="alert-danger"></div>
+                    <div class="alert alert-danger"></div>
                     <form class="aa-login-form" action="" method="POST">
                         <label for="">Usuario<span>*</span></label>
                         <input type="text" placeholder="Usuario" name="username" type="text" autofocus>                        

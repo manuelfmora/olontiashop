@@ -43,7 +43,7 @@ class User_insert extends CI_Controller{
         $provincias = $this->Mdl_provincias->getProvincias();
         $select = CreaSelect($provincias, 'cod_provincia');
 
-        $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><b>¡Error! </b>', '</div>');
 
         //Establecemos los mensajes de errores
         $this->setMensajesErrores();
@@ -55,7 +55,7 @@ class User_insert extends CI_Controller{
             $errorclave = '';
 
             if (!claves_check($this->input->post('clave'), $this->input->post('rep_clave'))) {//Si las claves no son iguales, se muestra error
-                $errorclave = '<div class="alert msgerror"><b>¡Error! </b> Las contraseñas no son iguales</div>';
+                $errorclave = '<div class="alert alert-danger"><b>¡Error! </b> Las contraseñas no son iguales</div>';
             }
             
             $cuerpo = $this->load->view('View_registro', array('select' => $select, 'errorclave' => $errorclave), true);

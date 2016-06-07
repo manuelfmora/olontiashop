@@ -63,11 +63,11 @@ class PedidosLista extends CI_Controller{
             redirect('/PedidosLista/ver', 301, 'Location');
             return;
         } else if ($estado == 'Anulado') {
-            $msg_error = '<div class="alert msgerror"> <b> ¡Error! </b> El pedido ya está anulado</div>';
+            $msg_error = '<div class="alert alert-danger"> <b> ¡Error! </b> El pedido ya está anulado</div>';
         } else if ($estado == 'Procesado') {
-            $msg_error = '<div class="alert msgerror"> <b> ¡Error! </b> El pedido ya está procesado, no se puede anular</div>';
+            $msg_error = '<div class="alert alert-danger"> <b> ¡Error! </b> El pedido ya está procesado, no se puede anular</div>';
         } else if ($estado == 'Recibido') {
-            $msg_error = '<div class="alert msgerror"> <b> ¡Error! </b> El pedido ya ha sido recibido, no se puede anular</div>';
+            $msg_error = '<div class="alert alert-danger"> <b> ¡Error! </b> El pedido ya ha sido recibido, no se puede anular</div>';
         } else {
             redirect('Error404', 'Location', 301);
         }

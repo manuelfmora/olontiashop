@@ -5,14 +5,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * CONTROLADOR en el que se puede elegir la categoría a mostrar con las productos paginados.
  */
-class Categorias extends CI_Controller {
+class Category extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->library('pagination');
-        $this->load->model('Mdl_categorias');
-        $this->load->library('Carro', 0, 'myCarrito');
+        $this->load->model('M_Category');
+        $this->load->model('M_Cd');
+        $this->load->library('L_Cart', 0, 'myCart');
+    
     }
 
     /**
@@ -20,24 +22,27 @@ class Categorias extends CI_Controller {
      * @param Int $idCat ID de la categoría
      * @param Int $desde Posición de donde tiene que empezar a paginar
      */
-    public function ver($idCat = 1, $desde = 0) {
 
+    public function ver($idCat = 1, $desde = 0) {
+      
         //Configuración de Paginación
         $config = $this->getConfigPag($idCat);
 
         $this->pagination->initialize($config);
 
-        $unaCategoria = $this->Mdl_categorias->getUnaCategoria($idCat);
+        $unaCategoria = $this->M_Category->getUnaCategoria($idCat);
 
-        $categorias = $this->Mdl_categorias->getCategorias();
+        $categorias = $this->M_Category->getCategorias();
+        $banner=$this->M_Cd->getBanner();
 
         //Conseguimos los productos de la categoría seleccionada
-        $productos = $this->Mdl_categorias->getProductosFromCategoria($idCat, $config['per_page'], $desde);
+        $productos = $this->M_Category->getProductosFromCategoria($idCat, $config['per_page'], $desde);
 
-        //Cargamos vista de los productos de la categoría seleccionada
-        $htmlUnaCategoria = $this->load->view('V_OneCategory', Array('unaCategoria' => $unaCategoria, 'productos' => $productos), true);
-
-        $cuerpo = $this->load->view('V_Category', Array('categoriaactive' => 'active', 'titulo' => $unaCategoria['descripcion'], 'categorias' => $categorias, 'htmlUnaCategoria' => $htmlUnaCategoria), true);
+            $cuerpo = $this->load->view('V_Category', Array('categoriaactive' => 'active', 
+                                                         'titulo' => $unaCategoria['descripcion'],
+                                                          'banner' =>$banner,
+                                                         'unaCategoria' => $unaCategoria, 
+                                                          'productos' => $productos), true);
 
         $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo));
     }
@@ -48,9 +53,10 @@ class Categorias extends CI_Controller {
      * @return Array Configuración
      */
     function getConfigPag($idCat) {
-        $config['base_url'] = site_url('/Categorias/ver/' . $idCat . '/');
-        $config['total_rows'] = $this->Mdl_categorias->getNumTotalProductosFromCategoria($idCat);
-        //$config['num_links'] = 1;
+        print_r( 'Numero total'.$this->M_Category->getNumTotalProductosFromCategoria($idCat));
+        $config['base_url'] = site_url('/Category/ver/' . $idCat . '/');
+        $config['total_rows'] = $this->M_Category->getNumTotalProductosFromCategoria($idCat);
+        $config['num_links'] = 1;
         $config['per_page'] = $this->config->item('per_page_categorias');
         $config['uri_segment'] = 4;
         $config['full_tag_open'] = '<ul class="pagination">';

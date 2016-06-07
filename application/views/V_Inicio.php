@@ -1,5 +1,5 @@
- <!-- Start slider -->
-
+ <!-- Vista que aparece al inicio de la aplicación -->
+<!-- Start slider -->
   <section id="aa-slider">
     <div class="aa-slider-area">
       <div id="sequence" class="seq">
@@ -7,9 +7,6 @@
           <ul class="seq-canvas">
             <!-- single slide item -->
             <?php foreach ($banner as $key => $producto) : ?>
-           
-            
-
             <li>
               <div class="seq-model">
                 <img data-seq src="<?= base_url() . 'assets/img/imgAPP/' . $producto['imagen']?>" alt="">                
@@ -18,7 +15,7 @@
                <span data-seq>últimas</span>                
                 <h2 data-seq>Novedades</h2>                
                 <p data-seq></p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">COMPRA AHORA</a>
+                <a data-seq href="<?= base_url().'index.php/VerCd/ver/'.$producto['idProducto']?>" class="aa-shop-now-btn aa-secondary-btn">COMPRA AHORA</a>
               </div>
             </li>
             
@@ -45,11 +42,11 @@
               <div class="aa-product-inner">
                 <!-- start prduct navigation -->
                  <ul class="nav nav-tabs aa-products-tab">
-                    <li class="active"><a href="<?= base_url() . 'index.php/Categorias/ver/' .'1' ?>" data-toggle="tab">Alternativa</a></li>
-                    <li><a href="#men" data-toggle="tab">Pop</a></li>
-                    <li><a href="#women" data-toggle="tab">Hip Hop</a></li>
-                    <li><a href="#sports" data-toggle="tab">Rock</a></li>
-                    <li><a href="#electronics" data-toggle="tab">Electronica</a></li>
+                    <li><a href="<?= base_url() . 'index.php/category/ver/1'?>">Alternativa</a></li>
+                    <li><a href="<?= base_url() . 'index.php/category/ver/2'?>" >Pop</a></li>
+                    <li><a href="<?= base_url() . 'index.php/category/ver/3'?>" >Hip Hop</a></li>
+                    <li><a href="<?= base_url() . 'index.php/category/ver/4'?>" >Rock</a></li>
+                    <li><a href="<?= base_url() . 'index.php/category/ver/5'?>" >Electronica</a></li>
                   </ul>
                   <!-- Tab panes -->
                   <div class="tab-content">
@@ -58,28 +55,24 @@
                       <ul class="aa-product-catg">
                         <!-- start single product item -->
    <!--PRODUCTO-->     <?php foreach ($seleccionados as $key => $producto) : ?>              
-          <!--Comprobamos que las imagenes pertenecen a la carpeta BANNER -->
-  
-            
-                          
+          <!--Comprobamos que las imagenes pertenecen a la carpeta BANNER -->                          
 <!--PRODUC NO BANNERS--> <li>
                           <figure>
-                            <a class="aa-product-img" href="#"><img src="<?= base_url() . 'assets/img/imgAPP/' . $producto['imagen'] ?>"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Añadir al carro</a>
+                              
+                            <?phpif($producto['seleccionado']!=2):?>
+                            <a class="aa-product-img" href="<?= base_url().'index.php/VerCd/ver/'.$producto['idProducto']?>"><img src="<?= base_url() . 'assets/img/imgAPP/' . $producto['imagen'] ?>"></a>
+                            <a class="aa-add-card-btn"href="<?= site_url() . '/Cart/comprar/' . $producto['idProducto'] ?>"><span class="fa fa-shopping-cart"></span>Añadir al carro</a>
                               <figcaption>
-                                  <h6 class="aa-product-title"><a href="#"><?php echo $producto['nombre_pro'];?></a></h6>
+                                  <h6 class="aa-product-title"><a href="<?= base_url().'index.php/VerCd/ver/'.$producto['idProducto']?>"><?php echo $producto['nombre_pro'];?></a></h6>
                               <span class="aa-product-price"> <?php MostrarDescuento($producto['precio'], $producto['descuento']) ?></span>
                             </figcaption>
+                            <?phpendif?>
                           </figure>                        
                           <div class="aa-product-hvr-content">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                       
      <!---->                <a href="<?= base_url().'index.php/VerCd/ver/'.$producto['idProducto']?>" data-toggle2="tooltip" data-placement="top" title="Vista Rapida" data-toggle="modal" ><span class="fa fa-search"></span></a>   
-                             <a data-toggle="modal" href="<?= base_url().'index.php'?>" class="btn btn-primary btn-large">Abrir ventana modal</a>
                           </div>
                           <!-- product badge -->
-                          <span class="aa-badge aa-sale" href="#">SALE!</span>
+                          <span class="aa-badge aa-sale" href="#">Venta!</span>
                         </li>
                         
    <!--/PRODUCTO-->     <?php endforeach; ?>  
@@ -89,31 +82,16 @@
 <!--                 <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>-->
                     </div>
                     <!-- / men product category -->
-          
-                           
                   </div>
-          
-
               </div>
-           
             </div>
-          
           </div>
-                                       <!-- PAGINACIÓN -->
-                
-       
-           
-            
-        
-        </div>
-        
+        </div>      
       </div>
-               
-    </div>
-             
+     </div>
   </section>
   <!-- / Products section -->
-   
+     <!-- PAGINACIÓN -->
        <div class="product-pagination text-center">
                     <nav>                              
                         <!-- PAGINATION CODEIGNITER -->

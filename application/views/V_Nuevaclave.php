@@ -10,7 +10,7 @@
             <div class="col-sm-8 col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
                     <h4>Restablecer Contraseña</h4>
-                    <div class="alert-danger"></div>
+                    <div class="alert alert-danger"></div>
                     <form class="aa-login-form" action="" method="POST">
                         <label for="">Usuario</label>
                         <input type="text" placeholder="Usuario" name="username" type="text" readonly="readonly" value="<?=$username?>"autofocus> 

@@ -235,10 +235,11 @@
               <li><a href="<?= base_url() . 'index.php' ?>">Home</a></li>
               <li><a href="#">Categoria <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="#">Alternativa</a></li>
-                  <li><a href="#">Pop</a></li>
-                  <li><a href="#">Hip Hop</a></li>
-                  <li><a href="#">Electronica</a></li>                                       
+                  <li><a href="<?= base_url() . 'index.php/category/ver/1'?>">Alternativa</a></li>
+                  <li><a href="<?= base_url() . 'index.php/category/ver/2'?>">Pop</a></li>
+                  <li><a href="<?= base_url() . 'index.php/category/ver/3'?>">Hip Hop</a></li>
+                  <li><a href="<?= base_url() . 'index.php/category/ver/4'?>">Rock</a></li>                  
+                  <li><a href="<?= base_url() . 'index.php/category/ver/5'?>">Electronica</a></li>                                       
 
                 </ul>
               </li>

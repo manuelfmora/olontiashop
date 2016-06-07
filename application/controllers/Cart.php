@@ -43,7 +43,7 @@ class Cart extends CI_Controller{
                         );
                         $this->myCart->actualizar($articulo);
                     } else if ($stock < $_POST["cantidad"][$items['id']]) {//sino mostramos mensaje de error
-                        $msg_error = '<div class="alert msgerror"> <b> ¡Error! </b>Stock máximo superado</div>';
+                        $msg_error = '<div class="alert alert-danger"> <b> ¡Error! </b>Stock máximo superado</div>';
 
                         $articulo = array(
                             "id" => $items['id'],
@@ -87,7 +87,7 @@ class Cart extends CI_Controller{
     public function comprar($id) {
         
        $producto = $this->M_Cart->getDataProducto($id);
-        print_r('Procuto de comprar'.$producto);
+       
         $stock = $this->M_Cart->getStock($id); //Guardamos su stock
         
         $cantidad = 1;
@@ -131,9 +131,11 @@ class Cart extends CI_Controller{
            
             $this->myCart->actualizar($articulo);
 
-            $msg_error = '<div class="alert msgerror"> <b> ¡Error! </b>Stock máximo superado</div>';
+            $msg_error = '<div class="alert alert-danger"> <b> ¡Error! </b>Stock máximo superado</div>';
             $cuerpo = $this->load->view('V_Cart', Array('msg_error' => $msg_error), true);
-            $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'titulo' => 'Carrito', 'carritoactive' => 'active'));
+            $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo,
+                                                    'titulo' => 'Carrito',
+                                                    'carritoactive' => 'active'));
        
         } else {
             redirect('Sessionnull', 'Location', 301);
