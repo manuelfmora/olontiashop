@@ -243,7 +243,7 @@
 
                 </ul>
               </li>
-              <li><a href="#">Carrito </a></li>
+              <li><a href="<?= base_url() . 'index.php/cart'?>">Carrito </a></li>
 
             </ul>
           </div><!--/.nav-collapse -->
@@ -311,10 +311,11 @@
                   <h3>Menú Principal</h3>
                   <ul class="aa-footer-nav">
                     
-                    <li><a href="#">Alternativa</a></li>
-                    <li><a href="#">Hip Hop</a></li>
-                    <li><a href="#">Rock</a></li>
-                    <li><a href="#">Electronica</a></li>                  
+                  <li><a href="<?= base_url() . 'index.php/category/ver/1'?>">Alternativa</a></li>
+                  <li><a href="<?= base_url() . 'index.php/category/ver/2'?>">Pop</a></li>
+                  <li><a href="<?= base_url() . 'index.php/category/ver/3'?>">Hip Hop</a></li>
+                  <li><a href="<?= base_url() . 'index.php/category/ver/4'?>">Rock</a></li>                  
+                  <li><a href="<?= base_url() . 'index.php/category/ver/5'?>">Electronica</a></li>                
                   </ul>
                 </div>
               </div>

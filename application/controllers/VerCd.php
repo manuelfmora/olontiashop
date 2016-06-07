@@ -44,7 +44,7 @@ class VerCd extends CI_Controller{
                                                   'homeactive' => 'active'));
          
         } else {
-            $cuerpo = $this->load->view('V_404', Array('' => ''), true);
+            $cuerpo = $this->load->view('V_404', Array(), true);
             $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Error'));
         }
     }

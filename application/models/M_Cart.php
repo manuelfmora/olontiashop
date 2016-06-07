@@ -36,7 +36,7 @@ class M_Cart extends CI_Model{
         $query = $this->db->query("SELECT stock "
                                     . "FROM producto "
                                         . "WHERE idProducto = $id; ");
-        
+                               
         return $query->row_array()['stock'];
         
     }

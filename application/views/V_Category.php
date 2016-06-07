@@ -37,7 +37,7 @@
   <section id="aa-product">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class= col-xs-12 col-md-8>
           <div class="row">
             <div class="aa-product-area">
               <div class="aa-product-inner">
@@ -53,6 +53,7 @@
                   <div class="tab-content">
                     <!-- Start men product category -->
                     <div class="tab-pane fade in active" id="men">
+                        <h2><?php if(isset($titulo)) echo $titulo ?></h2><br>
                       <ul class="aa-product-catg">
                         <!-- start single product item -->
                         
@@ -72,8 +73,12 @@
                           <div class="aa-product-hvr-content">
      <!---->                <a href="<?= base_url().'index.php/VerCd/ver/'.$producto['idProducto']?>" data-toggle2="tooltip" data-placement="top" title="Vista Rapida" data-toggle="modal" ><span class="fa fa-search"></span></a>   
                           </div>
-                          <!-- product badge -->
-                          <span class="aa-badge aa-sale" href="#">Venta!</span>
+                          <!-- product badge -->                                            
+                          <?php if($producto['descuento']!= '0.00'): ?>
+                          
+                          <span class="aa-badge aa-sold-out" href="#">Oferta!</span>
+                          
+                          <?php endif;?>
                         </li>
                         <?php endif; ?>
    <!--/PRODUCTO-->     <?php endforeach; ?>  

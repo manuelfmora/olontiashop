@@ -41,7 +41,7 @@ class Category extends CI_Controller {
             $cuerpo = $this->load->view('V_Category', Array('categoriaactive' => 'active', 
                                                          'titulo' => $unaCategoria['descripcion'],
                                                           'banner' =>$banner,
-                                                         'unaCategoria' => $unaCategoria, 
+                                                          'unaCategoria' => $unaCategoria, 
                                                           'productos' => $productos), true);
 
         $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo));
@@ -53,7 +53,7 @@ class Category extends CI_Controller {
      * @return Array Configuración
      */
     function getConfigPag($idCat) {
-        print_r( 'Numero total'.$this->M_Category->getNumTotalProductosFromCategoria($idCat));
+        
         $config['base_url'] = site_url('/Category/ver/' . $idCat . '/');
         $config['total_rows'] = $this->M_Category->getNumTotalProductosFromCategoria($idCat);
         $config['num_links'] = 1;

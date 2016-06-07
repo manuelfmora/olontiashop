@@ -52,11 +52,12 @@
                   <div class="tab-content">
                     <!-- Start men product category -->
                     <div class="tab-pane fade in active" id="men">
+                        <h2>Productos Destacados</h2>
                       <ul class="aa-product-catg">
-                        <!-- start single product item -->
+                        <!-- start single product item -->                        
    <!--PRODUCTO-->     <?php foreach ($seleccionados as $key => $producto) : ?>              
-          <!--Comprobamos que las imagenes pertenecen a la carpeta BANNER -->                          
-<!--PRODUC NO BANNERS--> <li>
+          <!--Comprobamos que las imagenes pertenecen a la carpeta BANNER --> 
+  <!--PRODUC NO BANNERS--> <li>
                           <figure>
                               
                             <?phpif($producto['seleccionado']!=2):?>
@@ -71,8 +72,12 @@
                           <div class="aa-product-hvr-content">
      <!---->                <a href="<?= base_url().'index.php/VerCd/ver/'.$producto['idProducto']?>" data-toggle2="tooltip" data-placement="top" title="Vista Rapida" data-toggle="modal" ><span class="fa fa-search"></span></a>   
                           </div>
-                          <!-- product badge -->
-                          <span class="aa-badge aa-sale" href="#">Venta!</span>
+                          <!-- product badge -->                   
+                          <?php if($producto['descuento']!= '0.00'): ?>
+                          
+                          <span class="aa-badge aa-sold-out" href="#">Oferta!</span>
+                          
+                          <?php endif;?>
                         </li>
                         
    <!--/PRODUCTO-->     <?php endforeach; ?>  

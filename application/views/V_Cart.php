@@ -45,8 +45,12 @@
                       </tr>
                     </thead>
                     <tbody>  <!--Creación tabla de productos-->
-                        <div class="iconoerror"><span class="glyphicon glyphicon-warning-sign"></span></div>
+                    <div><span> <?php
+                                    if (isset($error))
+                                        echo $error;
+                                    ?></span></div>
                         <?php foreach ($this->myCart->get_content() as $items): ?>
+                    
                       <tr>
                           <!--Eliminar-->
                         <td><a class="remove" href="<?= base_url().'index.php/Cart/eliminar/'. $items['id']?>"><fa class="fa fa-close"></fa></a></td>
@@ -57,7 +61,8 @@
                         <!--Precio-->
                         <td><?= round($items['precio']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></td>
                         <!--Cantidad-->
-                        <td><input class="aa-cart-quantity" id="cantidad[<?= $items['id'] ?>]" name="cantidad[<?= $items['id'] ?>]" type="number" value="<?= $items['cantidad'] ?>" min="1" step="1"></td>
+                        <!--------------------------------------------------------------------------------------->
+                        <td><input class="aa-cart-quantity" id="cantidad[<?= $items['id'] ?>]" name="cantidad[<?= $items['id'] ?>]" type="number" value="<?= $items['cantidad'] ?>" min="1" max="<?= $this->M_Cart->getStock($items['id']); ?>" step="1"></td>
                         <!--Total-->
                         <td><span class="amount"><?= round($items['total']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></span></td>
                       </tr>
@@ -66,7 +71,8 @@
                       <tr>
                         <td colspan="6" class="aa-cart-view-bottom">
                            <div class="aa-cart-coupon">                              
-                               <a href="<?= base_url() . 'index.php/Carrito/eliminarcompra' ?>"><input class="aa-cart-view-btn" type="submit" value="Eliminar Pedido"></a>
+                               <a href="<?= base_url() . 'index.php/Cart/eliminarcompra' ?>">
+                                   <input class="aa-cart-view-btn" type="button" value="Eliminar Pedido"></a>
                           </div>
                           <input class="aa-cart-view-btn" type="submit"  name="guardar" value="Actualizar Carrito">
                         </td>

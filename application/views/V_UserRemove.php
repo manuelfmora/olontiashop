@@ -7,7 +7,7 @@
                 <h2>BAJA USUARIO</h2>
                 <ol class="breadcrumb">
                     <li><a href="<?php anchor('Main') ?>">Home</a></li>                   
-                    <li class="active">Account</li>
+                    <li class="active">Baja Usuario</li>
                 </ol>
             </div>
         </div>
