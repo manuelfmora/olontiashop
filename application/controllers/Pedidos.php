@@ -125,7 +125,7 @@ class Pedidos extends CI_Controller {
         $pedido = $this->M_Pedidos->getPedido($idPedido, $this->session->userdata('userid'));
         $this->myPDF->CreaTablaPedido($pedido);
 
-        $this->myPDF->Output($metodo, 'assets/pdfs_pedidos/pedido.pdf', true);
+        $this->myPDF->Output($metodo, 'assets/pdf/pedido.pdf', true);
     }
 
     /**
@@ -141,13 +141,13 @@ class Pedidos extends CI_Controller {
         
         $this->email->to($correo);
 
-        $this->email->subject('El PDF con su pedido');
+        $this->email->subject('Le enviamos el albarán de su pedido con fecha '.date("j-m-Y"));
 
-        $mensaje = "Aquí puede ver el documento PDF de su pedido";
+        $mensaje = "Aquí puede ver el albarán de su pedido para su conformidad.<br><br> Un saludo OlontiaShop";
 
         $this->email->message($mensaje);
 
-        $this->email->attach('assets/pdfs_pedidos/pedido.pdf');
+        $this->email->attach('assets/pdf/pedido.pdf');
 
         if (!$this->email->send())
             echo "<pre>\n\nError ennviado mail\n</pre>";

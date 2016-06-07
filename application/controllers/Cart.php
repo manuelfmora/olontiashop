@@ -69,9 +69,9 @@ class Cart extends CI_Controller{
      * @param Int $id ID de la producto
      */
     public function eliminar($id) {
-
+        
         foreach ($this->myCart->get_content() as $items) {
-
+          
             if ($items['id'] == $id) {
                 $this->myCart->remove_producto($items['unique_id']);
             }

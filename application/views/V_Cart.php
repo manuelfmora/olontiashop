@@ -45,10 +45,11 @@
                       </tr>
                     </thead>
                     <tbody>  <!--Creación tabla de productos-->
+                        <div class="iconoerror"><span class="glyphicon glyphicon-warning-sign"></span></div>
                         <?php foreach ($this->myCart->get_content() as $items): ?>
                       <tr>
                           <!--Eliminar-->
-                        <td><a class="remove" href="<?= base_url().'Cart/eliminar/'. $items['id']?>"><fa class="fa fa-close"></fa></a></td>
+                        <td><a class="remove" href="<?= base_url().'index.php/Cart/eliminar/'. $items['id']?>"><fa class="fa fa-close"></fa></a></td>
                         <!--Imagen-->
                         <td><a href=" <?= base_url() . 'index.php/VerCd/ver/' . $items['id'] ?>"><img width="145" height="145" class="shop_thumbnail" src="<?= base_url() . 'assets/img/imgAPP/' . $items['opciones']['imagen'] ?>"></a></td>
                        <!--Producto-->

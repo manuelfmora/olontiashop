@@ -52,7 +52,7 @@
                         <?php foreach ($pedidos as $pedido): ?>
                       <tr>
                        
-                        <td><?= $pedido['fecha_pedido'] ?></td>
+                          <td><?=  cambiaFormatoFecha($pedido['fecha_pedido']);?></td>
                        
                         <td><?= $pedido['estado'] ?>  </td>
                        
