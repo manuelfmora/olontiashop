@@ -72,7 +72,7 @@ class M_Category extends CI_Model {
                 . "AND curdate() >= fecha_inicio "
                 . "AND curdate() <= fecha_fin "
                 . "AND idCategoria = $idCategoria "
-                . "AND seleccionado =1 "
+                . "AND seleccionado <> 2 "
                 . "AND stock > 0 ");
         return $query->num_rows();
     }
