@@ -353,11 +353,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `cod_provincia`, `nombre_usu`, `clave`, `dni`, `correo`, `nombre_persona`, `apellidos_persona`, `direccion`, `cp`, `estado`) VALUES
-(1, '21', 'isacm94', '$2y$10$9isiSYMKQrfYA.p7jZqbaej9Hs/VqQuLH/FdwNyPHGKYg2821PTEm', '44248212f', 'isacm94@gmail.com', 'Isabel María', 'Calvo Mateos', 'Calle Cabreros, 36', 21720, 'A'),
-(2, '01', '  mfmora', '$2y$10$.XZDUU1mXErAbJMp4wBqrusO7FuEpUE/CkJSgHbgrTyFg1UHRatHm', '29056491Q', 'mfmoradaw@gmail.com', 'Manuel Francisco', 'Martín', 'Avda. Andalucía Nº85 2º', 21500, 'A'),
-(3, '51', 'admin', '$2y$10$7lH0K8cSg8IEbPiTsabOaODC9oVJHaQ5KJd9WmTTb5fQ6JgIxuKby', '44248212f', 'isacm94@gmail.com', 'Admin', 'Admin Admin', 'Calle Huelva, 36', 21453, 'A'),
-(8, '21', 'mfmora2', '$2y$10$8KtUIfl/1uCMWbIotMZMoe1Vs7P5sH4tXF0Pa8.BaOJPcjHZQTSqu', '29056491Q', 'mfmoradaw@gmail.com', 'Manuel Francisco', 'Moara', 'Avda. Andalucía Nº85 2º', 21500, 'A'),
-(9, '21', 'Inma', '$2y$10$45tCFkoTjqNeckki7XM55.wfQMjaJQxwMrkSeskNHKCppxqn08kl6', '44209697V', 'mfmora2@gmail.com', 'Inma', 'Ramos', 'Avda. Andalucía Nº85 2º', 21500, 'A');
+(1, '21', 'mfmora2', '$2y$10$8KtUIfl/1uCMWbIotMZMoe1Vs7P5sH4tXF0Pa8.BaOJPcjHZQTSqu', '29056491Q', 'mfmoradaw@gmail.com', 'Manuel Francisco', 'Moara', 'Avda. Andalucía Nº85 2º', 21500, 'A'),
+(2, '21', 'Inma', '$2y$10$45tCFkoTjqNeckki7XM55.wfQMjaJQxwMrkSeskNHKCppxqn08kl6', '44209697V', 'mfmora2@gmail.com', 'Inma', 'Ramos', 'Avda. Andalucía Nº85 2º', 21500, 'A');
 
 --
 -- Índices para tablas volcadas
