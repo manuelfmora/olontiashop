@@ -18,9 +18,7 @@ class M_User extends CI_Model{
      * @return Int Nº de usuarios
      */
     public function getCount_NombreUsuario($nombre_usu) {
-        echo "SELECT * "
-                . "FROM usuario "
-                . "WHERE nombre_usu = '$nombre_usu' ";
+     
         $query = $this->db->query("SELECT * "
                 . "FROM usuario "
                 . "WHERE nombre_usu = '$nombre_usu' ");

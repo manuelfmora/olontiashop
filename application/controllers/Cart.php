@@ -113,7 +113,7 @@ class Cart extends CI_Controller{
         }
          //Si no supera el stock 
         if ($stock >= ($cantidad + $cantidadIntroducida)) {
-//            print_r('El mStock es: '.$stock);
+
             $articulo = array(
                 "id" => $producto['idProducto'],
                 "cantidad" => $cantidadIntroducida,

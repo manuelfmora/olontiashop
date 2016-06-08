@@ -119,8 +119,7 @@ class M_Pedidos extends CI_Model {
      */
     public function CambiaStock($idProducto, $cantidad) {
         $stock = $this->M_Cart->getStock($idProducto);
-//        print_r('Stock'.$stock);
-//        print_r('Cantidad'.$cantidad);
+
         $stock = $stock - $cantidad;
 
         $data = array(

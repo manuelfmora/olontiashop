@@ -32,9 +32,9 @@ class UserRemove extends CI_Controller {
      * Da de baja al usuario logueado de la base de datos
      */
     public function eliminar() {
-        echo 'Entra en eliminar';
+        
         if (!SesionIniciadaCheck()) {
-            echo 'Entra';
+            
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
         }

@@ -22,7 +22,7 @@ class Main extends CI_Controller {
     public function index($desde = 0) {        
         
         $config = $this->getConfigPag();
-//        print_r($config);
+
         
         $this->pagination->initialize($config);
         

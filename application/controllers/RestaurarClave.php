@@ -72,7 +72,7 @@ class RestaurarClave extends CI_Controller{
             $cuerpo = $this->load->view('V_Mailok', '', true);
             $this->load->view('V_Plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Mail correcto'));
         }
-//         var_dump($this->email->print_debugger());
+
     }
 
     /**
