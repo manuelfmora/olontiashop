@@ -45,7 +45,7 @@ class Login extends CI_Controller{
      * @param String $username Nombre del usuario
      */
     public function Login($username) {
-        echo 'Entra en login'.$username;
+        
         if ($username) {
             $datos = array(
                 'username' => $username,

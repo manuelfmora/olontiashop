@@ -97,7 +97,7 @@
                    </tr>
                    <tr>
                        <th>Total<br><h6>Impuestos incluidos</h6></th>                    
-                     <td><?=$this->myCart->precio_iva()?></td>
+                     <td><?=round($this->myCart->precio_iva(),2)?></td>
                    </tr>
                  </tbody>
                </table>

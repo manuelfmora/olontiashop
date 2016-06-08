@@ -46,7 +46,7 @@ class PedidosLista extends CI_Controller{
      * @param Int $idPedido ID del pedido
      */
     public function AnularPedido($idPedido) {
-        echo 'La id del pedido es:'.$idPedido;
+        
         $msg_error = '';
         $pedidos = $this->M_PedidosLista->getPedidos($this->session->userdata('userid'));
 

@@ -42,7 +42,7 @@ class RestaurarClave extends CI_Controller{
      * @return boolean
      */
     public function ExisteUsuario_check($username) {
-        echo 'Usuario:'.$username;
+        
         if ($this->M_User->getCount_NombreUsuario($username) > 0) {
             return TRUE;
         } else {

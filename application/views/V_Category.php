@@ -85,7 +85,6 @@
                        <!-- start single product item -->
 
                       </ul>
-<!--                 <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>-->
                     </div>
                     <!-- / men product category -->
                   </div>
@@ -100,7 +99,7 @@
      <!-- PAGINACIÓN -->
        <div class="product-pagination text-center">
                     <nav>                              
-                        <!-- PAGINATION CODEIGNITER -->
+                       
                         <?= $this->pagination->create_links(); ?>
 
                     </nav>                        

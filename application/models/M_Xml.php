@@ -11,7 +11,7 @@ class M_Xml extends CI_Model {
     }
     
     /**
-     * Consulta todas las camisetas de una categoría
+     * Consulta todos los productos de una categoría
      * @param Int $idCat ID de la categoría
      * @return Array
      */
@@ -48,7 +48,7 @@ class M_Xml extends CI_Model {
     }
     
     /**
-     * Añade una camiseta a la base de datos
+     * Añade un producto a la base de datos
      * @param Array $data Datos para insertar
      */
     public function addProducto($data) {

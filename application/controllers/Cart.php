@@ -153,7 +153,7 @@ class Cart extends CI_Controller{
      * Borra todo el carrito
      */
     public function eliminarcompra() {
-        echo 'ENTRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+       
         $this->myCart->destroy();
 
         redirect('', 'location', 301); //Vuelve a la página principal

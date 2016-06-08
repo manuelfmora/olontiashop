@@ -74,18 +74,7 @@
                 <!-- / language -->
 
                 <!-- start currency -->
-<!--                <div class="aa-currency">
-                  <div class="dropdown">
-                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class="fa fa-usd"></i>EURO
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="#"><i class="fa fa-euro"></i>EURO</a></li>
-                      <li><a href="#"><i class="fa fa-jpy"></i>YEN</a></li>
-                    </ul>
-                  </div>
-                </div>-->
+
                  
                  <?= MuestraMonedas() ?> 
                  
@@ -144,13 +133,13 @@
 
                        </div>
                    </li>  
-<!--                  <li class="hidden-xs"><a href="checkout.html">Revisa</a></li>-->
+
                   <?php endif;?> 
-<!--                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
+
                 <?php if (!SesionIniciadaCheck()): //Sólo mostrar si la sesión iniciada ?>
                     <li><a href="<?= base_url() . 'index.php/Login' ?>" >Login</a></li>
                 <?php endif; ?>
-<!--                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
+
                 </ul>
               </div>
             </div>
@@ -174,7 +163,7 @@
                   <p>Olontia<strong>Shop</strong> <span>Tu tienda de música</span></p>
                 </a>
                 <!-- img based logo -->
-                <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+              
               </div>
                   
               <!-- / logo  -->
@@ -198,7 +187,7 @@
                         <h4><a href="<?= base_url() . 'index.php/VerCd/ver/' . $items['id'] ?>"><?= $items['nombre'] ?></a></h4>
                         <p><?= $items['cantidad'] ?> x <?= round($items['precio']*$this->session->userdata('rate'), 2).' '.$this->session->userdata('currency')?></p>
                       </div>
-                      <a class="aa-remove-product" href="<?= base_url().'Cart/eliminar/'. $items['id']?>"><span class="fa fa-times"></span></a>
+                      <a class="aa-remove-product" href="<?= base_url().'index.php/Cart/eliminar/'. $items['id']?>"><span class="fa fa-times"></span></a>
                     </li>
                      <?php endforeach; ?>              
                     <li>
@@ -206,13 +195,13 @@
                         Total
                       </span>
                       <span class="aa-cartbox-total-price">
-                        <?=$this->myCart->precio_total()?>
+                        <?=round($this->myCart->precio_total(),2)?>
                       </span>
                     </li>
                     
                     
                   </ul>
-                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Revisar</a>
+                  <a class="aa-cartbox-checkout aa-primary-btn" href="<?= base_url().'index.php/Cart' ?>">Revisar</a>
                   
                 </div>
                  <?php endif;?>
@@ -406,38 +395,6 @@
     </div>
   </footer>
   <!-- / footer -->
-
-  <!-- Login Modal -->  
-<!--  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">                      
-        <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login o Registrarse</h4>
-          <form class="aa-login-form" action="<?= base_url() . 'index.php/Login' ?>" method="POST">
-            <label for="">Usuario<span>*</span></label>
-            <input type="text" placeholder="Usuario" name="username" type="text" autofocus>
-            <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password" name="clave" value="">
-            <?php
-                if (isset($error))
-                    echo $error;
-            ?>
-            <div class="form-group">
-            <button class="aa-browse-btn" type="submit" value="entrar" name="entrar">Login</button>  
-            </div>
-            <label > </label>
-            <p class="aa-lost-password"></p>
-            <div class="aa-register-now">
-              Don't have an account?<a href="<?= base_url() . 'index.php/User_insert' ?>" data-toggle="modal" data-target="">Register now!</a>
-              
-            </div>
-          </form>
-        </div>                        
-      </div> /.modal-content 
-    </div> /.modal-dialog 
-  </div>-->
-
 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2016 a las 09:40:32
+-- Tiempo de generación: 08-06-2016 a las 14:38:57
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
   `stock` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -199,54 +199,64 @@ INSERT INTO `producto` (`idProducto`, `idCategoria`, `cod_producto`, `nombre_pro
 (3, 1, 'CD_ADE', 'Adele - 25', '17.99', '0.00', 'banner/3.jpg', '21.00', 'Según palabras de ADELE, "este disco es un disco de reconciliación conmigo misma. Por el tiempo perdido, por todo aquello que hice y por lo que nunca llegué a hacer". "25" es un gran álbum que supone el regreso de ADELE después de "Skyfall"', 2, 1, '2016-06-01', '2017-06-07', 30),
 (4, 1, 'CD_HUM', 'Human League - Reproduction', '23.00', '10.00', 'alternativo/1.jpg', '21.00', 'HUMAN LEAGUE - REPRODUCTION', 0, 1, '2016-06-01', '2017-06-07', 29),
 (5, 1, 'CD_RED', 'Red Hot Chili Peppers - Red Hot Chilli Peppers', '23.00', '10.00', 'alternativo/2.jpg', '21.00', 'RED HOT CHILI PEPPERS - RED HOT CHILLI PEPPERS', 1, 1, '2016-06-01', '2017-06-07', 12),
-(6, 1, 'CD_DIS', 'Disclosure - Settle', '23.00', '10.00', 'alternativo/3.jpg', '21.00', 'Guy y Howard Lawrence son oriundos de Reigate (Surrey) al Sudeste de Inglaterra y juntos forman el dúo #Disclosure# ', 1, 1, '2016-06-01', '2017-06-07', 13),
+(6, 1, 'CD_DIS', 'Disclosure - Settle', '23.00', '10.00', 'alternativo/3.jpg', '21.00', 'Guy y Howard Lawrence son oriundos de Reigate (Surrey) al Sudeste de Inglaterra y juntos forman el dúo #Disclosure# ', 0, 1, '2016-06-01', '2017-06-07', 13),
 (7, 1, 'CD_NIR', 'Nirvana - Nevermind ', '9.50', '10.99', 'alternativo/4.jpg', '21.00', 'Se cumplen 20 años de la publicación del histórico álbum que llevó al éxito a la banda formada por Kurt Cobain', 1, 1, '2016-06-01', '2017-06-07', 10),
-(8, 1, 'CD_JAY', 'Jayhawks - Paging Mr.proust', '17.99', '0.00', 'alternativo/5.jpg', '21.00', 'Nuevo trabajo de la banda estaunidiense Paging Mr. Proustproducido por el líder de la banda, el cantante y guitarrista Gary Lou', 1, 1, '2016-06-01', '2017-06-07', 11),
+(8, 1, 'CD_JAY', 'Jayhawks - Paging Mr.proust', '17.99', '0.00', 'alternativo/5.jpg', '21.00', 'Nuevo trabajo de la banda estaunidiense Paging Mr. Proustproducido por el líder de la banda, el cantante y guitarrista Gary Lou', 0, 1, '2016-06-01', '2017-06-07', 11),
 (9, 1, 'CD_POS', 'Posies - Solid States', '17.99', '0.00', 'alternativo/6.jpg', '21.00', 'The Posies vuelven a la carga en 2016, con nuevo disco, "Solid States.', 1, 1, '2016-06-01', '2017-06-07', 18),
-(10, 1, 'CD_NEW', 'New Order - Complete Music', '15.50', '0.00', 'alternativo/7.jpg', '21.00', 'Incluye el álbum "Music complete" en Cd y cupón de descarga y los "extended mix" de cada tema publicados anteriormente en caja de vinilos.', 1, 1, '2016-06-01', '2017-06-07', 7),
+(10, 1, 'CD_NEW', 'New Order - Complete Music', '15.50', '0.00', 'alternativo/7.jpg', '21.00', 'Incluye el álbum "Music complete" en Cd y cupón de descarga y los "extended mix" de cada tema publicados anteriormente en caja de vinilos.', 0, 1, '2016-06-01', '2017-06-07', 7),
 (11, 1, 'CD_JAM', 'James Blake - The Colour In Anything', '16.99', '0.00', 'alternativo/8.jpg', '21.00', 'James Blake publica, por sorpresa,  su tercer álbum en Digital el viernes 6 de Mayo y el 20 en físico', 1, 1, '2016-06-01', '2017-06-07', 11),
-(12, 1, 'CD_TID', 'Tides From Nebula - Eternal Movement', '9.50', '0.00', 'alternativo/9.jpg', '21.00', 'TIDES FROM NEBULA - ETERNAL MOVEMENT.', 1, 1, '2016-06-01', '2017-06-07', 12),
+(12, 1, 'CD_TID', 'Tides From Nebula - Eternal Movement', '9.50', '0.00', 'alternativo/9.jpg', '21.00', 'TIDES FROM NEBULA - ETERNAL MOVEMENT.', 0, 1, '2016-06-01', '2017-06-07', 12),
 (13, 1, 'CD_LIV', 'Livingston - Animal', '9.50', '0.00', 'alternativo/10.jpg', '21.00', 'LIVINGSTON - ANIMAL.', 1, 1, '2016-06-01', '2017-06-07', 3),
-(14, 2, 'CD_THE', 'The Pretty Reckless - Light Me Up', '18.50', '9.50', 'pop/1.jpg', '21.00', 'THE PRETTY RECKLESS - LIGHT ME UP', 1, 1, '2016-06-01', '2017-06-07', 11),
+(14, 2, 'CD_THE', 'The Pretty Reckless - Light Me Up', '18.50', '9.50', 'pop/1.jpg', '21.00', 'THE PRETTY RECKLESS - LIGHT ME UP', 0, 1, '2016-06-01', '2017-06-07', 11),
 (15, 2, 'CD_BEY', 'Beyonce - Lemonade', '19.50', '25.50', 'pop/2.jpg', '21.00', 'LEMONADE, el sexto álbum de estudio de Beyoncé y su segundo álbum visual', 1, 1, '2016-06-01', '2017-06-07', 20),
-(16, 2, 'CD_ADR', 'Adrian - Lleno De Vida', '15.50', '0.00', 'pop/3.jpg', '21.00', 'Lleno de Vida es sin duda un sueño cumplido. Un disco donde el joven malagueño Adrián Martín, canta a dúo con grandes artistas', 1, 1, '2016-06-01', '2017-06-07', 30),
+(16, 2, 'CD_ADR', 'Adrian - Lleno De Vida', '15.50', '0.00', 'pop/3.jpg', '21.00', 'Lleno de Vida es sin duda un sueño cumplido. Un disco donde el joven malagueño Adrián Martín, canta a dúo con grandes artistas', 0, 1, '2016-06-01', '2017-06-07', 30),
 (17, 2, 'CD_JOS', 'Jose Luis Perales - Calma', '16.99', '0.00', 'pop/4.jpg', '21.00', 'Indiscutiblemente uno de los artistas más prolíficos y exitosos de la escena española de los últimos cuarenta años.', 1, 1, '2016-06-01', '2017-06-07', 29),
-(18, 2, 'CD_SER', 'Sergio Contreras - Sien7e', '13.99', '0.00', 'pop/5.jpg', '21.00', 'SERGIO CONTRERAS nos presenta su nuevo single MIEN7EME con la colaboración de Fernando Caro y la coproducción de Alejandro', 1, 1, '2016-06-01', '2017-06-07', 19),
+(18, 2, 'CD_SER', 'Sergio Contreras - Sien7e', '13.99', '0.00', 'pop/5.jpg', '21.00', 'SERGIO CONTRERAS nos presenta su nuevo single MIEN7EME con la colaboración de Fernando Caro y la coproducción de Alejandro', 0, 1, '2016-06-01', '2017-06-07', 19),
 (19, 2, 'CD_MIC', 'Michael Jackson - Thriller', '16.50', '0.00', 'pop/6.jpg', '21.00', 'MICHAEL JACKSON - THRILLER', 1, 1, '2016-06-01', '2017-06-07', 13),
-(20, 2, 'CD_ALB', 'Alba Molina - Alba Canta A Lole Y Manuel', '8.99', '0.00', 'pop/7.jpg', '21.00', 'ALBA MOLINA Alba canta a Lole y Manuel Con la Guitarra de Joselito Acedo.', 1, 1, '2016-06-01', '2017-06-07', 11),
+(20, 2, 'CD_ALB', 'Alba Molina - Alba Canta A Lole Y Manuel', '8.99', '0.00', 'pop/7.jpg', '21.00', 'ALBA MOLINA Alba canta a Lole y Manuel Con la Guitarra de Joselito Acedo.', 0, 1, '2016-06-01', '2017-06-07', 11),
 (21, 2, 'CD_ALE', 'Alex Ortiz - Sexto Sentido', '16.50', '0.00', 'pop/8.jpg', '21.00', 'Alex Ortiz es un magnífico baladista, que no hace ascos a la rumba con más ritmo o al Nuevo Flamenco', 1, 1, '2016-06-01', '2017-06-07', 11),
-(22, 2, 'CD_BEB', 'Bebe - Cambio De Piel', '15.99', '0.00', 'pop/9.jpg', '21.00', 'Tras casi cuatro años de silencio, Bebe ha vuelto al estudio para grabar sus nuevas composiciones de la mano de Carlos Jean', 1, 1, '2016-06-01', '2017-06-07', 11),
+(22, 2, 'CD_BEB', 'Bebe - Cambio De Piel', '15.99', '0.00', 'pop/9.jpg', '21.00', 'Tras casi cuatro años de silencio, Bebe ha vuelto al estudio para grabar sus nuevas composiciones de la mano de Carlos Jean', 0, 1, '2016-06-01', '2017-06-07', 11),
 (23, 2, 'CD_MAR', 'Marta Sanchez - 21 Dias', '10.99', '14.99', 'pop/10.jpg', '21.00', 'Marta Sánchez es autora de todas las canciones del disco junto a Daniel Terán, que además ha producido el trabajo junto a Pablo', 1, 1, '2016-06-01', '2017-06-07', 11),
-(24, 3, 'CD_CHI', 'Chikos Del Maiz - Trap Mirror', '8.99', '0.00', 'hip_hop/1.jpg', '21.00', 'Se despiden a lo grande con cuatro bombazos, que como de costumbre arrojarán sal sobre la herida y no dejarán indiferente a nadie. El rap distópico ha llegado.', 1, 1, '2016-06-01', '2017-06-07', 19),
+(24, 3, 'CD_CHI', 'Chikos Del Maiz - Trap Mirror', '8.99', '0.00', 'hip_hop/1.jpg', '21.00', 'Se despiden a lo grande con cuatro bombazos, que como de costumbre arrojarán sal sobre la herida y no dejarán indiferente a nadie. El rap distópico ha llegado.', 0, 1, '2016-06-01', '2017-06-07', 19),
 (25, 3, 'CD_VIO', 'Violadores Del Verso - Gira 06/07', '12.99', '0.00', 'hip_hop/2.jpg', '21.00', 'Nueva edición del celebrado CD/DVD de Violadores Del Verso en Jewelcase', 1, 1, '2016-06-01', '2017-06-07', 13),
-(26, 3, 'CD_ARM', 'Arma X - Anticonstitucional', '8.99', '0.00', 'hip_hop/3.jpg', '21.00', 'El mundo es una cárcel gigante, vigila lo que dices, lo que haces, con quien te ves, los sitios que frecuentas,.', 1, 1, '2016-06-01', '2017-06-07', 11),
+(26, 3, 'CD_ARM', 'Arma X - Anticonstitucional', '8.99', '0.00', 'hip_hop/3.jpg', '21.00', 'El mundo es una cárcel gigante, vigila lo que dices, lo que haces, con quien te ves, los sitios que frecuentas,.', 0, 1, '2016-06-01', '2017-06-07', 11),
 (27, 3, 'CD_EMI', 'Eminem - Encore(explicit)', '9.50', '18.50', 'hip_hop/4.jpg', '21.00', 'Alex Ortiz es un magnífico baladista, que no hace ascos a la rumba con más ritmo o al Nuevo Flamenco', 1, 1, '2016-06-01', '2017-06-07', 11),
-(28, 3, 'CD_DJT', 'Dj T-kut and Dj Player - Wax Cutters', '10.50', '0.00', 'hip_hop/5.jpg', '21.00', 'Dj T-Kut y Dj Player presentan una herramienta esencial para la práctica del turntablism', 1, 1, '2016-06-01', '2017-06-07', 11),
+(28, 3, 'CD_DJT', 'Dj T-kut and Dj Player - Wax Cutters', '10.50', '0.00', 'hip_hop/5.jpg', '21.00', 'Dj T-Kut y Dj Player presentan una herramienta esencial para la práctica del turntablism', 0, 1, '2016-06-01', '2017-06-07', 11),
 (29, 3, 'CD_DAR', 'Dark La Eme - 7 Años En La Vida De', '10.50', '12.99', 'hip_hop/6.jpg', '21.00', 'LEMONADE, el sexto álbum de estudio de Beyoncé y su segundo álbum visual', 1, 1, '2016-06-01', '2017-06-07', 20),
-(30, 3, 'CD_ACC', 'Accion Sanchez and Hazhe - Monkey Breaks', '14.99', '0.00', 'hip_hop/7.jpg', '21.00', 'Vinilo de batalla a la vieja usanza: dos de los más reconocidos productores de la escena, Acción Sanchez and Hazhe, unen esfuerzos', 1, 1, '2016-06-01', '2017-06-07', 30),
+(30, 3, 'CD_ACC', 'Accion Sanchez and Hazhe - Monkey Breaks', '14.99', '0.00', 'hip_hop/7.jpg', '21.00', 'Vinilo de batalla a la vieja usanza: dos de los más reconocidos productores de la escena, Acción Sanchez and Hazhe, unen esfuerzos', 0, 1, '2016-06-01', '2017-06-07', 30),
 (31, 3, 'CD_RAY', 'Rayden - En Alma Y Hueso', '16.50', '0.00', 'hip_hop/8.jpg', '21.00', '"Sorteo "PUMA" de camiseta y zapatillas "Suede" entre todos los compradores del CD. El sorteo se celebrará el día 12 de diciembre.', 1, 1, '2016-06-01', '2017-06-07', 29),
-(32, 3, 'CD_ELP', 'Elphomega - Homogeddon/el Testimonio Libra', '7.99', '15.99', 'hip_hop/9.jpg', '21.00', 'Tras casi cuatro años de silencio, Bebe ha vuelto al estudio para grabar sus nuevas composiciones de la mano de Carlos Jean', 1, 1, '2016-06-01', '2017-06-07', 11),
+(32, 3, 'CD_ELP', 'Elphomega - Homogeddon/el Testimonio Libra', '7.99', '15.99', 'hip_hop/9.jpg', '21.00', 'Tras casi cuatro años de silencio, Bebe ha vuelto al estudio para grabar sus nuevas composiciones de la mano de Carlos Jean', 0, 1, '2016-06-01', '2017-06-07', 11),
 (33, 3, 'CD_DIO', 'Dios Ke Crew - Humanose', '14.99', '0.00', 'hip_hop/10.jpg', '21.00', 'Hablar de Dios Ke Te Krew es hablar de años de experiencia en escenarios en cientos de conciertos abarrotados', 1, 1, '2016-06-01', '2017-06-07', 11),
-(44, 4, 'CD_ERI', 'Eric Clapton- An Appreciati', '7.99', '16.99', 'rock/1.jpg', '21.00', 'Eric Clapton tras años de admirar la obra de JJ Cale y de haber realizado varias versiones de canciones como After Midnight', 1, 1, '2016-06-01', '2017-06-07', 19),
+(44, 4, 'CD_ERI', 'Eric Clapton- An Appreciati', '7.99', '16.99', 'rock/1.jpg', '21.00', 'Eric Clapton tras años de admirar la obra de JJ Cale y de haber realizado varias versiones de canciones como After Midnight', 0, 1, '2016-06-01', '2017-06-07', 19),
 (45, 4, 'CD_MOL', 'Molotov - Donde Jugaran Las Niñas?', '9.50', '11.99', 'rock/2.jpg', '21.00', 'MOLOTOV - DONDE JUGARAN LAS NIÑAS?', 1, 1, '2016-06-01', '2017-06-07', 13),
-(46, 4, 'CD_BAD', 'Bad Company - Live In Concert 1977 and 1979', '19.99', '0.00', 'rock/3.jpg', '21.00', 'A pesar de su reputación como una de las bandas de directo más interesantes de la escena rock de los años 70.', 1, 1, '2016-06-01', '2017-06-07', 11),
+(46, 4, 'CD_BAD', 'Bad Company - Live In Concert 1977 and 1979', '19.99', '0.00', 'rock/3.jpg', '21.00', 'A pesar de su reputación como una de las bandas de directo más interesantes de la escena rock de los años 70.', 0, 1, '2016-06-01', '2017-06-07', 11),
 (47, 4, 'CD_ZZT', 'Zz Top - La Futura', '9.50', '16.50', 'rock/4.jpg', '21.00', 'Despues de casi una década de sequía se publica #La Futura#, el decimoquinto trabajo de estudio del grupo texano ZZ ', 1, 1, '2016-06-01', '2017-06-07', 11),
-(48, 4, 'CD_TRE', 'T. Rex - Electric Warrior', '9.50', '0.00', 'rock/5.jpg', '21.00', 'Electric Warrior fue grabado en 1971 y es considerado la quintaesencia del Glam Rock , encumbrando a su lider Marc Bolan', 1, 1, '2016-06-01', '2017-06-07', 11),
+(48, 4, 'CD_TRE', 'T. Rex - Electric Warrior', '9.50', '0.00', 'rock/5.jpg', '21.00', 'Electric Warrior fue grabado en 1971 y es considerado la quintaesencia del Glam Rock , encumbrando a su lider Marc Bolan', 0, 1, '2016-06-01', '2017-06-07', 11),
 (49, 4, 'CD_SUP', 'Supertramp - Crime Of The Century', '9.50', '0.00', 'rock/6.jpg', '21.00', 'Dentro de las mejores composiciones del dúo formado por Rick Davies y  Roger Hodgson', 1, 1, '2016-06-01', '2017-06-07', 20),
-(50, 4, 'CD_CRE', 'Creedence Clearwater - Green River - Remastered', '9.50', '10.50', 'rock/7.jpg', '21.00', 'CREEDENCE CLEARWATER - GREEN RIVER - REMASTERED', 1, 1, '2016-06-01', '2017-06-07', 30),
+(50, 4, 'CD_CRE', 'Creedence Clearwater - Green River - Remastered', '9.50', '10.50', 'rock/7.jpg', '21.00', 'CREEDENCE CLEARWATER - GREEN RIVER - REMASTERED', 0, 1, '2016-06-01', '2017-06-07', 30),
 (51, 4, 'CD_JEA', 'Jean Michel Jarre - Electronica 2:the Heart Of Noise', '18.50', '0.00', 'rock/8.jpg', '21.00', 'JEAN MICHEL JARRE - ELECTRONICA 2:THE HEART OF NOISE.', 1, 1, '2016-06-01', '2017-06-07', 29),
-(52, 4, 'CD_BRO', 'Brother Firetribe - Diamond In The Firepit', '13.99', '0.00', 'rock/9.jpg', '21.00', '"Diamond in the firepit" es el tercer álbum de esta banda finlandesa y se convertirá en la banda sonora del próximo verano.', 1, 1, '2016-06-01', '2017-06-07', 11),
-(53, 4, 'CD_SHO', 'The Short Fuses - Duchess Hustle', '3.99', '0.00', 'rock/10.jpg', '21.00', 'THE SHORT FUSES - DUCHESS HUSTLE', 1, 1, '2016-06-01', '2017-06-07', 11),
-(64, 5, 'CD_D80', 'Varios Electronica/dance - Disco 80', '17.99', '0.00', 'electronica/1.jpg', '21.00', 'Tras el éxito de Disco 90, Blanco y Negro lanza Disco 80, un álbum que contiene los sonidos más representativos de la época', 1, 1, '2016-06-01', '2017-06-07', 19),
+(52, 4, 'CD_BRO', 'Brother Firetribe - Diamond In The Firepit', '13.99', '0.00', 'rock/9.jpg', '21.00', '"Diamond in the firepit" es el tercer álbum de esta banda finlandesa y se convertirá en la banda sonora del próximo verano.', 0, 1, '2016-06-01', '2017-06-07', 11),
+(53, 4, 'CD_SHO', 'The Short Fuses - Duchess Hustle', '3.99', '0.00', 'rock/10.jpg', '21.00', 'THE SHORT FUSES - DUCHESS HUSTLE', 0, 1, '2016-06-01', '2017-06-07', 11),
+(64, 5, 'CD_D80', 'Varios Electronica/dance - Disco 80', '17.99', '0.00', 'electronica/1.jpg', '21.00', 'Tras el éxito de Disco 90, Blanco y Negro lanza Disco 80, un álbum que contiene los sonidos más representativos de la época', 0, 1, '2016-06-01', '2017-06-07', 19),
 (65, 5, 'CD_FES', 'Varios Electronica/dance - Festival Hits', '17.99', '0.00', 'electronica/2.jpg', '21.00', 'Blanco y Negro presenta el álbum más completo de la cultura EDM', 1, 1, '2016-06-01', '2017-06-07', 13),
-(66, 5, 'CD_TIG', 'Tiga - No Fantasy Required', '13.50', '0.00', 'electronica/3.jpg', '21.00', 'Muchas cosas han podido cambiar en la escena dance desde el último álbum de canciones de Tiga, pero él sigue siendo un valor seguro.', 1, 1, '2016-06-01', '2017-06-07', 10),
+(66, 5, 'CD_TIG', 'Tiga - No Fantasy Required', '13.50', '0.00', 'electronica/3.jpg', '21.00', 'Muchas cosas han podido cambiar en la escena dance desde el último álbum de canciones de Tiga, pero él sigue siendo un valor seguro.', 0, 1, '2016-06-01', '2017-06-07', 10),
 (67, 5, 'CD_MOD', 'Moderat - Iii', '9.50', '16.50', 'electronica/4.jpg', '21.00', 'MODERAT - III', 1, 1, '2016-06-01', '2017-06-07', 11),
 (68, 5, 'CD_CIR', 'Circles - Structures Unreleased Material 1985-1989', '15.99', '0.00', 'electronica/5.jpg', '21.00', 'Circles, compuesto por Mike Bohrmann y Dierk Leitert, vio la luz por primera vez en el año 1983', 1, 1, '2016-06-01', '2017-06-07', 11),
-(69, 5, 'CD_TWO', 'Two Door Cinema Club - Beacon+changing Of The Seasons', '9.99', '13.99', 'electronica/6.jpg', '21.00', '"No ha pasado apenas un año desde que Two Door Cinema Club lanzara ""Beacon"", su segundo larga duración', 1, 1, '2016-06-01', '2017-06-07', 20),
+(69, 5, 'CD_TWO', 'Two Door Cinema Club - Beacon+changing Of The Seasons', '9.99', '13.99', 'electronica/6.jpg', '21.00', '"No ha pasado apenas un año desde que Two Door Cinema Club lanzara ""Beacon"", su segundo larga duración', 0, 1, '2016-06-01', '2017-06-07', 20),
 (70, 5, 'CD_PAR', 'Varios Electronica/baile - Paris Lounge', '6.99', '19.50', 'electronica/7.jpg', '21.00', 'Los sonidos Cool Tempo del París de hoy en día', 1, 1, '2016-06-01', '2017-06-07', 30),
-(71, 5, 'CD_PIN', 'Pinker Tones - Life In Stereo', '5.50', '14.50', 'electronica/8.jpg', '21.00', 'LIFE IN STEREO es la banda sonora original de una película que aún no existe..', 1, 1, '2016-06-01', '2017-06-07', 29),
+(71, 5, 'CD_PIN', 'Pinker Tones - Life In Stereo', '5.50', '14.50', 'electronica/8.jpg', '21.00', 'LIFE IN STEREO es la banda sonora original de una película que aún no existe..', 0, 1, '2016-06-01', '2017-06-07', 29),
 (72, 5, 'CD_DAF', 'Daft Punk - Musique V.1 1993-2005', '7.99', '19.50', 'electronica/9.jpg', '21.00', 'DAFT PUNK - MUSIQUE V.1 1993-2005', 1, 1, '2016-06-01', '2017-06-07', 11),
-(73, 5, 'CD_SHA', 'Dj Shadow - Entroducing(deluxe Edition)', '3.99', '0.00', 'electronica/10.jpg', '21.00', 'DJ SHADOW - ENTRODUCING(DELUXE EDITION)', 1, 1, '2016-06-01', '2017-06-07', 11);
+(73, 5, 'CD_SHA', 'Dj Shadow - Entroducing(deluxe Edition)', '3.99', '0.00', 'electronica/10.jpg', '21.00', 'DJ SHADOW - ENTRODUCING(DELUXE EDITION)', 0, 1, '2016-06-01', '2017-06-07', 11),
+(84, 1, 'CD_LAS', 'THE LAST SHADOW PUPPETS', '7.50', '16.99', 'alternativo/11.jpg', '21.00', 'Last shadow puppets.', 0, 1, '2016-06-01', '2017-06-07', 11),
+(85, 1, 'CD_TOM', 'TOM MCRAE - ALPHABET OF HURRI', '18.99', '0.00', 'alternativo//12.jpg', '21.00', 'Tom mcrae.', 0, 1, '2016-06-01', '2017-06-07', 20),
+(86, 2, 'CD_BRA', '¡BRAVO! 2014', '16.99', '0.00', 'pop/11.jpg', '21.00', '¡BRAVO! 2014.', 0, 1, '2016-06-01', '2017-06-07', 11),
+(87, 2, 'CD_MEC', 'MECANO - ¿DONDE ESTA EL PAIS..?', '9.50', '0.00', 'pop/12.jpg', '21.00', 'MECANO - ¿DONDE ESTA EL PAIS..?.', 0, 1, '2016-06-01', '2017-06-07', 20),
+(88, 3, 'CD_DOM', '14 SHOTS TO THE DOME', '7.99', '10.50', 'hip_hop/11.jpg', '21.00', 'Ll cool j', 0, 1, '2016-06-01', '2017-06-07', 11),
+(89, 3, 'CD_PRI', 'Primer dan - 1ERDAN', '4.95', '13.99', 'hip_hop/12.jpg', '21.00', 'Primer dan - 1ERDAN.', 0, 1, '2016-06-01', '2017-06-07', 20),
+(90, 4, 'CD_SAN', 'SANTANA - CLASSIC', '5.99', '0.00', 'rock/11.jpg', '21.00', 'Santana', 0, 1, '2016-06-01', '2017-06-07', 11),
+(91, 4, 'CD_STI', 'Sting - ...ALL THIS TIME', '4.95', '13.99', 'rock/12.jpg', '21.00', 'Sting - ...ALL THIS TIME.', 0, 1, '2016-06-01', '2017-06-07', 20),
+(92, 5, 'CD_SOF', '12 S OF PLEASURE - PART III', '17.99', '18.50', 'electronica/11.jpg', '21.00', '12 S OF PLEASURE - PART III', 0, 1, '2016-06-01', '2017-06-07', 11),
+(93, 5, 'CD_FAC', 'FAC. DANCE: FACTORY RECORDS 1', '19.50', '0.00', 'electronica/12.jpg', '21.00', 'FAC. DANCE: FACTORY RECORDS 1.', 0, 1, '2016-06-01', '2017-06-07', 20);
 
 -- --------------------------------------------------------
 
@@ -422,7 +432,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=74;
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

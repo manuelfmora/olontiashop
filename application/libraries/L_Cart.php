@@ -14,7 +14,7 @@ class L_Cart {
     private $carrito = array();
 
     /**
-     * Seteamos el carrito exista o no exista en el constructor
+     * Seteamos el carrito existe o no existe en el constructor
      */
     public function __construct() {
 
