@@ -6,7 +6,7 @@
           <div class="aa-error-area">
             <h2>ERROR..</h2>
             <span>El carrito esta vacío.</span>
-            <p>Deves de realizar alguna compra.</p>
+            <p>Debes de realizar alguna compra.</p>
             <a href="<?= base_url().'index.php'?>"> Pulse aquí para ir al inicio.</a>
           </div>
         </div>

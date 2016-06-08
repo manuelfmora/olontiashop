@@ -74,6 +74,11 @@
                                <a href="<?= base_url() . 'index.php/Cart/eliminarcompra' ?>">
                                    <input class="aa-cart-view-btn" type="button" value="Eliminar Pedido"></a>
                           </div>
+                          <div class="aa-cart-coupon">                              
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="<?= base_url() ?>">
+                                   <input class="aa-cart-view-btn" type="button" value="Seguir comprando"></a>
+                          </div>
                           <input class="aa-cart-view-btn" type="submit"  name="guardar" value="Actualizar Carrito">
                         </td>
                       </tr>

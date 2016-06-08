@@ -11,7 +11,7 @@ class Category extends CI_Controller {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->library('pagination');
-        $this->load->model('M_Category');
+        $this->load->model('M_Categories');
         $this->load->model('M_Cd');
         $this->load->library('L_Cart', 0, 'myCart');
     
@@ -30,13 +30,13 @@ class Category extends CI_Controller {
 
         $this->pagination->initialize($config);
 
-        $unaCategoria = $this->M_Category->getUnaCategoria($idCat);
+        $unaCategoria = $this->M_Categories->getUnaCategoria($idCat);
 
-        $categorias = $this->M_Category->getCategorias();
+        $categorias = $this->M_Categories->getCategorias();
         $banner=$this->M_Cd->getBanner();
 
         //Conseguimos los productos de la categoría seleccionada
-        $productos = $this->M_Category->getProductosFromCategoria($idCat, $config['per_page'], $desde);
+        $productos = $this->M_Categories->getProductosFromCategoria($idCat, $config['per_page'], $desde);
 
             $cuerpo = $this->load->view('V_Category', Array('categoriaactive' => 'active', 
                                                          'titulo' => $unaCategoria['descripcion'],
@@ -55,7 +55,7 @@ class Category extends CI_Controller {
     function getConfigPag($idCat) {
         
         $config['base_url'] = site_url('/Category/ver/' . $idCat . '/');
-        $config['total_rows'] = $this->M_Category->getNumTotalProductosFromCategoria($idCat);
+        $config['total_rows'] = $this->M_Categories->getNumTotalProductosFromCategoria($idCat);
         $config['num_links'] = 1;
         $config['per_page'] = $this->config->item('per_page_categorias');
         $config['uri_segment'] = 4;

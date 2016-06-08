@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2016 a las 13:50:48
+-- Tiempo de generación: 08-06-2016 a las 09:40:32
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -39,11 +39,11 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 --
 
 INSERT INTO `categoria` (`idCategoria`, `cod_categoria`, `nombre_cat`, `descripcion`, `mostrar`) VALUES
-(1, 'CAT_ALT', 'alternativa', 'CD Alertnativa', 1),
-(2, 'CAT_POP', 'pop', 'CD Pop', 1),
-(3, 'CAT_HIP', 'hip_hop', 'CD hip hop', 1),
-(4, 'CAT_ROC', 'rock', 'CD rock', 1),
-(5, 'CAT_ELE', 'electronica', 'CD electronica', 1);
+(1, 'CAT_ALT', 'alternativa', 'Musica Alertnativa', 1),
+(2, 'CAT_POP', 'pop', 'Musica Pop', 1),
+(3, 'CAT_HIP', 'hip_hop', 'Musica hip hop', 1),
+(4, 'CAT_ROC', 'rock', 'Musica rock', 1),
+(5, 'CAT_ELE', 'electronica', 'Musica electronica', 1);
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `linea_pedido` (
   `precio` decimal(5,2) DEFAULT NULL,
   `importe` decimal(20,2) DEFAULT NULL,
   `iva` decimal(5,2) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `linea_pedido`
@@ -94,7 +94,21 @@ INSERT INTO `linea_pedido` (`id_LineaPedido`, `idPedido`, `idProducto`, `cantida
 (26, 19, 6, 1, '20.70', '20.70', '21.00'),
 (27, 20, 6, 1, '20.70', '20.70', '21.00'),
 (28, 21, 6, 1, '20.70', '20.70', '21.00'),
-(29, 21, 5, 2, '20.70', '41.40', '21.00');
+(29, 21, 5, 2, '20.70', '41.40', '21.00'),
+(30, 22, 9, 6, '17.99', '107.94', '21.00'),
+(31, 22, 5, 1, '20.70', '20.70', '21.00'),
+(32, 23, 9, 6, '17.99', '107.94', '21.00'),
+(33, 23, 5, 1, '20.70', '20.70', '21.00'),
+(34, 24, 5, 12, '20.70', '248.40', '21.00'),
+(35, 24, 12, 8, '9.50', '76.00', '21.00'),
+(36, 25, 5, 12, '20.70', '248.40', '21.00'),
+(37, 25, 12, 8, '9.50', '76.00', '21.00'),
+(38, 26, 7, 1, '8.46', '8.46', '21.00'),
+(39, 27, 10, 1, '15.50', '15.50', '21.00'),
+(40, 28, 10, 10, '15.50', '155.00', '21.00'),
+(41, 29, 66, 1, '13.50', '13.50', '21.00'),
+(42, 30, 6, 2, '20.70', '41.40', '21.00'),
+(43, 30, 10, 3, '15.50', '46.50', '21.00');
 
 -- --------------------------------------------------------
 
@@ -114,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `cod_provincia` varchar(45) DEFAULT NULL,
   `correo` varchar(128) DEFAULT NULL,
   `importeiva` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `pedido`
@@ -140,8 +154,17 @@ INSERT INTO `pedido` (`idPedido`, `idUsuario`, `importe`, `cantidad_total`, `est
 (17, 2, '20.70', 1, 'Pendiente', '2016-05-26', 'Avda. Andalucía Nº85 2º', 21500, '01', 'mfmoradaw@gmail.com', '25.05'),
 (18, 2, '41.40', 2, 'Pendiente', '2016-05-27', 'Avda. Andalucía Nº85 2º', 21500, '01', 'mfmoradaw@gmail.com', '50.09'),
 (19, 2, '20.70', 1, 'Pendiente', '2016-05-27', 'Avda. Andalucía Nº85 2º', 21500, '01', 'mfmoradaw@gmail.com', '25.05'),
-(20, 8, '20.70', 1, 'Pendiente', '2016-05-30', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '25.05'),
-(21, 8, '62.10', 3, 'Pendiente', '2016-05-31', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '75.14');
+(20, 8, '20.70', 1, 'Anulado', '2016-05-30', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '25.05'),
+(21, 8, '62.10', 3, 'Anulado', '2016-05-31', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '75.14'),
+(22, 8, '128.64', 7, 'Anulado', '2016-06-07', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '155.65'),
+(23, 8, '128.64', 7, 'Pendiente', '2016-06-07', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '155.65'),
+(24, 8, '324.40', 20, 'Pendiente', '2016-06-07', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '392.52'),
+(25, 8, '324.40', 20, 'Pendiente', '2016-06-07', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '392.52'),
+(26, 8, '8.46', 1, 'Pendiente', '2016-06-07', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '10.24'),
+(27, 8, '15.50', 1, 'Pendiente', '2016-06-07', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '18.75'),
+(28, 8, '155.00', 10, 'Pendiente', '2016-06-07', 'Avda. Andalucía Nº85 2º', 21500, '50', 'mfmoradaw@gmail.com', '187.55'),
+(29, 8, '13.50', 1, 'Pendiente', '2016-06-07', 'Avda. Andalucía Nº85 2º', 21500, '21', 'mfmoradaw@gmail.com', '16.33'),
+(30, 9, '87.90', 5, 'Pendiente', '2016-06-07', 'Avda. Andalucía Nº85 2º', 21500, '21', 'mfmora2@gmail.com', '106.36');
 
 -- --------------------------------------------------------
 
@@ -171,18 +194,18 @@ CREATE TABLE IF NOT EXISTS `producto` (
 --
 
 INSERT INTO `producto` (`idProducto`, `idCategoria`, `cod_producto`, `nombre_pro`, `precio`, `descuento`, `imagen`, `iva`, `descripcion`, `seleccionado`, `mostrar`, `fecha_inicio`, `fecha_fin`, `stock`) VALUES
-(1, 1, 'CD_IRON', 'Iron Maiden', '23.00', '0.00', 'banner/ironmaiden.jpg', '21.00', 'Cantante de Rok', 2, 1, '2016-06-01', '2017-06-07', 11),
-(2, 1, 'CD_BRU', 'Bruce Springsteen', '23.00', '0.00', 'banner/bruce.jpg', '21.00', 'Cantante de Rok', 2, 1, '2016-06-01', '2017-06-07', 20),
-(3, 1, 'CD_SAR', 'Saratoga', '23.00', '10.00', 'banner/saratoga.jpg', '21.00', 'Cantante de Rok', 2, 1, '2016-06-01', '2017-06-07', 30),
-(4, 1, 'CD_HUM', 'Human League - Reproduction', '23.00', '10.00', 'alternativo/1.jpg', '21.00', 'HUMAN LEAGUE - REPRODUCTION', 1, 1, '2016-06-01', '2017-06-07', 29),
-(5, 1, 'CD_RED', 'Red Hot Chili Peppers - Red Hot Chilli Peppers', '23.00', '10.00', 'alternativo/2.jpg', '21.00', 'RED HOT CHILI PEPPERS - RED HOT CHILLI PEPPERS', 1, 1, '2016-06-01', '2017-06-07', 19),
+(1, 1, 'CD_MUS', 'Muse - Drones', '21.50', '0.00', 'banner/1.jpg', '21.00', 'Nuevo disco de estudio de los MUSE que contiene canciones grandiosas y épicas de una de las bandas más grandes de los últimos años. Esta edición contiene un DVD con actuaciones en directo y material grabado en el estudio.', 2, 1, '2016-06-01', '2017-06-07', 11),
+(2, 1, 'CD_COL', 'Coldplay - A Head Full Of Dreams', '18.99', '0.00', 'banner/2.jpg', '21.00', 'Coldplay, la banda británica de mayor éxito de la última década, publica su séptimo álbum de estudio.', 2, 1, '2016-06-01', '2017-06-07', 20),
+(3, 1, 'CD_ADE', 'Adele - 25', '17.99', '0.00', 'banner/3.jpg', '21.00', 'Según palabras de ADELE, "este disco es un disco de reconciliación conmigo misma. Por el tiempo perdido, por todo aquello que hice y por lo que nunca llegué a hacer". "25" es un gran álbum que supone el regreso de ADELE después de "Skyfall"', 2, 1, '2016-06-01', '2017-06-07', 30),
+(4, 1, 'CD_HUM', 'Human League - Reproduction', '23.00', '10.00', 'alternativo/1.jpg', '21.00', 'HUMAN LEAGUE - REPRODUCTION', 0, 1, '2016-06-01', '2017-06-07', 29),
+(5, 1, 'CD_RED', 'Red Hot Chili Peppers - Red Hot Chilli Peppers', '23.00', '10.00', 'alternativo/2.jpg', '21.00', 'RED HOT CHILI PEPPERS - RED HOT CHILLI PEPPERS', 1, 1, '2016-06-01', '2017-06-07', 12),
 (6, 1, 'CD_DIS', 'Disclosure - Settle', '23.00', '10.00', 'alternativo/3.jpg', '21.00', 'Guy y Howard Lawrence son oriundos de Reigate (Surrey) al Sudeste de Inglaterra y juntos forman el dúo #Disclosure# ', 1, 1, '2016-06-01', '2017-06-07', 13),
-(7, 1, 'CD_NIR', 'Nirvana - Nevermind ', '9.50', '10.99', 'alternativo/4.jpg', '21.00', 'Se cumplen 20 años de la publicación del histórico álbum que llevó al éxito a la banda formada por Kurt Cobain', 1, 1, '2016-06-01', '2017-06-07', 11),
+(7, 1, 'CD_NIR', 'Nirvana - Nevermind ', '9.50', '10.99', 'alternativo/4.jpg', '21.00', 'Se cumplen 20 años de la publicación del histórico álbum que llevó al éxito a la banda formada por Kurt Cobain', 1, 1, '2016-06-01', '2017-06-07', 10),
 (8, 1, 'CD_JAY', 'Jayhawks - Paging Mr.proust', '17.99', '0.00', 'alternativo/5.jpg', '21.00', 'Nuevo trabajo de la banda estaunidiense Paging Mr. Proustproducido por el líder de la banda, el cantante y guitarrista Gary Lou', 1, 1, '2016-06-01', '2017-06-07', 11),
-(9, 1, 'CD_POS', 'Posies - Solid States', '17.99', '0.00', 'alternativo/6.jpg', '21.00', 'The Posies vuelven a la carga en 2016, con nuevo disco, "Solid States.', 1, 1, '2016-06-01', '2017-06-07', 11),
-(10, 1, 'CD_NEW', 'New Order - Complete Music', '15.50', '0.00', 'alternativo/7.jpg', '21.00', 'Incluye el álbum "Music complete" en Cd y cupón de descarga y los "extended mix" de cada tema publicados anteriormente en caja de vinilos.', 1, 1, '2016-06-01', '2017-06-07', 11),
+(9, 1, 'CD_POS', 'Posies - Solid States', '17.99', '0.00', 'alternativo/6.jpg', '21.00', 'The Posies vuelven a la carga en 2016, con nuevo disco, "Solid States.', 1, 1, '2016-06-01', '2017-06-07', 18),
+(10, 1, 'CD_NEW', 'New Order - Complete Music', '15.50', '0.00', 'alternativo/7.jpg', '21.00', 'Incluye el álbum "Music complete" en Cd y cupón de descarga y los "extended mix" de cada tema publicados anteriormente en caja de vinilos.', 1, 1, '2016-06-01', '2017-06-07', 7),
 (11, 1, 'CD_JAM', 'James Blake - The Colour In Anything', '16.99', '0.00', 'alternativo/8.jpg', '21.00', 'James Blake publica, por sorpresa,  su tercer álbum en Digital el viernes 6 de Mayo y el 20 en físico', 1, 1, '2016-06-01', '2017-06-07', 11),
-(12, 1, 'CD_TID', 'Tides From Nebula - Eternal Movement', '9.50', '0.00', 'alternativo/9.jpg', '21.00', 'TIDES FROM NEBULA - ETERNAL MOVEMENT.', 1, 1, '2016-06-01', '2017-06-07', 11),
+(12, 1, 'CD_TID', 'Tides From Nebula - Eternal Movement', '9.50', '0.00', 'alternativo/9.jpg', '21.00', 'TIDES FROM NEBULA - ETERNAL MOVEMENT.', 1, 1, '2016-06-01', '2017-06-07', 12),
 (13, 1, 'CD_LIV', 'Livingston - Animal', '9.50', '0.00', 'alternativo/10.jpg', '21.00', 'LIVINGSTON - ANIMAL.', 1, 1, '2016-06-01', '2017-06-07', 3),
 (14, 2, 'CD_THE', 'The Pretty Reckless - Light Me Up', '18.50', '9.50', 'pop/1.jpg', '21.00', 'THE PRETTY RECKLESS - LIGHT ME UP', 1, 1, '2016-06-01', '2017-06-07', 11),
 (15, 2, 'CD_BEY', 'Beyonce - Lemonade', '19.50', '25.50', 'pop/2.jpg', '21.00', 'LEMONADE, el sexto álbum de estudio de Beyoncé y su segundo álbum visual', 1, 1, '2016-06-01', '2017-06-07', 20),
@@ -195,18 +218,18 @@ INSERT INTO `producto` (`idProducto`, `idCategoria`, `cod_producto`, `nombre_pro
 (22, 2, 'CD_BEB', 'Bebe - Cambio De Piel', '15.99', '0.00', 'pop/9.jpg', '21.00', 'Tras casi cuatro años de silencio, Bebe ha vuelto al estudio para grabar sus nuevas composiciones de la mano de Carlos Jean', 1, 1, '2016-06-01', '2017-06-07', 11),
 (23, 2, 'CD_MAR', 'Marta Sanchez - 21 Dias', '10.99', '14.99', 'pop/10.jpg', '21.00', 'Marta Sánchez es autora de todas las canciones del disco junto a Daniel Terán, que además ha producido el trabajo junto a Pablo', 1, 1, '2016-06-01', '2017-06-07', 11),
 (24, 3, 'CD_CHI', 'Chikos Del Maiz - Trap Mirror', '8.99', '0.00', 'hip_hop/1.jpg', '21.00', 'Se despiden a lo grande con cuatro bombazos, que como de costumbre arrojarán sal sobre la herida y no dejarán indiferente a nadie. El rap distópico ha llegado.', 1, 1, '2016-06-01', '2017-06-07', 19),
-(25, 3, 'CD_VIO', 'Violadores Del Verso - Gira 06/07', '12.99', '0.00', 'hip_hop/26.jpg', '21.00', 'Nueva edición del celebrado CD/DVD de Violadores Del Verso en Jewelcase', 1, 1, '2016-06-01', '2017-06-07', 13),
+(25, 3, 'CD_VIO', 'Violadores Del Verso - Gira 06/07', '12.99', '0.00', 'hip_hop/2.jpg', '21.00', 'Nueva edición del celebrado CD/DVD de Violadores Del Verso en Jewelcase', 1, 1, '2016-06-01', '2017-06-07', 13),
 (26, 3, 'CD_ARM', 'Arma X - Anticonstitucional', '8.99', '0.00', 'hip_hop/3.jpg', '21.00', 'El mundo es una cárcel gigante, vigila lo que dices, lo que haces, con quien te ves, los sitios que frecuentas,.', 1, 1, '2016-06-01', '2017-06-07', 11),
 (27, 3, 'CD_EMI', 'Eminem - Encore(explicit)', '9.50', '18.50', 'hip_hop/4.jpg', '21.00', 'Alex Ortiz es un magnífico baladista, que no hace ascos a la rumba con más ritmo o al Nuevo Flamenco', 1, 1, '2016-06-01', '2017-06-07', 11),
-(28, 3, 'CD_DJT', 'Dj T-kut & Dj Player - Wax Cutters', '10.50', '0.00', 'hip_hop/5.jpg', '21.00', 'Dj T-Kut y Dj Player presentan una herramienta esencial para la práctica del turntablism', 1, 1, '2016-06-01', '2017-06-07', 11),
+(28, 3, 'CD_DJT', 'Dj T-kut and Dj Player - Wax Cutters', '10.50', '0.00', 'hip_hop/5.jpg', '21.00', 'Dj T-Kut y Dj Player presentan una herramienta esencial para la práctica del turntablism', 1, 1, '2016-06-01', '2017-06-07', 11),
 (29, 3, 'CD_DAR', 'Dark La Eme - 7 Años En La Vida De', '10.50', '12.99', 'hip_hop/6.jpg', '21.00', 'LEMONADE, el sexto álbum de estudio de Beyoncé y su segundo álbum visual', 1, 1, '2016-06-01', '2017-06-07', 20),
-(30, 3, 'CD_ACC', 'Accion Sanchez & Hazhe - Monkey Breaks', '14.99', '0.00', 'hip_hop/7.jpg', '21.00', 'Vinilo de batalla a la vieja usanza: dos de los más reconocidos productores de la escena, Acción Sanchez & Hazhe, unen esfuerzos', 1, 1, '2016-06-01', '2017-06-07', 30),
+(30, 3, 'CD_ACC', 'Accion Sanchez and Hazhe - Monkey Breaks', '14.99', '0.00', 'hip_hop/7.jpg', '21.00', 'Vinilo de batalla a la vieja usanza: dos de los más reconocidos productores de la escena, Acción Sanchez and Hazhe, unen esfuerzos', 1, 1, '2016-06-01', '2017-06-07', 30),
 (31, 3, 'CD_RAY', 'Rayden - En Alma Y Hueso', '16.50', '0.00', 'hip_hop/8.jpg', '21.00', '"Sorteo "PUMA" de camiseta y zapatillas "Suede" entre todos los compradores del CD. El sorteo se celebrará el día 12 de diciembre.', 1, 1, '2016-06-01', '2017-06-07', 29),
 (32, 3, 'CD_ELP', 'Elphomega - Homogeddon/el Testimonio Libra', '7.99', '15.99', 'hip_hop/9.jpg', '21.00', 'Tras casi cuatro años de silencio, Bebe ha vuelto al estudio para grabar sus nuevas composiciones de la mano de Carlos Jean', 1, 1, '2016-06-01', '2017-06-07', 11),
 (33, 3, 'CD_DIO', 'Dios Ke Crew - Humanose', '14.99', '0.00', 'hip_hop/10.jpg', '21.00', 'Hablar de Dios Ke Te Krew es hablar de años de experiencia en escenarios en cientos de conciertos abarrotados', 1, 1, '2016-06-01', '2017-06-07', 11),
 (44, 4, 'CD_ERI', 'Eric Clapton- An Appreciati', '7.99', '16.99', 'rock/1.jpg', '21.00', 'Eric Clapton tras años de admirar la obra de JJ Cale y de haber realizado varias versiones de canciones como After Midnight', 1, 1, '2016-06-01', '2017-06-07', 19),
 (45, 4, 'CD_MOL', 'Molotov - Donde Jugaran Las Niñas?', '9.50', '11.99', 'rock/2.jpg', '21.00', 'MOLOTOV - DONDE JUGARAN LAS NIÑAS?', 1, 1, '2016-06-01', '2017-06-07', 13),
-(46, 4, 'CD_BAD', 'Bad Company - Live In Concert 1977 & 1979', '19.99', '0.00', 'rock/3.jpg', '21.00', 'A pesar de su reputación como una de las bandas de directo más interesantes de la escena rock de los años 70.', 1, 1, '2016-06-01', '2017-06-07', 11),
+(46, 4, 'CD_BAD', 'Bad Company - Live In Concert 1977 and 1979', '19.99', '0.00', 'rock/3.jpg', '21.00', 'A pesar de su reputación como una de las bandas de directo más interesantes de la escena rock de los años 70.', 1, 1, '2016-06-01', '2017-06-07', 11),
 (47, 4, 'CD_ZZT', 'Zz Top - La Futura', '9.50', '16.50', 'rock/4.jpg', '21.00', 'Despues de casi una década de sequía se publica #La Futura#, el decimoquinto trabajo de estudio del grupo texano ZZ ', 1, 1, '2016-06-01', '2017-06-07', 11),
 (48, 4, 'CD_TRE', 'T. Rex - Electric Warrior', '9.50', '0.00', 'rock/5.jpg', '21.00', 'Electric Warrior fue grabado en 1971 y es considerado la quintaesencia del Glam Rock , encumbrando a su lider Marc Bolan', 1, 1, '2016-06-01', '2017-06-07', 11),
 (49, 4, 'CD_SUP', 'Supertramp - Crime Of The Century', '9.50', '0.00', 'rock/6.jpg', '21.00', 'Dentro de las mejores composiciones del dúo formado por Rick Davies y  Roger Hodgson', 1, 1, '2016-06-01', '2017-06-07', 20),
@@ -216,7 +239,7 @@ INSERT INTO `producto` (`idProducto`, `idCategoria`, `cod_producto`, `nombre_pro
 (53, 4, 'CD_SHO', 'The Short Fuses - Duchess Hustle', '3.99', '0.00', 'rock/10.jpg', '21.00', 'THE SHORT FUSES - DUCHESS HUSTLE', 1, 1, '2016-06-01', '2017-06-07', 11),
 (64, 5, 'CD_D80', 'Varios Electronica/dance - Disco 80', '17.99', '0.00', 'electronica/1.jpg', '21.00', 'Tras el éxito de Disco 90, Blanco y Negro lanza Disco 80, un álbum que contiene los sonidos más representativos de la época', 1, 1, '2016-06-01', '2017-06-07', 19),
 (65, 5, 'CD_FES', 'Varios Electronica/dance - Festival Hits', '17.99', '0.00', 'electronica/2.jpg', '21.00', 'Blanco y Negro presenta el álbum más completo de la cultura EDM', 1, 1, '2016-06-01', '2017-06-07', 13),
-(66, 5, 'CD_TIG', 'Tiga - No Fantasy Required', '13.50', '0.00', 'electronica/3.jpg', '21.00', 'Muchas cosas han podido cambiar en la escena dance desde el último álbum de canciones de Tiga, pero él sigue siendo un valor seguro.', 1, 1, '2016-06-01', '2017-06-07', 11),
+(66, 5, 'CD_TIG', 'Tiga - No Fantasy Required', '13.50', '0.00', 'electronica/3.jpg', '21.00', 'Muchas cosas han podido cambiar en la escena dance desde el último álbum de canciones de Tiga, pero él sigue siendo un valor seguro.', 1, 1, '2016-06-01', '2017-06-07', 10),
 (67, 5, 'CD_MOD', 'Moderat - Iii', '9.50', '16.50', 'electronica/4.jpg', '21.00', 'MODERAT - III', 1, 1, '2016-06-01', '2017-06-07', 11),
 (68, 5, 'CD_CIR', 'Circles - Structures Unreleased Material 1985-1989', '15.99', '0.00', 'electronica/5.jpg', '21.00', 'Circles, compuesto por Mike Bohrmann y Dierk Leitert, vio la luz por primera vez en el año 1983', 1, 1, '2016-06-01', '2017-06-07', 11),
 (69, 5, 'CD_TWO', 'Two Door Cinema Club - Beacon+changing Of The Seasons', '9.99', '13.99', 'electronica/6.jpg', '21.00', '"No ha pasado apenas un año desde que Two Door Cinema Club lanzara ""Beacon"", su segundo larga duración', 1, 1, '2016-06-01', '2017-06-07', 20),
@@ -313,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `direccion` varchar(100) DEFAULT NULL,
   `cp` int(11) DEFAULT NULL,
   `estado` char(1) DEFAULT 'A'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -323,7 +346,8 @@ INSERT INTO `usuario` (`idUsuario`, `cod_provincia`, `nombre_usu`, `clave`, `dni
 (1, '21', 'isacm94', '$2y$10$9isiSYMKQrfYA.p7jZqbaej9Hs/VqQuLH/FdwNyPHGKYg2821PTEm', '44248212f', 'isacm94@gmail.com', 'Isabel María', 'Calvo Mateos', 'Calle Cabreros, 36', 21720, 'A'),
 (2, '01', '  mfmora', '$2y$10$.XZDUU1mXErAbJMp4wBqrusO7FuEpUE/CkJSgHbgrTyFg1UHRatHm', '29056491Q', 'mfmoradaw@gmail.com', 'Manuel Francisco', 'Martín', 'Avda. Andalucía Nº85 2º', 21500, 'A'),
 (3, '51', 'admin', '$2y$10$7lH0K8cSg8IEbPiTsabOaODC9oVJHaQ5KJd9WmTTb5fQ6JgIxuKby', '44248212f', 'isacm94@gmail.com', 'Admin', 'Admin Admin', 'Calle Huelva, 36', 21453, 'A'),
-(8, '50', 'mfmora2', '$2y$10$DZRFjP2647jMu3te4TE3WO0aD48W4BA6SmWMOqExTLHPjX5dMmzcG', '29056491Q', 'mfmoradaw@gmail.com', 'Manuel Francisco', 'Moara', 'Avda. Andalucía Nº85 2º', 21500, 'A');
+(8, '21', 'mfmora2', '$2y$10$8KtUIfl/1uCMWbIotMZMoe1Vs7P5sH4tXF0Pa8.BaOJPcjHZQTSqu', '29056491Q', 'mfmoradaw@gmail.com', 'Manuel Francisco', 'Moara', 'Avda. Andalucía Nº85 2º', 21500, 'A'),
+(9, '21', 'Inma', '$2y$10$45tCFkoTjqNeckki7XM55.wfQMjaJQxwMrkSeskNHKCppxqn08kl6', '44209697V', 'mfmora2@gmail.com', 'Inma', 'Ramos', 'Avda. Andalucía Nº85 2º', 21500, 'A');
 
 --
 -- Índices para tablas volcadas
@@ -388,12 +412,12 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `linea_pedido`
 --
 ALTER TABLE `linea_pedido`
-  MODIFY `id_LineaPedido` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id_LineaPedido` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
@@ -403,7 +427,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- Restricciones para tablas volcadas
 --

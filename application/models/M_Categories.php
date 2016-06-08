@@ -3,7 +3,7 @@
 /**
  * MODELO de la consultas relacionadas con la tabla categoría.
  */
-class M_Category extends CI_Model {
+class M_Categories extends CI_Model {
 
     public function __construct() {
         $this->load->database();
